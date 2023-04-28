@@ -1,0 +1,321 @@
+@use "../var" as var;
+@use "../mixin" as mixs;
+
+@mixin pcHeader {
+  @include mixs.for-size(desktop-up) {
+    .logo {
+      width: 10%;
+      img {
+        width: 100%;
+      }
+      svg {
+        display: none;
+      }
+    }
+    nav {
+      //   width: 50%;
+      display: flex;
+
+      ul {
+        margin: 0;
+        width: 100%;
+        justify-content: center;
+        li {
+          @include mixs.font(
+            var.$font-hind,
+            var.$s_PC16-21,
+            500,
+            black,
+            0,
+            0 2em 0 0
+          );
+          cursor: pointer;
+          button {
+            @include mixs.font(
+              var.$font-hind,
+              var.$s_PC14-19,
+              500,
+              var.$epesta,
+              0.4em 0.9em,
+              0
+            );
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin pcMain {
+  @include mixs.for-size(desktop-up) {
+    .main-section {
+      margin-top: var.$s_PC60-90; //60px
+      h1 {
+        font-size: var.$s_PC65-95;
+      }
+      p {
+        font-size: var.$s_PC20-26;
+        width: 70%;
+      }
+    }
+    form {
+      padding: 0 var.$s_PC10-20;
+
+      top: var.$s_PC530-820;
+
+      input {
+        width: 15%;
+        @include mixs.font(
+          var.$font-taviraj,
+          var.$s_PC16-21,
+          500,
+          black,
+          0.2em,
+          0
+        );
+      }
+
+      select {
+        @include mixs.font(
+          var.$font-taviraj,
+          var.$s_PC16-21,
+          500,
+          black,
+          0.2em,
+          0
+        );
+      }
+      .dzpozic {
+        width: 15%;
+        font-size: var.$s_PC16-21;
+        button {
+          width: 100%;
+          @include mixs.button(
+            $fs: var.$s_PC16-21,
+            $fem: 0.25em 0,
+            $fmar: 0,
+            $f-bcl: black,
+            $hovcl: var.$epesta,
+            $brdius: 0.3em
+          );
+        }
+      }
+    }
+    .about-cont {
+      margin-top: var.$s_PC120-180;
+      article {
+        h1 {
+          font-size: var.$s_PC40-55;
+          padding-top: 0;
+        }
+        p {
+          font-size: var.$s_PC20-26;
+        }
+        button {
+          font-size: var.$s_PC22-28;
+        }
+      }
+      div {
+        width: 40%;
+        order: 2;
+        align-self: flex-start;
+        img {
+          width: 90%;
+          margin-top: 0;
+        }
+      }
+    }
+    .rooms-cont {
+      .rooms_txtDiv {
+        margin-top: var.$s_PC80-100; //80px
+        h1 {
+          font-size: var.$s_PC40-55;
+        }
+        h3 {
+          font-size: var.$s_PC22-28;
+        }
+      }
+      .rooms_imgDiv {
+        margin-bottom: var.$s_PC80-100; //80px
+
+        figure {
+          width: 30%;
+          .img {
+            .rooms_info {
+              .txt_btn {
+                aspect-ratio: 1;
+                .rms_info_text {
+                  h1 {
+                    font-size: var.$s_PC25-35;
+                  }
+                  p {
+                    font-size: var.$s_PC13-20;
+                  }
+                  h3 {
+                    font-size: var.$s_PC20-27;
+                  }
+                }
+                .btn_div {
+                  button {
+                    font-size: var.$s_PC18-26;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .sherbimet-cont {
+      .sherbimet_text {
+        margin-top: var.$s_PC80-100;
+        h1 {
+          font-size: var.$s_PC40-55;
+        }
+        h3 {
+          font-size: var.$s_PC22-28;
+        }
+      }
+      .sherbimet_info {
+        .sherbimet_detail {
+          margin-left: var.$s_PC20-26;
+          button {
+            font-size: var.$s_PC16-21;
+            width: var.$s_PC80-110;
+          }
+          h1 {
+            font-size: var.$s_PC22-28;
+          }
+          p {
+            font-size: var.$s_PC14-19;
+            margin-left: 2.3em;
+          }
+        }
+      }
+      .sherbimet_number_info {
+        margin-top: var.$s_PC80-100;
+        section {
+          div:first-child {
+            margin-top: var.$s_PC40-55;
+          }
+          div {
+            width: 23%;
+            margin: var.$s_PC40-55 0;
+            h1 {
+              font-size: var.$s_PC40-55;
+            }
+            p {
+              font-size: var.$s_PC30-40;
+            }
+          }
+        }
+      }
+    }
+    .caruselCont {
+      margin-top: var.$s_PC80-100;
+      .carusel_title {
+        h1 {
+          font-size: var.$s_PC40-55;
+        }
+        h3 {
+          margin-top: 0;
+          font-size: var.$s_PC22-28;
+        }
+      }
+      .imazhet-tab-mode {
+        img {
+          margin-bottom: var.$s_PC30-40;
+        }
+      }
+    }
+    .cmimi-cont {
+      padding: var.$s_PC80-100 0 var.$s_PC80-116 0;
+      .cmimi_txt {
+        h1 {
+          font-size: var.$s_PC40-55;
+        }
+        h3 {
+          margin-top: 0;
+          font-size: var.$s_PC22-28;
+        }
+      }
+      .cmimi_cards {
+        .card_cont {
+          div:first-child {
+            h2 {
+              font-size: var.$s_PC30-40;
+            }
+            h4 {
+              font-size: var.$s_PC20-26;
+            }
+          }
+          div:last-child {
+            h1 {
+              font-size: var.$s_PC30-40;
+            }
+            button {
+              @include mixs.button(
+                $fs: var.$s_PC22-28,
+                $fem: 0.2em 2em,
+                $fmar: 0 0 1.5em 0,
+                $f-bcl: black,
+                $hovcl: var.$epesta,
+                $brdius: 50em
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin pcFooter {
+  @include mixs.for-size(desktop-up) {
+    margin-top: var.$s_PC80-100;
+    .fot_dvup {
+      .location,
+      .foot_nav,
+      .more_links,
+      .social {
+        width: 22%;
+        h1 {
+          font-size: var.$s_PC30-40;
+        }
+      }
+      .location {
+        p {
+          font-size: var.$s_PC20-30;
+        }
+        h3 {
+          font-size: var.$s_PC18-26;
+          svg {
+            width: var.$s_PC30-40;
+          }
+        }
+      }
+      .foot_nav,
+      .more_links {
+        ul {
+          li {
+            font-size: var.$s_PC20-30;
+          }
+        }
+      }
+      .social {
+        .social_ikons {
+          svg {
+            width: var.$s_PC30-40;
+          }
+        }
+      }
+    }
+    .foot_dvdown {
+      margin-top: var.$s_PC30-40;
+      h3 {
+        font-size: var.$s_PC30-40;
+      }
+    }
+  }
+}

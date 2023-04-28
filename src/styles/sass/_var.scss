@@ -1,0 +1,90 @@
+//color palette
+
+$primarja: #fffbe9;
+$sekondarja: #fffaa5;
+$etreta: #fee75d;
+$ekaterta: #dec900;
+$epesta: #b4aa00;
+$shtes: #dac06d;
+$shtesHover: #6670c4;
+$shtesCpBckg: #02213b;
+//DARK MODE
+$Darkprimarja: #76bfe1;
+$Darksekondarja: #54829e;
+$Darketreta: #354b61;
+$Darkekaterta: #18222b;
+$Darkepesta: #120907;
+/*ALTERNATIVAT
+E BLUJT
+
+$primarja: #ecebf0;
+$sekondarja: #d2d7ea;
+$etreta: #b4c6e5;
+$ekaterta: #8fb0dc;
+$epesta: #4b96ce;
+
+
+
+
+E bardh tjeter
+$primarja : #557f9e;
+$sekondarja : #99a9c2;
+$etreta : #c6cee0;
+$ekaterta : #e6dfef;
+$epesta : #f2f0f6;
+*/
+//Fontet
+$font-hind: "Hind", sans-serif;
+$font-khula: "Khula", sans-serif;
+$font-taviraj: "Taviraj", serif;
+
+//SIZE 320-900px
+$s_10-20: clamp(0.63rem, calc(0.28rem + 1.72vw), 1.25rem);
+$s_10-25: clamp(0.63rem, calc(0.11rem + 2.59vw), 1.56rem);
+$s_15-30: clamp(0.94rem, calc(0.42rem + 2.59vw), 1.88rem);
+$s_20-55: clamp(1.25rem, calc(0.04rem + 6.03vw), 3.44rem);
+$s_13-26: clamp(0.81rem, calc(0.36rem + 2.24vw), 1.63rem);
+$s_50-120: clamp(3.13rem, calc(0.71rem + 12.07vw), 7.5rem);
+$s_55-182: clamp(3.44rem, calc(-0.15rem + 20.48vw), 11.38rem);
+$s_25-75: clamp(1.56rem, calc(-0.16rem + 8.62vw), 4.69rem);
+//SIZE 900-1200 TABLET LANDCSAPE
+$s_tab10-20: clamp(0.63rem, calc(-1.25rem + 3.33vw), 1.25rem);
+$s_tab10-13: clamp(0.63rem, calc(0.06rem + 1vw), 0.81rem);
+$s_tab10-15: clamp(0.63rem, calc(-0.31rem + 1.67vw), 0.94rem);
+$s_16-21: clamp(1rem, calc(0.06rem + 1.67vw), 1.31rem);
+$s_14-19: clamp(0.88rem, calc(-0.06rem + 1.67vw), 1.19rem);
+$s_tab13-20: clamp(0.81rem, calc(-0.5rem + 2.33vw), 1.25rem);
+$s_tab13-26: clamp(0.81rem, calc(-1.62rem + 4.33vw), 1.63rem);
+$s_tab15-20: clamp(0.94rem, calc(0rem + 1.67vw), 1.25rem);
+$s_tab15_23: clamp(0.94rem, calc(-0.56rem + 2.67vw), 1.44rem);
+$s_tab15-25: clamp(0.94rem, calc(-0.94rem + 3.33vw), 1.56rem);
+$s_tab15-30: clamp(0.94rem, calc(-1.87rem + 5vw), 1.88rem);
+$s_tab17-22: clamp(1.06rem, calc(0.13rem + 1.67vw), 1.38rem);
+$s_18-23: clamp(1.13rem, calc(0.19rem + 1.67vw), 1.44rem);
+$s_tab20-30: clamp(1.25rem, calc(-0.62rem + 3.33vw), 1.88rem);
+$s_tab30-40: clamp(1.88rem, calc(0rem + 3.33vw), 2.5rem);
+$s_tab50-80: clamp(3.13rem, calc(-2.5rem + 10vw), 5rem);
+$s_68-90: clamp(4.25rem, calc(0.13rem + 7.33vw), 5.63rem);
+$s_55-80: clamp(3.44rem, calc(-1.25rem + 8.33vw), 5rem);
+$s_tab90-120: clamp(5.63rem, calc(0rem + 10vw), 7.5rem);
+$s_420-560: clamp(26.25rem, calc(0rem + 46.67vw), 35rem);
+//SIZE 1200-1800
+$s_PC10-20: clamp(0.63rem, calc(-0.62rem + 1.67vw), 1.25rem);
+$s_PC13-20: clamp(0.81rem, calc(-0.06rem + 1.17vw), 1.25rem);
+$s_PC14-19: clamp(0.88rem, calc(0.25rem + 0.83vw), 1.19rem);
+$s_PC16-21: clamp(1rem, calc(0.38rem + 0.83vw), 1.31rem);
+$s_PC18-26: clamp(1.13rem, calc(0.13rem + 1.33vw), 1.63rem);
+$s_PC20-26: clamp(1.25rem, calc(0.5rem + 1vw), 1.63rem);
+$s_PC20-27: clamp(1.25rem, calc(0.38rem + 1.17vw), 1.69rem);
+$s_PC20-30: clamp(1.25rem, calc(0rem + 1.67vw), 1.88rem);
+$s_PC22-28: clamp(1.38rem, calc(0.63rem + 1vw), 1.75rem);
+$s_PC25-35: clamp(1.56rem, calc(0.31rem + 1.67vw), 2.19rem);
+$s_PC30-40: clamp(1.88rem, calc(0.63rem + 1.67vw), 2.5rem);
+$s_PC40-55: clamp(2.5rem, calc(0.63rem + 2.5vw), 3.44rem);
+$s_PC60-90: clamp(3.75rem, calc(0rem + 5vw), 5.63rem);
+$s_PC65-95: clamp(4.06rem, calc(0.31rem + 5vw), 5.94rem);
+$s_PC80-100: clamp(4.06rem, calc(0.31rem + 5vw), 5.94rem);
+$s_PC80-110: clamp(5rem, calc(1.25rem + 5vw), 6.88rem);
+$s_PC80-116: clamp(5rem, calc(0.5rem + 6vw), 7.25rem);
+$s_PC120-180: clamp(7.5rem, calc(0rem + 10vw), 11.25rem);
+$s_PC530-820: clamp(33.13rem, calc(-3.12rem + 48.33vw), 51.25rem);

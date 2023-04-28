@@ -1,0 +1,820 @@
+@use "var" as var;
+@use "mixin" as mixs;
+@use "animations" as anim;
+@use "mediaQuery/tabletlandscape" as min900;
+@use "mediaQuery/pcscreen" as min1200;
+
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Taviraj:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+*,
+*::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+header {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.932);
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  @include mixs.flex();
+  .logo {
+    width: 100%;
+    aspect-ratio: 4.92;
+    justify-self: self-start;
+    @include mixs.flex($dir: row, $js: space-between);
+    img {
+      width: 40%;
+    }
+    svg {
+      width: 10%;
+      aspect-ratio: 1;
+      margin-right: 5%;
+    }
+  }
+
+  nav {
+    width: 50%;
+    @include mixs.flex();
+    ul {
+      margin: var.$s_10-20 0;
+      list-style-type: none;
+      @include mixs.flex();
+      li {
+        @include mixs.font(var.$font-hind, var.$s_15-30, 500, black, 0.2em, 0);
+        button {
+          background-color: transparent;
+          @include mixs.font(
+            var.$font-hind,
+            var.$s_13-26,
+            500,
+            var.$epesta,
+            0.4em 0.9em,
+            0.5em 0
+          );
+          border: 0.1em solid var.$epesta;
+          @include mixs.border-radius(1.5em);
+        }
+        button:hover {
+          background-color: var.$epesta;
+          color: var.$primarja;
+        }
+      }
+      .list:hover {
+        transition: 0.4s;
+        color: var.$epesta;
+        border-bottom: 0.1em solid var.$epesta;
+      }
+    }
+    display: none;
+  }
+}
+
+//MAIN page________
+main {
+  width: 100%;
+  .main-section {
+    width: 100%;
+    aspect-ratio: 1.28;
+    @include mixs.flex();
+    @include mixs.bckgImg(
+      $url: url("../../images/light//randomBackg/lightbc.png")
+    );
+    margin-top: var.$s_55-182;
+    h1 {
+      @include mixs.font(var.$font-hind, var.$s_25-75, 700, white, 0, 0);
+      text-transform: uppercase;
+      text-shadow: 1px 1px 7px rgba(0, 0, 0, 1);
+    }
+    p {
+      @include mixs.font(
+        var.$font-taviraj,
+        var.$s_10-25,
+        400,
+        white,
+        0 0.5em,
+        0
+      );
+      text-align: center;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+    }
+  }
+
+  //Forma
+  form {
+    width: 100%;
+    @include mixs.flex();
+    gap: var.$s_10-20;
+    background-color: whitesmoke;
+    input {
+      width: 80%;
+      @include mixs.font(var.$font-taviraj, var.$s_13-26, 500, black, 0.2em, 0);
+      @include mixs.border-radius(0.3em);
+      border: 0.1em solid black;
+      background-color: transparent;
+      &:focus {
+        outline: none;
+        transition: 0.4s;
+        border-color: var.$epesta;
+        color: var.$epesta;
+      }
+      &:hover {
+        transition: 0.4s;
+        border-color: var.$epesta;
+        color: var.$epesta;
+        cursor: pointer;
+      }
+    }
+    input:first-child {
+      margin-top: 3.4em;
+    }
+    select {
+      width: 80%;
+      @include mixs.font(var.$font-taviraj, var.$s_13-26, 500, black, 0.2em, 0);
+      @include mixs.border-radius(0.3em);
+      border: 0.1em solid black;
+      background-color: transparent;
+      &:focus {
+        outline: none;
+        transition: 0.4s;
+        border-color: var.$epesta;
+        color: var.$epesta;
+      }
+      &:hover {
+        transition: 0.4s;
+        border-color: var.$epesta;
+        color: var.$epesta;
+        cursor: pointer;
+      }
+    }
+    .dzpozic {
+      width: 80%;
+      @include mixs.flex($al: flex-start);
+      button {
+        @include mixs.button(
+          $fs: var.$s_13-26,
+          $fem: 0.2em 0.7em,
+          $fmar: 0,
+          $f-bcl: black,
+          $hovcl: var.$epesta,
+          $brdius: 0.3em
+        );
+        margin-bottom: 3.4em;
+      }
+    }
+  }
+  .about-cont {
+    width: 100%;
+    @include mixs.flex();
+    article {
+      width: 90%;
+      @include mixs.flex();
+      order: 2;
+      h1 {
+        @include mixs.font(
+          var.$font-khula,
+          var.$s_20-55,
+          700,
+          black,
+          0.5em 0,
+          0
+        );
+        text-align: center;
+        // text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        span {
+          color: var.$epesta;
+        }
+      }
+      p {
+        @include mixs.font(
+          var.$font-taviraj,
+          var.$s_10-20,
+          400,
+          black,
+          0.5em 0,
+          0
+        );
+        text-align: center;
+      }
+      button {
+        @include mixs.font(
+          var.$font-taviraj,
+          var.$s_13-26,
+          500,
+          black,
+          0.2em 1em,
+          2em 0
+        );
+        background-color: transparent;
+        border: 0.1em solid black;
+        @include mixs.border-radius(50em);
+        text-transform: uppercase;
+        &:focus {
+          transition: 0.4s;
+          border-color: var.$epesta;
+          color: var.$epesta;
+        }
+        &:hover {
+          transition: 0.4s;
+          border-color: var.$epesta;
+          color: var.$epesta;
+          cursor: pointer;
+        }
+      }
+    }
+    div {
+      width: 90%;
+      @include mixs.flex($dir: row);
+      img {
+        width: 80%;
+        margin-top: var.$s_10-20;
+      }
+    }
+  }
+  .rooms-cont {
+    width: 100%;
+    margin-bottom: var.$s_10-20;
+    background-color: whitesmoke;
+    @include mixs.flex();
+    .rooms_txtDiv {
+      width: 100%;
+      margin-top: var.$s_25-75;
+
+      @include mixs.flex();
+      h1 {
+        @include mixs.font(
+          var.$font-khula,
+          var.$s_20-55,
+          700,
+          black,
+          0.1em 0 0.5em 0,
+          0
+        );
+        text-align: center;
+        // text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      }
+      h3 {
+        @include mixs.font(var.$font-hind, var.$s_13-26, 400, black, 0, 0);
+      }
+    }
+    .rooms_imgDiv {
+      width: 100%;
+      margin-bottom: var.$s_25-75;
+      @include mixs.flex();
+      figure {
+        width: 90%;
+        .img {
+          width: 100%;
+          aspect-ratio: 1;
+          margin-bottom: var.$s_10-20;
+          @include mixs.flex();
+        }
+
+        .img:hover > .rooms_info {
+          display: flex;
+        }
+        .rooms_info {
+          width: 100%;
+          height: 100%;
+          @include mixs.flex();
+          background-color: rgba(0, 0, 0, 0.432);
+          .txt_btn {
+            width: 85%;
+            border: 1px solid white;
+            @include mixs.flex();
+            .rms_info_text {
+              width: 85%;
+              @include mixs.flex($al: flex-start);
+              h1 {
+                @include mixs.font(
+                  var.$font-hind,
+                  var.$s_20-55,
+                  600,
+                  white,
+                  0.9em 0 0 0,
+                  0
+                );
+                text-decoration: underline;
+              }
+              p {
+                @include mixs.font(
+                  var.$font-taviraj,
+                  var.$s_10-25,
+                  400,
+                  white,
+                  0,
+                  0
+                );
+              }
+              h3 {
+                @include mixs.font(
+                  var.$font-khula,
+                  var.$s_13-26,
+                  700,
+                  white,
+                  0.5em 0,
+                  0
+                );
+              }
+            }
+            .btn_div {
+              @include mixs.flex($al: flex-start);
+              width: 85%;
+              button {
+                @include mixs.button(
+                  $fs: var.$s_13-26,
+                  $fem: 0.2em 1em,
+                  $fmar: 0 0 1.5em 0,
+                  $f-bcl: white,
+                  $hovcl: var.$epesta,
+                  $brdius: 50em
+                );
+              }
+            }
+          }
+          display: none;
+        }
+      }
+      figure:first-child {
+        .img {
+          @include mixs.bckgImg($url: url("../../images/dhomtek.jpg"));
+        }
+      }
+      figure:nth-child(2) {
+        .img {
+          @include mixs.bckgImg($url: url("../../images/dhomdop.jpg"));
+        }
+      }
+      figure:last-child {
+        .img {
+          @include mixs.bckgImg($url: url("../../images/dhomehapesir.jpg"));
+        }
+      }
+    }
+  }
+  .sherbimet-cont {
+    width: 100%;
+
+    @include mixs.flex();
+    .sherbimet_text {
+      width: 100%;
+      margin-top: var.$s_25-75;
+      @include mixs.flex();
+      h1 {
+        @include mixs.font(
+          var.$font-khula,
+          var.$s_20-55,
+          700,
+          black,
+          0.1em 0 0.5em 0,
+          0
+        );
+        text-align: center;
+        // text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      }
+      h3 {
+        @include mixs.font(var.$font-hind, var.$s_13-26, 400, black, 0, 0);
+      }
+    }
+    .sherbimet_info {
+      width: 90%;
+
+      @include mixs.flex();
+      > img {
+        width: 100%;
+        margin-bottom: var.$s_25-75;
+      }
+      .sherbimet_detail {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-content: start;
+        align-content: center;
+        button {
+          grid-row: 1/3;
+          background-color: var.$shtes;
+          border: none;
+          @include mixs.font(
+            var.$font-taviraj,
+            var.$s_10-25,
+            500,
+            black,
+            0,
+            0.5em 0
+          );
+          width: var.$s_50-120;
+          aspect-ratio: 1;
+          @include mixs.border-radius(50%);
+          &:hover {
+            transition: 0.4s;
+            background-color: var.$shtesHover;
+            cursor: pointer;
+          }
+          &:focus {
+            transition: 0.4s;
+            background-color: var.$shtesHover;
+          }
+          overflow: hidden;
+          img {
+            width: 50%;
+          }
+          @include mixs.flex();
+        }
+        h1 {
+          @include mixs.font(
+            var.$font-khula,
+            var.$s_15-30,
+            700,
+            black,
+            0,
+            0 0 0 1.5em
+          );
+          align-self: end;
+          // text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        }
+        p {
+          @include mixs.font(
+            var.$font-hind,
+            var.$s_10-20,
+            400,
+            black,
+            0,
+            0 0 0 2.3em
+          );
+          align-self: start;
+          span {
+            color: var.$epesta;
+          }
+        }
+      }
+    }
+    .sherbimet_number_info {
+      width: 100%;
+      margin-top: var.$s_25-75;
+      @include mixs.bckgImg($url: url("../../images/light/njrzPlqBckg.jpg"));
+
+      section {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        @include mixs.flex();
+        div {
+          width: 100%;
+          @include mixs.flex();
+          margin-bottom: var.$s_50-120;
+          h1 {
+            @include mixs.font(var.$font-khula, var.$s_25-75, 700, white, 0, 0);
+          }
+          p {
+            @include mixs.font(
+              var.$font-taviraj,
+              var.$s_13-26,
+              300,
+              white,
+              0,
+              0
+            );
+          }
+        }
+        div:first-child {
+          margin-top: var.$s_50-120;
+        }
+      }
+    }
+  }
+  .caruselCont {
+    width: 100%;
+    @include mixs.flex();
+    .carusel_title {
+      width: 100%;
+      @include mixs.flex();
+      h1 {
+        @include mixs.font(
+          var.$font-khula,
+          var.$s_20-55,
+          700,
+          black,
+          0.1em 0 0.5em 0,
+          0
+        );
+        text-align: center;
+        // text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        span {
+          color: var.$epesta;
+        }
+      }
+      h3 {
+        @include mixs.font(
+          var.$font-hind,
+          var.$s_13-26,
+          400,
+          black,
+          0,
+          var.$s_25-75 0 0 0
+        );
+      }
+    }
+    .imazhet-tab-mode {
+      display: none;
+    }
+    .cont_photo_carusel {
+      width: 100%;
+      aspect-ratio: 0.8;
+      @include mixs.flex($dir: row, $al: end);
+      @include mixs.bckgImg($url: url("../../images/gallery/gallery1.jpg"));
+      > div {
+        width: 100%;
+        @include mixs.flex($dir: row);
+        button {
+          background-color: transparent;
+          font-size: var.$s_15-30;
+          margin: 0.5em;
+          padding: 0.5em;
+          border: none;
+          svg {
+            width: var.$s_15-30;
+            color: rgba(255, 255, 255, 0.534);
+            &:hover {
+              color: white;
+            }
+            &:focus {
+              color: white;
+            }
+          }
+        }
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+        &:focus {
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+  }
+  .cmimi-cont {
+    width: 100%;
+    background-color: whitesmoke;
+
+    @include mixs.flex();
+    .cmimi_txt {
+      width: 100%;
+      @include mixs.flex();
+      h1 {
+        @include mixs.font(
+          var.$font-khula,
+          var.$s_20-55,
+          700,
+          black,
+          0.1em 0 0.5em 0,
+          0
+        );
+        text-align: center;
+        // text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      }
+      h3 {
+        @include mixs.font(
+          var.$font-hind,
+          var.$s_13-26,
+          400,
+          black,
+          0,
+          var.$s_25-75 0 0 0
+        );
+      }
+    }
+    .cmimi_cards {
+      width: 95%;
+      @include mixs.flex();
+      .card_cont {
+        width: 100%;
+        margin-bottom: var.$s_15-30;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        @include mixs.flex();
+        div:first-child {
+          width: 100%;
+          @include mixs.flex();
+          h2 {
+            @include mixs.font(
+              var.$font-hind,
+              var.$s_20-55,
+              600,
+              var.$epesta,
+              0.8em 0 0 0,
+              0
+            );
+            text-decoration: underline;
+          }
+          h4 {
+            @include mixs.font(
+              var.$font-taviraj,
+              var.$s_10-25,
+              400,
+              black,
+              1em 0 0 0,
+              0
+            );
+          }
+          h4:last-child {
+            margin-bottom: 2em;
+          }
+        }
+        div:last-child {
+          width: 100%;
+          @include mixs.flex();
+          h1 {
+            @include mixs.font(
+              var.$font-hind,
+              var.$s_20-55,
+              700,
+              black,
+              0.5em 3em,
+              0.5em 0 0 0
+            );
+            border-top: 1px solid gray;
+          }
+          button {
+            @include mixs.button(
+              $fs: var.$s_13-26,
+              $fem: 0.2em 7em,
+              $fmar: 0 0 1.5em 0,
+              $f-bcl: black,
+              $hovcl: var.$epesta,
+              $brdius: 50em
+            );
+          }
+        }
+      }
+      .card_cont:last-child {
+        margin-bottom: var.$s_25-75;
+      }
+    }
+  }
+
+  //SEKSIONI I PARAFUNDIT
+  .trustedus {
+    width: 100%;
+    overflow-x: scroll;
+    @include mixs.flex($dir: row, $js: flex-start);
+    img {
+      width: 40%;
+    }
+  }
+}
+
+//FOOTER PAGE____________
+
+footer {
+  width: 100%;
+  margin-top: var.$s_25-75;
+  background-color: black;
+  @include mixs.flex();
+  color: white;
+  .fot_dvup {
+    width: 85%;
+
+    @include mixs.flex();
+    .location {
+      width: 100%;
+      @include mixs.flex($al: flex-start);
+      h1 {
+        @include mixs.font(
+          var.$font-khula,
+          var.$s_20-55,
+          700,
+          white,
+          0.7em 0 0.1em 0,
+          0
+        );
+      }
+      p {
+        @include mixs.font(
+          var.$font-taviraj,
+          var.$s_10-20,
+          400,
+          white,
+          0 0 1em 0,
+          0
+        );
+      }
+      h3 {
+        @include mixs.font(
+          var.$font-taviraj,
+          var.$s_10-20,
+          400,
+          var.$epesta,
+          0 0 0.5em 0,
+          0
+        );
+        @include mixs.flex($dir: row);
+        svg {
+          width: var.$s_15-30;
+          aspect-ratio: 1;
+        }
+        a,
+        span {
+          margin-left: 0.5em;
+          text-decoration: none;
+          color: var.$epesta;
+        }
+      }
+    }
+    .foot_nav,
+    .more_links {
+      width: 100%;
+      @include mixs.flex($al: flex-start);
+      h1 {
+        @include mixs.font(
+          var.$font-khula,
+          var.$s_20-55,
+          700,
+          white,
+          0.7em 0 0.1em 0,
+          0
+        );
+      }
+      ul {
+        width: 100%;
+        @include mixs.flex($al: flex-start);
+        list-style-type: none;
+        li {
+          @include mixs.font(var.$font-hind, var.$s_13-26, 700, white, 0, 0);
+          a {
+            text-decoration: none;
+            color: white;
+            font-weight: 400;
+            margin-left: 0.5em;
+          }
+        }
+      }
+    }
+    .social {
+      width: 100%;
+
+      h1 {
+        @include mixs.font(
+          var.$font-khula,
+          var.$s_20-55,
+          700,
+          white,
+          0.7em 0 0.1em 0,
+          0
+        );
+      }
+      .social_ikons {
+        width: 100%;
+        @include mixs.flex($dir: row, $js: flex-start);
+        gap: 3%;
+        svg {
+          width: var.$s_20-55;
+          aspect-ratio: 1;
+        }
+      }
+    }
+  }
+  .foot_dvdown {
+    width: 100%;
+    margin-top: var.$s_15-30;
+    background-color: var.$shtesCpBckg;
+    @include mixs.flex();
+    h3 {
+      @include mixs.font(var.$font-khula, var.$s_10-25, 700, white, 0.7em 0, 0);
+      span {
+        color: var.$epesta;
+      }
+    }
+  }
+}
+
+//TABLET LANDSCAPE min-width 900px
+header {
+  @include min900.tabLandsc();
+}
+main {
+  @include min900.tabLandscMain();
+}
+footer {
+  @include min900.tabLandscFooter();
+}
+//PC SCREEN min-width 1200px
+header {
+  @include min1200.pcHeader();
+}
+main {
+  @include min1200.pcMain();
+}
+footer {
+  @include min1200.pcFooter();
+}

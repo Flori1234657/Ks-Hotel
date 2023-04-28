@@ -1,0 +1,372 @@
+@use "../var" as var;
+@use "../mixin" as mixs;
+
+@mixin tabLandsc {
+  @include mixs.for-size(tablet-landscape-up) {
+    @include mixs.flex($dir: row, $js: space-around);
+    .logo {
+      width: 15%;
+      img {
+        width: 100%;
+      }
+      svg {
+        display: none;
+      }
+    }
+    nav {
+      width: 60%;
+      display: flex;
+
+      ul {
+        margin: 0;
+        width: 100%;
+        @include mixs.flex($dir: row, $js: space-around);
+        li {
+          @include mixs.font(var.$font-hind, var.$s_16-21, 500, black, 0, 0);
+          button {
+            @include mixs.font(
+              var.$font-hind,
+              var.$s_14-19,
+              500,
+              var.$epesta,
+              0.4em 0.9em,
+              0
+            );
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin tabLandscMain {
+  @include mixs.for-size(tablet-landscape-up) {
+    @include mixs.flex($js: flex-start);
+    .main-section {
+      margin-top: var.$s_68-90; //68px
+      aspect-ratio: 2.34;
+      h1 {
+        font-size: var.$s_55-80;
+      }
+      p {
+        font-size: var.$s_18-23;
+        width: 80%;
+      }
+    }
+    form {
+      width: 90%;
+      padding: 0 var.$s_tab10-20;
+      position: absolute;
+      top: var.$s_420-560;
+      @include mixs.flex($dir: row, $js: space-around);
+      gap: 0;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+        rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+      input {
+        width: 15%;
+        @include mixs.font(
+          var.$font-taviraj,
+          var.$s_16-21,
+          500,
+          black,
+          0.2em,
+          0
+        );
+      }
+      input:first-child {
+        margin-top: 0;
+      }
+      select {
+        width: 15%;
+
+        @include mixs.font(
+          var.$font-taviraj,
+          var.$s_16-21,
+          500,
+          black,
+          0.2em,
+          0
+        );
+      }
+      .dzpozic {
+        width: 20%;
+        font-size: var.$s_16-21;
+        margin: 2em 0;
+        button {
+          width: 100%;
+          @include mixs.button(
+            $fs: var.$s_16-21,
+            $fem: 0.25em 0.2em,
+            $fmar: 0,
+            $f-bcl: black,
+            $hovcl: var.$epesta,
+            $brdius: 0.3em
+          );
+          margin-bottom: 0;
+        }
+      }
+    }
+    .about-cont {
+      flex-direction: row;
+      margin-top: var.$s_tab90-120;
+      article {
+        width: 50%;
+        h1 {
+          font-size: var.$s_tab30-40;
+          text-align: start;
+        }
+        p {
+          font-size: var.$s_tab15-20;
+          text-align: start;
+        }
+        button {
+          font-size: var.$s_tab17-22;
+          align-self: flex-start;
+        }
+      }
+      div {
+        width: 40%;
+        order: 2;
+        img {
+          width: 90%;
+          margin-top: 0;
+        }
+      }
+    }
+    .rooms-cont {
+      margin-bottom: 0;
+      .rooms_txtDiv {
+        margin-top: var.$s_55-80;
+        h1 {
+          font-size: var.$s_tab30-40;
+        }
+        h3 {
+          font-size: var.$s_tab20-30;
+        }
+      }
+      .rooms_imgDiv {
+        margin-bottom: var.$s_55-80;
+        flex-direction: row;
+        justify-content: space-around;
+        figure {
+          width: 30%;
+          .img {
+            margin-bottom: 0;
+            .rooms_info {
+              .txt_btn {
+                aspect-ratio: 1;
+                .rms_info_text {
+                  h1 {
+                    font-size: var.$s_tab15-25;
+                  }
+                  p {
+                    font-size: var.$s_tab10-13;
+                  }
+                  h3 {
+                    font-size: var.$s_tab13-20;
+                  }
+                }
+                .btn_div {
+                  button {
+                    font-size: var.$s_tab13-20;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .sherbimet-cont {
+      .sherbimet_text {
+        margin-top: var.$s_55-80;
+        h1 {
+          font-size: var.$s_tab30-40;
+        }
+        h3 {
+          font-size: var.$s_tab20-30;
+        }
+      }
+      .sherbimet_info {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(4, auto);
+        place-content: center;
+        > img {
+          width: 50vw;
+
+          grid-row: 1/5;
+          margin-bottom: 0;
+        }
+        .sherbimet_detail {
+          width: 40vw;
+          margin-left: var.$s_tab15-20;
+          button {
+            font-size: var.$s_tab10-15;
+            width: var.$s_tab50-80;
+          }
+          h1 {
+            font-size: var.$s_tab15-23;
+          }
+          p {
+            font-size: var.$s_tab10-15;
+          }
+        }
+      }
+      .sherbimet_number_info {
+        margin-top: var.$s_55-80;
+        section {
+          flex-direction: row;
+          justify-content: space-around;
+          div:first-child {
+            margin-top: var.$s_tab30-40;
+          }
+          div {
+            width: 23%;
+            margin: var.$s_tab30-40 0;
+            h1 {
+              font-size: var.$s_tab30-40;
+            }
+            p {
+              font-size: var.$s_tab20-30;
+            }
+          }
+        }
+      }
+    }
+    .caruselCont {
+      .carusel_title {
+        h1 {
+          font-size: var.$s_tab30-40;
+        }
+        h3 {
+          font-size: var.$s_tab20-30;
+        }
+      }
+      .cont_photo_carusel {
+        display: none;
+      }
+      .imazhet-tab-mode {
+        @include mixs.flex($dir: row, $js: space-around);
+        width: 100%;
+        img {
+          width: 30%;
+          &:hover {
+            transform: scale(110%);
+            transition: 0.4s;
+          }
+          &:focus {
+            transform: scale(110%);
+            transition: 0.4s;
+          }
+          margin-bottom: var.$s_tab20-30;
+        }
+      }
+    }
+    .cmimi-cont {
+      padding-bottom: var.$s_55-80;
+      .cmimi_txt {
+        h1 {
+          font-size: var.$s_tab30-40;
+        }
+        h3 {
+          font-size: var.$s_tab20-30;
+        }
+      }
+      .cmimi_cards {
+        flex-direction: row;
+        justify-content: space-around;
+        .card_cont {
+          width: 30%;
+          margin-bottom: 0;
+          div:first-child {
+            h2 {
+              font-size: var.$s_tab20-30;
+            }
+            h4 {
+              font-size: var.$s_tab15-20;
+            }
+          }
+          div:last-child {
+            h1 {
+              font-size: var.$s_tab20-30;
+              padding: 0.5em 2.5em;
+            }
+            button {
+              @include mixs.button(
+                $fs: var.$s_tab17-22,
+                $fem: 0.2em 2em,
+                $fmar: 0 0 1.5em 0,
+                $f-bcl: black,
+                $hovcl: var.$epesta,
+                $brdius: 50em
+              );
+            }
+          }
+        }
+        .card_cont:last-child {
+          margin: 0;
+        }
+      }
+    }
+    .trustedus {
+      img {
+        width: 25%;
+      }
+    }
+  }
+}
+
+@mixin tabLandscFooter {
+  @include mixs.for-size(tablet-landscape-up) {
+    margin-top: var.$s_55-80;
+    .fot_dvup {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+      .location,
+      .foot_nav,
+      .more_links,
+      .social {
+        width: 22%;
+        h1 {
+          font-size: var.$s_tab20-30;
+        }
+      }
+      .location {
+        p {
+          font-size: var.$s_tab10-20;
+        }
+        h3 {
+          font-size: var.$s_tab13-20;
+          svg {
+            width: var.$s_tab20-30;
+          }
+        }
+      }
+      .foot_nav,
+      .more_links {
+        ul {
+          li {
+            font-size: var.$s_tab13-26;
+          }
+        }
+      }
+      .social {
+        .social_ikons {
+          width: 70%;
+          svg {
+            width: var.$s_tab20-30;
+          }
+        }
+      }
+    }
+    .foot_dvdown {
+      margin-top: var.$s_tab15-30;
+      h3 {
+        font-size: var.$s_tab20-30;
+      }
+    }
+  }
+}

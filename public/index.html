@@ -1,10 +1,494 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sq">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/styles/css/index.css" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="../src/images/logo.png" alt="Logua" />
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4 5C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4ZM7 12C7 11.4477 7.44772 11 8 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H8C7.44772 13 7 12.5523 7 12ZM13 18C13 17.4477 13.4477 17 14 17H20C20.5523 17 21 17.4477 21 18C21 18.5523 20.5523 19 20 19H14C13.4477 19 13 18.5523 13 18Z"
+            fill="#000000"
+          />
+        </svg>
+      </div>
+
+      <nav>
+        <ul>
+          <li class="list">Kreu</li>
+          <li class="list">Rreth Nesh</li>
+          <li class="list">Dhomat</li>
+          <li class="list">Shërbimet</li>
+          <li class="list">Çmimi</li>
+          <li>
+            <button>REZERVO TANI</button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!--MAIN HEADER-->
+      <section class="main-section">
+        <h1>Mirësevini në Ksamil</h1>
+        <p>
+          Përshëndetje!Ky është një nga Hotelet më moderne në Qytezën e
+          Ksamilit, i ndodhur fare pranë detit me një pamje mahintëse dhe cmime
+          konkuruese në treg.
+        </p>
+      </section>
+      <!--MAIN HEADER-->
+
+      <!--BOKKING FORM_________________/////////////////////////////-->
+      <form>
+        <input type="date" />
+        <input type="date" />
+        <select name="adoleshentat" id="">
+          <option value="">1</option>
+          <option value="">2</option>
+          <option value="">3</option>
+          <option value="">4</option>
+          <option value="">5</option>
+        </select>
+        <select name="femijet" id="">
+          <option value="">1</option>
+          <option value="">2</option>
+          <option value="">3</option>
+          <option value="">4</option>
+          <option value="">5</option>
+        </select>
+
+        <div class="dzpozic">
+          <button>Dizpozicion?</button>
+          <h3 style="display: none">Dizpozicion ose Jo</h3>
+          <button type="submit" style="display: none">Rezervo</button>
+        </div>
+      </form>
+      <!--BOKKING FORM-->
+
+      <!--RRETH SECTION ____________________________-->
+      <section class="about-cont">
+        <article>
+          <h1>
+            Mirësevini në <span>Ks Hotel</span> nga më të mirët në qytezë!
+          </h1>
+          <p>
+            Hoteli jonë ndodhet në periferi të Ksamilit, jo shum largë nga deti
+            me një pamje mahnitëse të qytezës të bukur,dhe detit të saj. I
+            rrethuar nga gjelbërimi dhe qetësia që e mbulon ky Hotel është vëndi
+            ideal për të kaluar pushime të rehatshme.Hoteli ofron shumë shërbime
+            për pushuesit...
+          </p>
+          <button id="prov">LEXO</button>
+        </article>
+        <div>
+          <img src="../src/images/dyshet.jpg" alt="" />
+        </div>
+      </section>
+      <!--RRETH SECTION-->
+
+      <!--ROOMS SECTION ____________________________-->
+      <section class="rooms-cont">
+        <div class="rooms_txtDiv">
+          <h3>Zgjidh Dhomat</h3>
+          <h1>Dhomat më të preferuara</h1>
+        </div>
+        <div class="rooms_imgDiv">
+          <figure>
+            <div class="img">
+              <div class="rooms_info">
+                <div class="txt_btn">
+                  <div class="rms_info_text">
+                    <h1>Hyrje teke</h1>
+                    <p>
+                      Kto hyrje janë hyrje të veçanta dhe shumë të preferuara
+                      nga persona të cilët janë për pushime të vetëm dhe duan të
+                      kalojnë disa kohë në qetësinë e tyre duke u larguar nga
+                      streset e jetës së përditshme.
+                    </p>
+                    <h3>$100/Për Nat</h3>
+                  </div>
+                  <div class="btn_div"><button>REZERVO</button></div>
+                </div>
+              </div>
+            </div>
+          </figure>
+          <figure>
+            <div class="img">
+              <div class="rooms_info">
+                <div class="txt_btn">
+                  <div class="rms_info_text">
+                    <h1>Hyrje Çift</h1>
+                    <p>
+                      Kto hyrje janë projektuar për persona të cilët janë cift
+                      dhe duan të kalojnë disa kohë vetëm.Kto Hyrje jan të ndara
+                      nga pjesa tjetër e hyrjeve dhe jan krejtësisht në një
+                      sektor tjetër nga ai familiar dhe tek.
+                    </p>
+                    <h3>$120/Për Nat</h3>
+                  </div>
+                  <div class="btn_div"><button>REZERVO</button></div>
+                </div>
+              </div>
+            </div>
+          </figure>
+          <figure>
+            <div class="img">
+              <div class="rooms_info">
+                <div class="txt_btn">
+                  <div class="rms_info_text">
+                    <h1>Hyrje Familjare</h1>
+                    <p>
+                      Kto hyrje janë hyrjet më të frekuentuara në hotelin tonë.
+                      Siç thotë dhe vet emri kto janë hyrje familjare për
+                      personat familjar. Por gjëja që i bën më të përshtatshme
+                      kto hyrje për ta është hapsira e madhe.
+                    </p>
+                    <h3>$150/Për Nat</h3>
+                  </div>
+                  <div class="btn_div"><button>REZERVO</button></div>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <!--ROOMS SECTION-->
+
+      <!--SHERBIMET SECTION ____________________________-->
+      <section class="sherbimet-cont">
+        <div class="sherbimet_text">
+          <h3>Ne jemi këtu për ty</h3>
+          <h1>Shërbimet që ne ofrojmë</h1>
+        </div>
+        <div class="sherbimet_info">
+          <img src="../src/images/sherbimetEHotelit.jpg" alt="" />
+
+          <div class="sherbimet_detail">
+            <button>
+              <img src="../src/images/ikonat/Halal.png" alt="" />
+            </button>
+            <h1>Ushqim Hallall</h1>
+            <p>
+              Hoteli jonë ofron ushqim 100% Hallall<span> (حلال)</span>.Plus që
+              Ne nuk përdorim dhe as lejojmë alkoolin në hotelin tonë
+            </p>
+          </div>
+          <div class="sherbimet_detail">
+            <button>
+              <img src="../src/images/ikonat/ash.png" alt="" />
+            </button>
+            <h1>Ashensor</h1>
+            <p>
+              Për personat që e kan me nxitim,ose ata që smund të ngjisin
+              shkallët hoteli jonë ofron <span>ashensorët</span>.
+            </p>
+          </div>
+          <div class="sherbimet_detail">
+            <button>
+              <img src="../src/images/ikonat/restor.png" alt="" />
+            </button>
+            <h1>Restorant</h1>
+            <p>
+              Në hotelin tonë është dhe <span>Restoranti</span> me një pamje të
+              mbrekullueshme,pasi ndodhet në pjesën më të lartme të hotelit.
+            </p>
+          </div>
+          <div class="sherbimet_detail">
+            <button>
+              <img src="../src/images/ikonat/sallKonf.png" alt="" />
+            </button>
+            <h1>Sallë Konferencash</h1>
+            <p>
+              Nëse dikush ka nevoj jo të qëndroj në hotel por kan ndonjë
+              mbledhje,ne gjithashtu ofrojmë edhe
+              <span>sallë konferencash</span>.
+            </p>
+          </div>
+        </div>
+        <div class="sherbimet_number_info">
+          <section>
+            <div>
+              <h1>23212+</h1>
+              <p>Njerëz të kënaqur</p>
+            </div>
+            <div>
+              <h1>1320+</h1>
+              <p>Klienta të rinj</p>
+            </div>
+            <div>
+              <h1>13200+</h1>
+              <p>Vlerësuar me 5 yje</p>
+            </div>
+            <div>
+              <h1>1396+</h1>
+              <p>Rezervime online</p>
+            </div>
+          </section>
+        </div>
+      </section>
+      <!--SHERBIMET SECTION-->
+
+      <!--Foto Carusel______________________________-->
+      <section class="caruselCont">
+        <div class="carusel_title">
+          <h3>Imazhet më të mira</h3>
+          <h1>Disa nga imazhet e <span>Ks Hotel</span></h1>
+        </div>
+        <div class="imazhet-tab-mode">
+          <img src="../src/images/gallery/gallery1.jpg" alt="" /><img
+            src="../src/images/gallery/gallery2.jpg"
+            alt=""
+          /><img src="../src/images/gallery/gallery3.jpg" alt="" />
+        </div>
+        <div class="cont_photo_carusel">
+          <div>
+            >
+            <button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-circle-fill"
+                viewBox="0 0 16 16"
+              >
+                <circle cx="8" cy="8" r="8" />
+              </svg>
+            </button>
+            <button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-circle-fill"
+                viewBox="0 0 16 16"
+              >
+                <circle cx="8" cy="8" r="8" />
+              </svg>
+            </button>
+            <button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-circle-fill"
+                viewBox="0 0 16 16"
+              >
+                <circle cx="8" cy="8" r="8" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!--Foto Carusel-->
+
+      <!--CMIMI SECTION ____________________________-->
+      <section class="cmimi-cont">
+        <div class="cmimi_txt">
+          <h3>Çmime konkuruese</h3>
+          <h1>Çmimet tona</h1>
+        </div>
+        <div class="cmimi_cards">
+          <div class="card_cont">
+            <div>
+              <h2>Familjare</h2>
+              <h4>Gjeri 5 persona për hyrje</h4>
+              <h4>2 Kupona Autobuzi</h4>
+              <h4>Mëngjesi nga Hoteli</h4>
+              <h4>Pastruesit nga Hoteli</h4>
+            </div>
+            <div>
+              <h1>$150<span>/NATA</span></h1>
+              <button>Rezervo</button>
+            </div>
+          </div>
+          <div class="card_cont">
+            <div>
+              <h2>Tek Person</h2>
+              <h4>Mëngjesi nga Hoteli</h4>
+              <h4>Kati i fundit</h4>
+              <h4>Hyrje të izoluara nga zhurmat</h4>
+              <h4>Pastruesit nga Hoteli</h4>
+            </div>
+            <div>
+              <h1>$100<span>/NATA</span></h1>
+              <button>Rezervo</button>
+            </div>
+          </div>
+          <div class="card_cont">
+            <div>
+              <h2>Çift</h2>
+              <h4>Hyrje të izoluara nga zhurmat</h4>
+              <h4>Mëngjesi nga Hoteli</h4>
+              <h4>Ushqimi në Dhomë</h4>
+              <h4>Pastruesit nga Hoteli</h4>
+            </div>
+            <div>
+              <h1>$120<span>/NATA</span></h1>
+              <button>Rezervo</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--CMIMI SECTION-->
+
+      <section class="trustedus">
+        <img
+          src="../src/images/bizneset/boat-tours-logo-zip-file/png/logo-color.png"
+          alt="Boat Tours"
+        />
+        <img
+          src="../src/images/bizneset/ks-rent-logo-zip-file/png/logo-black.png"
+          alt="Ks Rent"
+        />
+        <img
+          src="../src/images/bizneset/ksamili-butik-logo-zip-file/png/logo-color.png"
+          alt="Ksamil Butik"
+        />
+        <img
+          src="../src/images/bizneset/medina-agency-logo-zip-file/png/logo-color.png"
+          alt="Meina Agency"
+        />
+        <img
+          src="../src/images/bizneset/restorant-nur-logo-zip-file/png/logo-black.png"
+          alt="Restorant Nur"
+        />
+      </section>
+    </main>
+    <footer>
+      <div class="fot_dvup">
+        <div class="location">
+          <h1>Vendodhja e Hotelit</h1>
+          <p>
+            Hoteli ndodhet në rrugën e Rizait në fund të rrugës tek kodrra më e
+            lartë e asaj zone.
+          </p>
+          <h3>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="bi bi-house-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"
+              />
+              <path
+                d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"
+              />
+            </svg>
+            <span>No.9 Lagja Rizait </span>
+          </h3>
+          <h3>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="bi bi-telephone-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
+              />
+            </svg>
+            <a href="tel:+355 68 8393 968 ">+355 68 8393 968 </a>
+          </h3>
+          <h3>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="bi bi-envelope-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"
+              />
+            </svg>
+            <a href="mailto:floriandollani15@gmail.com"
+              >floriandollani15@gmail.com</a
+            >
+          </h3>
+        </div>
+        <div class="foot_nav">
+          <h1>Drejtohu</h1>
+          <ul>
+            <li>><a href="">Kreu</a></li>
+            <li>><a href="">Rreth Nesh</a></li>
+            <li>><a href="">Dhomat</a></li>
+            <li>><a href="">Shërbimet</a></li>
+            <li>><a href="">Çmimi</a></li>
+          </ul>
+        </div>
+        <div class="more_links">
+          <h1>Partnerët tanë</h1>
+          <ul>
+            <li>><a href="">Boat Tours</a></li>
+            <li>><a href="">Ks Rent</a></li>
+            <li>><a href="">Ksamili Butik</a></li>
+            <li>><a href="">Medina Agency</a></li>
+            <li>><a href="">Restorant Nur</a></li>
+          </ul>
+        </div>
+        <div class="social">
+          <h1>Qëndro i lidhur</h1>
+          <div class="social_ikons">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="bi bi-facebook"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
+              />
+            </svg>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="bi bi-twitter"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+              />
+            </svg>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="bi bi-youtube"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"
+              />
+            </svg>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="bi bi-github"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="foot_dvdown">
+        <h3>
+          Copyright <span>© Florian Dollani 2023</span> All rights reserved
+        </h3>
+      </div>
+    </footer>
+  </body>
+  <!--MArkup Perfundoi INSHAALLAH-->
 </html>

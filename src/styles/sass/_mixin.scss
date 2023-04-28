@@ -1,0 +1,136 @@
+@use "var" as vr;
+//BREAKPOINTS
+@mixin for-size($size) {
+  @if $size == phone-only {
+    @media (max-width: 599px) {
+      @content;
+    }
+  } @else if $size == tablet-portrait-up {
+    @media (min-width: 600px) {
+      @content;
+    }
+  } @else if $size == tablet-landscape-up {
+    @media (min-width: 900px) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $size == desktop-up {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  } @else if $size == big-desktop-up {
+    @media (min-width: 1800px) {
+      @content;
+    }
+  }
+}
+// usage
+//.my-box {
+//    padding: 10px;
+//
+//    @include for-size(desktop-up) {
+//      padding: 20px;
+//    }
+//  }
+
+//border radius
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box; /* stops bg color from leaking outside the border: */
+}
+
+// Single side border-radius
+
+@mixin border-top-radius($radius) {
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  border-top-left-radius: $radius;
+  background-clip: padding-box;
+}
+@mixin border-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+  background-clip: padding-box;
+}
+@mixin border-bottom-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+  background-clip: padding-box;
+}
+@mixin border-left-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  border-top-left-radius: $radius;
+  background-clip: padding-box;
+}
+
+//Flex
+@mixin flex($dir: column, $js: center, $al: center) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $js;
+  align-items: $al;
+}
+
+//Bckg
+@mixin bckgImg($url, $rp: no-repeat, $sz: cover, $ps: center) {
+  background-image: $url;
+  background-repeat: $rp;
+  background-size: $sz;
+  background-position: $ps;
+}
+
+//Fontet
+@mixin font($ff, $fs, $fw, $cl, $p, $m) {
+  font-family: $ff;
+  font-size: $fs;
+  font-weight: $fw;
+  color: $cl;
+  padding: $p;
+  margin: $m;
+}
+
+//Place holders
+@mixin input-placeholder {
+  &.placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+//buttons
+@mixin button($fs, $fem, $fmar, $f-bcl, $hovcl, $brdius) {
+  @include font(vr.$font-taviraj, $fs, 500, $f-bcl, $fem, $fmar);
+  background-color: transparent;
+  border: 0.1em solid $f-bcl;
+  @include border-radius($brdius);
+  text-transform: uppercase;
+  &:focus {
+    transition: 0.4s;
+    border-color: $hovcl;
+    color: $hovcl;
+  }
+  &:hover {
+    transition: 0.4s;
+    border-color: $hovcl;
+    color: $hovcl;
+    cursor: pointer;
+  }
+}

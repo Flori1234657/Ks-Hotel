@@ -1,0 +1,1660 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Taviraj:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/*ALTERNATIVAT
+E BLUJT
+
+$primarja: #ecebf0;
+$sekondarja: #d2d7ea;
+$etreta: #b4c6e5;
+$ekaterta: #8fb0dc;
+$epesta: #4b96ce;
+
+
+
+
+E bardh tjeter
+$primarja : #557f9e;
+$sekondarja : #99a9c2;
+$etreta : #c6cee0;
+$ekaterta : #e6dfef;
+$epesta : #f2f0f6;
+*/
+*,
+*::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.932);
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header .logo {
+  width: 100%;
+  aspect-ratio: 4.92;
+  justify-self: self-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo img {
+  width: 40%;
+}
+header .logo svg {
+  width: 10%;
+  aspect-ratio: 1;
+  margin-right: 5%;
+}
+header nav {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+header nav ul {
+  margin: clamp(0.63rem, 0.28rem + 1.72vw, 1.25rem) 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header nav ul li {
+  font-family: "Hind", sans-serif;
+  font-size: clamp(0.94rem, 0.42rem + 2.59vw, 1.88rem);
+  font-weight: 500;
+  color: black;
+  padding: 0.2em;
+  margin: 0;
+}
+header nav ul li button {
+  background-color: transparent;
+  font-family: "Hind", sans-serif;
+  font-size: clamp(0.81rem, 0.36rem + 2.24vw, 1.63rem);
+  font-weight: 500;
+  color: #b4aa00;
+  padding: 0.4em 0.9em;
+  margin: 0.5em 0;
+  border: 0.1em solid #b4aa00;
+  -webkit-border-radius: 1.5em;
+  border-radius: 1.5em;
+  background-clip: padding-box; /* stops bg color from leaking outside the border: */
+}
+header nav ul li button:hover {
+  background-color: #b4aa00;
+  color: #fffbe9;
+}
+header nav ul .list:hover {
+  transition: 0.4s;
+  color: #b4aa00;
+  border-bottom: 0.1em solid #b4aa00;
+}
+
+main {
+  width: 100%;
+}
+main .main-section {
+  width: 100%;
+  aspect-ratio: 1.28;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../images/light//randomBackg/lightbc.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-top: clamp(3.44rem, -0.15rem + 20.48vw, 11.38rem);
+}
+main .main-section h1 {
+  font-family: "Hind", sans-serif;
+  font-size: clamp(1.56rem, -0.16rem + 8.62vw, 4.69rem);
+  font-weight: 700;
+  color: white;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 7px rgb(0, 0, 0);
+}
+main .main-section p {
+  font-family: "Taviraj", serif;
+  font-size: clamp(0.63rem, 0.11rem + 2.59vw, 1.56rem);
+  font-weight: 400;
+  color: white;
+  padding: 0 0.5em;
+  margin: 0;
+  text-align: center;
+  text-shadow: 1px 1px 5px rgb(0, 0, 0);
+}
+main form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.63rem, 0.28rem + 1.72vw, 1.25rem);
+  background-color: whitesmoke;
+}
+main form input {
+  width: 80%;
+  font-family: "Taviraj", serif;
+  font-size: clamp(0.81rem, 0.36rem + 2.24vw, 1.63rem);
+  font-weight: 500;
+  color: black;
+  padding: 0.2em;
+  margin: 0;
+  -webkit-border-radius: 0.3em;
+  border-radius: 0.3em;
+  background-clip: padding-box; /* stops bg color from leaking outside the border: */
+  border: 0.1em solid black;
+  background-color: transparent;
+}
+main form input:focus {
+  outline: none;
+  transition: 0.4s;
+  border-color: #b4aa00;
+  color: #b4aa00;
+}
+main form input:hover {
+  transition: 0.4s;
+  border-color: #b4aa00;
+  color: #b4aa00;
+  cursor: pointer;
+}
+main form input:first-child {
+  margin-top: 3.4em;
+}
+main form select {
+  width: 80%;
+  font-family: "Taviraj", serif;
+  font-size: clamp(0.81rem, 0.36rem + 2.24vw, 1.63rem);
+  font-weight: 500;
+  color: black;
+  padding: 0.2em;
+  margin: 0;
+  -webkit-border-radius: 0.3em;
+  border-radius: 0.3em;
+  background-clip: padding-box; /* stops bg color from leaking outside the border: */
+  border: 0.1em solid black;
+  background-color: transparent;
+}
+main form select:focus {
+  outline: none;
+  transition: 0.4s;
+  border-color: #b4aa00;
+  color: #b4aa00;
+}
+main form select:hover {
+  transition: 0.4s;
+  border-color: #b4aa00;
+  color: #b4aa00;
+  cursor: pointer;
+}
+main form .dzpozic {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+main form .dzpozic button {
+  font-family: "Taviraj", serif;
+  font-size: clamp(0.81rem, 0.36rem + 2.24vw, 1.63rem);
+  font-weight: 500;
+  color: black;
+  padding: 0.2em 0.7em;
+  margin: 0;
+  background-color: transparent;
+  border: 0.1em solid black;
+  -webkit-border-radius: 0.3em;
+  border-radius: 0.3em;
+  background-clip: padding-box; /* stops bg color from leaking outside the border: */
+  text-transform: uppercase;
+  margin-bottom: 3.4em;
+}
+main form .dzpozic button:focus {
+  transition: 0.4s;
+  border-color: #b4aa00;
+  color: #b4aa00;
+}
+main form .dzpozic button:hover {
+  transition: 0.4s;
+  border-color: #b4aa00;
+  color: #b4aa00;
+  cursor: pointer;
+}
+main .about-cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .about-cont article {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  order: 2;
+}
+main .about-cont article h1 {
+  font-family: "Khula", sans-serif;
+  font-size: clamp(1.25rem, 0.04rem + 6.03vw, 3.44rem);
+  font-weight: 700;
+  color: black;
+  padding: 0.5em 0;
+  margin: 0;
+  text-align: center;
+}
+main .about-cont article h1 span {
+  color: #b4aa00;
+}
+main .about-cont article p {
+  font-family: "Taviraj", serif;
+  font-size: clamp(0.63rem, 0.28rem + 1.72vw, 1.25rem);
+  font-weight: 400;
+  color: black;
+  padding: 0.5em 0;
+  margin: 0;
+  text-align: center;
+}
+main .about-cont article button {
+  font-family: "Taviraj", serif;
+  font-size: clamp(0.81rem, 0.36rem + 2.24vw, 1.63rem);
+  font-weight: 500;
+  color: black;
+  padding: 0.2em 1em;
+  margin: 2em 0;
+  background-color: transparent;
+  border: 0.1em solid black;
+  -webkit-border-radius: 50em;
+  border-radius: 50em;
+  background-clip: padding-box; /* stops bg color from leaking outside the border: */
+  text-transform: uppercase;
+}
+main .about-cont article button:focus {
+  transition: 0.4s;
+  border-color: #b4aa00;
+  color: #b4aa00;
+}
+main .about-cont article button:hover {
+  transition: 0.4s;
+  border-color: #b4aa00;
+  color: #b4aa00;
+  cursor: pointer;
+}
+main .about-cont div {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+main .about-cont div img {
+  width: 80%;
+  margin-top: clamp(0.63rem, 0.28rem + 1.72vw, 1.25rem);
+}
+main .rooms-cont {
+  width: 100%;
+  margin-bottom: clamp(0.63rem, 0.28rem + 1.72vw, 1.25rem);
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .rooms-cont .rooms_txtDiv {
+  width: 100%;
+  margin-top: clamp(1.56rem, -0.16rem + 8.62vw, 4.69rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .rooms-cont .rooms_txtDiv h1 {
+  font-family: "Khula", sans-serif;
+  font-size: clamp(1.25rem, 0.04rem + 6.03vw, 3.44rem);
+  font-weight: 700;
+  color: black;
+  padding: 0.1em 0 0.5em 0;
+  margin: 0;
+  text-align: center;
+}
+main .rooms-cont .rooms_txtDiv h3 {
+  font-family: "Hind", sans-serif;
+  font-size: clamp(0.81rem, 0.36rem + 2.24vw, 1.63rem);
+  font-weight: 400;
+  color: black;
+  padding: 0;
+  margin: 0;
+}
+main .rooms-cont .rooms_imgDiv {
+  width: 100%;
+  margin-bottom: clamp(1.56rem, -0.16rem + 8.62vw, 4.69rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .rooms-cont .rooms_imgDiv figure {
+  width: 90%;
+}
+main .rooms-cont .rooms_imgDiv figure .img {
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: clamp(0.63rem, 0.28rem + 1.72vw, 1.25rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .rooms-cont .rooms_imgDiv figure .img:hover > .rooms_info {
+  display: flex;
+}
+main .rooms-cont .rooms_imgDiv figure .rooms_info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.432);
+  display: none;
+}
+main .rooms-cont .rooms_imgDiv figure .rooms_info .txt_btn {
+  width: 85%;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .rooms-cont .rooms_imgDiv figure .rooms_info .txt_btn .rms_info_text {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+main .rooms-cont .rooms_imgDiv figure .rooms_info .txt_btn .rms_info_text h1 {
+  font-family: "Hind", sans-serif;
+  font-size: clamp(1.25rem, 0.04rem + 6.03vw, 3.44rem);
+  font-weight: 600;
+  color: white;
+  padding: 0.9em 0 0 0;
+  margin: 0;
+  text-decoration: underline;
+}
+main .rooms-cont .rooms_imgDiv figure .rooms_info .txt_btn .rms_info_text p {
+  font-family: "Taviraj", serif;
+  font-size: clamp(0.63rem, 0.11rem + 2.59vw, 1.56rem);
+  font-weight: 400;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+main .rooms-cont .rooms_imgDiv figure .rooms_info .txt_btn .rms_info_text h3 {
+  font-family: "Khula", sans-serif;
+  font-size: clamp(0.81rem, 0.36rem + 2.24vw, 1.63rem);
+  font-weight: 700;
+  color: white;
+  padding: 0.5em 0;
+  margin: 0;
+}
+main .rooms-cont .rooms_imgDiv figure .rooms_info .txt_btn .btn_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 85%;
+}
+main .rooms-cont .rooms_imgDiv figure .rooms_info .txt_btn .btn_div button {
+  font-family: "Taviraj", serif;
+  font-size: clamp(0.81rem, 0.36rem + 2.24vw, 1.63rem);
+  font-weight: 500;
+  color: white;
+  padding: 0.2em 1em;
+  margin: 0 0 1.5em 0;
+  background-color: transparent;
+  border: 0.1em solid white;
+  -webkit-border-radius: 50em;
+  border-radius: 50em;
+  background-clip: padding-box; /* stops bg color from leaking outside the border: */
+  text-transform: uppercase;
+}
+main .rooms-cont .rooms_imgDiv figure .rooms_info .txt_btn .btn_div button:focus {
+  transition: 0.4s;
+  border-color: #b4aa00;
+  color: #b4aa00;
+}
+main .rooms-cont .rooms_imgDiv figure .rooms_info .txt_btn .btn_div button:hover {
+  transition: 0.4s;
+  border-color: #b4aa00;
+  color: #b4aa00;
+  cursor: pointer;
+}
+main .rooms-cont .rooms_imgDiv figure:first-child .img {
+  background-image: url("../../images/dhomtek.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+main .rooms-cont .rooms_imgDiv figure:nth-child(2) .img {
+  background-image: url("../../images/dhomdop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+main .rooms-cont .rooms_imgDiv figure:last-child .img {
+  background-image: url("../../images/dhomehapesir.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+main .sherbimet-cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .sherbimet-cont .sherbimet_text {
+  width: 100%;
+  margin-top: clamp(1.56rem, -0.16rem + 8.62vw, 4.69rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .sherbimet-cont .sherbimet_text h1 {
+  font-family: "Khula", sans-serif;
+  font-size: clamp(1.25rem, 0.04rem + 6.03vw, 3.44rem);
+  font-weight: 700;
+  color: black;
+  padding: 0.1em 0 0.5em 0;
+  margin: 0;
+  text-align: center;
+}
+main .sherbimet-cont .sherbimet_text h3 {
+  font-family: "Hind", sans-serif;
+  font-size: clamp(0.81rem, 0.36rem + 2.24vw, 1.63rem);
+  font-weight: 400;
+  color: black;
+  padding: 0;
+  margin: 0;
+}
+main .sherbimet-cont .sherbimet_info {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .sherbimet-cont .sherbimet_info > img {
+  width: 100%;
+  margin-bottom: clamp(1.56rem, -0.16rem + 8.62vw, 4.69rem);
+}
+main .sherbimet-cont .sherbimet_info .sherbimet_detail {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: start;
+  align-content: center;
+}
+main .sherbimet-cont .sherbimet_info .sherbimet_detail button {
+  grid-row: 1/3;
+  background-color: #dac06d;
+  border: none;
+  font-family: "Taviraj", serif;
+  font-size: clamp(0.63rem, 0.11rem + 2.59vw, 1.56rem);
+  font-weight: 500;
+  color: black;
+  padding: 0;
+  margin: 0.5em 0;
+  width: clamp(3.13rem, 0.71rem + 12.07vw, 7.5rem);
+  aspect-ratio: 1;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background-clip: padding-box; /* stops bg color from leaking outside the border: */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .sherbimet-cont .sherbimet_info .sherbimet_detail button:hover {
+  transition: 0.4s;
+  background-color: #6670c4;
+  cursor: pointer;
+}
+main .sherbimet-cont .sherbimet_info .sherbimet_detail button:focus {
+  transition: 0.4s;
+  background-color: #6670c4;
+}
+main .sherbimet-cont .sherbimet_info .sherbimet_detail button img {
+  width: 50%;
+}
+main .sherbimet-cont .sherbimet_info .sherbimet_detail h1 {
+  font-family: "Khula", sans-serif;
+  font-size: clamp(0.94rem, 0.42rem + 2.59vw, 1.88rem);
+  font-weight: 700;
+  color: black;
+  padding: 0;
+  margin: 0 0 0 1.5em;
+  align-self: end;
+}
+main .sherbimet-cont .sherbimet_info .sherbimet_detail p {
+  font-family: "Hind", sans-serif;
+  font-size: clamp(0.63rem, 0.28rem + 1.72vw, 1.25rem);
+  font-weight: 400;
+  color: black;
+  padding: 0;
+  margin: 0 0 0 2.3em;
+  align-self: start;
+}
+main .sherbimet-cont .sherbimet_info .sherbimet_detail p span {
+  color: #b4aa00;
+}
+main .sherbimet-cont .sherbimet_number_info {
+  width: 100%;
+  margin-top: clamp(1.56rem, -0.16rem + 8.62vw, 4.69rem);
+  background-image: url("../../images/light/njrzPlqBckg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+main .sherbimet-cont .sherbimet_number_info section {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .sherbimet-cont .sherbimet_number_info section div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: clamp(3.13rem, 0.71rem + 12.07vw, 7.5rem);
+}
+main .sherbimet-cont .sherbimet_number_info section div h1 {
+  font-family: "Khula", sans-serif;
+  font-size: clamp(1.56rem, -0.16rem + 8.62vw, 4.69rem);
+  font-weight: 700;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+main .sherbimet-cont .sherbimet_number_info section div p {
+  font-family: "Taviraj", serif;
+  font-size: clamp(0.81rem, 0.36rem + 2.24vw, 1.63rem);
+  font-weight: 300;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+main .sherbimet-cont .sherbimet_number_info section div:first-child {
+  margin-top: clamp(3.13rem, 0.71rem + 12.07vw, 7.5rem);
+}
+main .caruselCont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .caruselCont .carusel_title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .caruselCont .carusel_title h1 {
+  font-family: "Khula", sans-serif;
+  font-size: clamp(1.25rem, 0.04rem + 6.03vw, 3.44rem);
+  font-weight: 700;
+  color: black;
+  padding: 0.1em 0 0.5em 0;
+  margin: 0;
+  text-align: center;
+}
+main .caruselCont .carusel_title h1 span {
+  color: #b4aa00;
+}
+main .caruselCont .carusel_title h3 {
+  font-family: "Hind", sans-serif;
+  font-size: clamp(0.81rem, 0.36rem + 2.24vw, 1.63rem);
+  font-weight: 400;
+  color: black;
+  padding: 0;
+  margin: clamp(1.56rem, -0.16rem + 8.62vw, 4.69rem) 0 0 0;
+}
+main .caruselCont .imazhet-tab-mode {
+  display: none;
+}
+main .caruselCont .cont_photo_carusel {
+  width: 100%;
+  aspect-ratio: 0.8;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
+  background-image: url("../../images/gallery/gallery1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+main .caruselCont .cont_photo_carusel > div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+main .caruselCont .cont_photo_carusel > div button {
+  background-color: transparent;
+  font-size: clamp(0.94rem, 0.42rem + 2.59vw, 1.88rem);
+  margin: 0.5em;
+  padding: 0.5em;
+  border: none;
+}
+main .caruselCont .cont_photo_carusel > div button svg {
+  width: clamp(0.94rem, 0.42rem + 2.59vw, 1.88rem);
+  color: rgba(255, 255, 255, 0.534);
+}
+main .caruselCont .cont_photo_carusel > div button svg:hover {
+  color: white;
+}
+main .caruselCont .cont_photo_carusel > div button svg:focus {
+  color: white;
+}
+main .caruselCont .cont_photo_carusel > div:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+main .caruselCont .cont_photo_carusel > div:focus {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+main .cmimi-cont {
+  width: 100%;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .cmimi-cont .cmimi_txt {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .cmimi-cont .cmimi_txt h1 {
+  font-family: "Khula", sans-serif;
+  font-size: clamp(1.25rem, 0.04rem + 6.03vw, 3.44rem);
+  font-weight: 700;
+  color: black;
+  padding: 0.1em 0 0.5em 0;
+  margin: 0;
+  text-align: center;
+}
+main .cmimi-cont .cmimi_txt h3 {
+  font-family: "Hind", sans-serif;
+  font-size: clamp(0.81rem, 0.36rem + 2.24vw, 1.63rem);
+  font-weight: 400;
+  color: black;
+  padding: 0;
+  margin: clamp(1.56rem, -0.16rem + 8.62vw, 4.69rem) 0 0 0;
+}
+main .cmimi-cont .cmimi_cards {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .cmimi-cont .cmimi_cards .card_cont {
+  width: 100%;
+  margin-bottom: clamp(0.94rem, 0.42rem + 2.59vw, 1.88rem);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .cmimi-cont .cmimi_cards .card_cont div:first-child {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .cmimi-cont .cmimi_cards .card_cont div:first-child h2 {
+  font-family: "Hind", sans-serif;
+  font-size: clamp(1.25rem, 0.04rem + 6.03vw, 3.44rem);
+  font-weight: 600;
+  color: #b4aa00;
+  padding: 0.8em 0 0 0;
+  margin: 0;
+  text-decoration: underline;
+}
+main .cmimi-cont .cmimi_cards .card_cont div:first-child h4 {
+  font-family: "Taviraj", serif;
+  font-size: clamp(0.63rem, 0.11rem + 2.59vw, 1.56rem);
+  font-weight: 400;
+  color: black;
+  padding: 1em 0 0 0;
+  margin: 0;
+}
+main .cmimi-cont .cmimi_cards .card_cont div:first-child h4:last-child {
+  margin-bottom: 2em;
+}
+main .cmimi-cont .cmimi_cards .card_cont div:last-child {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .cmimi-cont .cmimi_cards .card_cont div:last-child h1 {
+  font-family: "Hind", sans-serif;
+  font-size: clamp(1.25rem, 0.04rem + 6.03vw, 3.44rem);
+  font-weight: 700;
+  color: black;
+  padding: 0.5em 3em;
+  margin: 0.5em 0 0 0;
+  border-top: 1px solid gray;
+}
+main .cmimi-cont .cmimi_cards .card_cont div:last-child button {
+  font-family: "Taviraj", serif;
+  font-size: clamp(0.81rem, 0.36rem + 2.24vw, 1.63rem);
+  font-weight: 500;
+  color: black;
+  padding: 0.2em 7em;
+  margin: 0 0 1.5em 0;
+  background-color: transparent;
+  border: 0.1em solid black;
+  -webkit-border-radius: 50em;
+  border-radius: 50em;
+  background-clip: padding-box; /* stops bg color from leaking outside the border: */
+  text-transform: uppercase;
+}
+main .cmimi-cont .cmimi_cards .card_cont div:last-child button:focus {
+  transition: 0.4s;
+  border-color: #b4aa00;
+  color: #b4aa00;
+}
+main .cmimi-cont .cmimi_cards .card_cont div:last-child button:hover {
+  transition: 0.4s;
+  border-color: #b4aa00;
+  color: #b4aa00;
+  cursor: pointer;
+}
+main .cmimi-cont .cmimi_cards .card_cont:last-child {
+  margin-bottom: clamp(1.56rem, -0.16rem + 8.62vw, 4.69rem);
+}
+main .trustedus {
+  width: 100%;
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+main .trustedus img {
+  width: 40%;
+}
+
+footer {
+  width: 100%;
+  margin-top: clamp(1.56rem, -0.16rem + 8.62vw, 4.69rem);
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+footer .fot_dvup {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+footer .fot_dvup .location {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+footer .fot_dvup .location h1 {
+  font-family: "Khula", sans-serif;
+  font-size: clamp(1.25rem, 0.04rem + 6.03vw, 3.44rem);
+  font-weight: 700;
+  color: white;
+  padding: 0.7em 0 0.1em 0;
+  margin: 0;
+}
+footer .fot_dvup .location p {
+  font-family: "Taviraj", serif;
+  font-size: clamp(0.63rem, 0.28rem + 1.72vw, 1.25rem);
+  font-weight: 400;
+  color: white;
+  padding: 0 0 1em 0;
+  margin: 0;
+}
+footer .fot_dvup .location h3 {
+  font-family: "Taviraj", serif;
+  font-size: clamp(0.63rem, 0.28rem + 1.72vw, 1.25rem);
+  font-weight: 400;
+  color: #b4aa00;
+  padding: 0 0 0.5em 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+footer .fot_dvup .location h3 svg {
+  width: clamp(0.94rem, 0.42rem + 2.59vw, 1.88rem);
+  aspect-ratio: 1;
+}
+footer .fot_dvup .location h3 a,
+footer .fot_dvup .location h3 span {
+  margin-left: 0.5em;
+  text-decoration: none;
+  color: #b4aa00;
+}
+footer .fot_dvup .foot_nav,
+footer .fot_dvup .more_links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+footer .fot_dvup .foot_nav h1,
+footer .fot_dvup .more_links h1 {
+  font-family: "Khula", sans-serif;
+  font-size: clamp(1.25rem, 0.04rem + 6.03vw, 3.44rem);
+  font-weight: 700;
+  color: white;
+  padding: 0.7em 0 0.1em 0;
+  margin: 0;
+}
+footer .fot_dvup .foot_nav ul,
+footer .fot_dvup .more_links ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  list-style-type: none;
+}
+footer .fot_dvup .foot_nav ul li,
+footer .fot_dvup .more_links ul li {
+  font-family: "Hind", sans-serif;
+  font-size: clamp(0.81rem, 0.36rem + 2.24vw, 1.63rem);
+  font-weight: 700;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+footer .fot_dvup .foot_nav ul li a,
+footer .fot_dvup .more_links ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  margin-left: 0.5em;
+}
+footer .fot_dvup .social {
+  width: 100%;
+}
+footer .fot_dvup .social h1 {
+  font-family: "Khula", sans-serif;
+  font-size: clamp(1.25rem, 0.04rem + 6.03vw, 3.44rem);
+  font-weight: 700;
+  color: white;
+  padding: 0.7em 0 0.1em 0;
+  margin: 0;
+}
+footer .fot_dvup .social .social_ikons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3%;
+}
+footer .fot_dvup .social .social_ikons svg {
+  width: clamp(1.25rem, 0.04rem + 6.03vw, 3.44rem);
+  aspect-ratio: 1;
+}
+footer .foot_dvdown {
+  width: 100%;
+  margin-top: clamp(0.94rem, 0.42rem + 2.59vw, 1.88rem);
+  background-color: #02213b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+footer .foot_dvdown h3 {
+  font-family: "Khula", sans-serif;
+  font-size: clamp(0.63rem, 0.11rem + 2.59vw, 1.56rem);
+  font-weight: 700;
+  color: white;
+  padding: 0.7em 0;
+  margin: 0;
+}
+footer .foot_dvdown h3 span {
+  color: #b4aa00;
+}
+
+@media (min-width: 900px) and (orientation: landscape) {
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  header .logo {
+    width: 15%;
+  }
+  header .logo img {
+    width: 100%;
+  }
+  header .logo svg {
+    display: none;
+  }
+  header nav {
+    width: 60%;
+    display: flex;
+  }
+  header nav ul {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  header nav ul li {
+    font-family: "Hind", sans-serif;
+    font-size: clamp(1rem, 0.06rem + 1.67vw, 1.31rem);
+    font-weight: 500;
+    color: black;
+    padding: 0;
+    margin: 0;
+  }
+  header nav ul li button {
+    font-family: "Hind", sans-serif;
+    font-size: clamp(0.88rem, -0.06rem + 1.67vw, 1.19rem);
+    font-weight: 500;
+    color: #b4aa00;
+    padding: 0.4em 0.9em;
+    margin: 0;
+  }
+}
+
+@media (min-width: 900px) and (orientation: landscape) {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  main .main-section {
+    margin-top: clamp(4.25rem, 0.13rem + 7.33vw, 5.63rem);
+    aspect-ratio: 2.34;
+  }
+  main .main-section h1 {
+    font-size: clamp(3.44rem, -1.25rem + 8.33vw, 5rem);
+  }
+  main .main-section p {
+    font-size: clamp(1.13rem, 0.19rem + 1.67vw, 1.44rem);
+    width: 80%;
+  }
+  main form {
+    width: 90%;
+    padding: 0 clamp(0.63rem, -1.25rem + 3.33vw, 1.25rem);
+    position: absolute;
+    top: clamp(26.25rem, 0rem + 46.67vw, 35rem);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  }
+  main form input {
+    width: 15%;
+    font-family: "Taviraj", serif;
+    font-size: clamp(1rem, 0.06rem + 1.67vw, 1.31rem);
+    font-weight: 500;
+    color: black;
+    padding: 0.2em;
+    margin: 0;
+  }
+  main form input:first-child {
+    margin-top: 0;
+  }
+  main form select {
+    width: 15%;
+    font-family: "Taviraj", serif;
+    font-size: clamp(1rem, 0.06rem + 1.67vw, 1.31rem);
+    font-weight: 500;
+    color: black;
+    padding: 0.2em;
+    margin: 0;
+  }
+  main form .dzpozic {
+    width: 20%;
+    font-size: clamp(1rem, 0.06rem + 1.67vw, 1.31rem);
+    margin: 2em 0;
+  }
+  main form .dzpozic button {
+    width: 100%;
+    font-family: "Taviraj", serif;
+    font-size: clamp(1rem, 0.06rem + 1.67vw, 1.31rem);
+    font-weight: 500;
+    color: black;
+    padding: 0.25em 0.2em;
+    margin: 0;
+    background-color: transparent;
+    border: 0.1em solid black;
+    -webkit-border-radius: 0.3em;
+    border-radius: 0.3em;
+    background-clip: padding-box; /* stops bg color from leaking outside the border: */
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+  main form .dzpozic button:focus {
+    transition: 0.4s;
+    border-color: #b4aa00;
+    color: #b4aa00;
+  }
+  main form .dzpozic button:hover {
+    transition: 0.4s;
+    border-color: #b4aa00;
+    color: #b4aa00;
+    cursor: pointer;
+  }
+  main .about-cont {
+    flex-direction: row;
+    margin-top: clamp(5.63rem, 0rem + 10vw, 7.5rem);
+  }
+  main .about-cont article {
+    width: 50%;
+  }
+  main .about-cont article h1 {
+    font-size: clamp(1.88rem, 0rem + 3.33vw, 2.5rem);
+    text-align: start;
+  }
+  main .about-cont article p {
+    font-size: clamp(0.94rem, 0rem + 1.67vw, 1.25rem);
+    text-align: start;
+  }
+  main .about-cont article button {
+    font-size: clamp(1.06rem, 0.13rem + 1.67vw, 1.38rem);
+    align-self: flex-start;
+  }
+  main .about-cont div {
+    width: 40%;
+    order: 2;
+  }
+  main .about-cont div img {
+    width: 90%;
+    margin-top: 0;
+  }
+  main .rooms-cont {
+    margin-bottom: 0;
+  }
+  main .rooms-cont .rooms_txtDiv {
+    margin-top: clamp(3.44rem, -1.25rem + 8.33vw, 5rem);
+  }
+  main .rooms-cont .rooms_txtDiv h1 {
+    font-size: clamp(1.88rem, 0rem + 3.33vw, 2.5rem);
+  }
+  main .rooms-cont .rooms_txtDiv h3 {
+    font-size: clamp(1.25rem, -0.62rem + 3.33vw, 1.88rem);
+  }
+  main .rooms-cont .rooms_imgDiv {
+    margin-bottom: clamp(3.44rem, -1.25rem + 8.33vw, 5rem);
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  main .rooms-cont .rooms_imgDiv figure {
+    width: 30%;
+  }
+  main .rooms-cont .rooms_imgDiv figure .img {
+    margin-bottom: 0;
+  }
+  main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn {
+    aspect-ratio: 1;
+  }
+  main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn .rms_info_text h1 {
+    font-size: clamp(0.94rem, -0.94rem + 3.33vw, 1.56rem);
+  }
+  main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn .rms_info_text p {
+    font-size: clamp(0.63rem, 0.06rem + 1vw, 0.81rem);
+  }
+  main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn .rms_info_text h3 {
+    font-size: clamp(0.81rem, -0.5rem + 2.33vw, 1.25rem);
+  }
+  main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn .btn_div button {
+    font-size: clamp(0.81rem, -0.5rem + 2.33vw, 1.25rem);
+  }
+  main .sherbimet-cont .sherbimet_text {
+    margin-top: clamp(3.44rem, -1.25rem + 8.33vw, 5rem);
+  }
+  main .sherbimet-cont .sherbimet_text h1 {
+    font-size: clamp(1.88rem, 0rem + 3.33vw, 2.5rem);
+  }
+  main .sherbimet-cont .sherbimet_text h3 {
+    font-size: clamp(1.25rem, -0.62rem + 3.33vw, 1.88rem);
+  }
+  main .sherbimet-cont .sherbimet_info {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
+    place-content: center;
+  }
+  main .sherbimet-cont .sherbimet_info > img {
+    width: 50vw;
+    grid-row: 1/5;
+    margin-bottom: 0;
+  }
+  main .sherbimet-cont .sherbimet_info .sherbimet_detail {
+    width: 40vw;
+    margin-left: clamp(0.94rem, 0rem + 1.67vw, 1.25rem);
+  }
+  main .sherbimet-cont .sherbimet_info .sherbimet_detail button {
+    font-size: clamp(0.63rem, -0.31rem + 1.67vw, 0.94rem);
+    width: clamp(3.13rem, -2.5rem + 10vw, 5rem);
+  }
+  main .sherbimet-cont .sherbimet_info .sherbimet_detail h1 {
+    font-size: clamp(0.94rem, -0.56rem + 2.67vw, 1.44rem);
+  }
+  main .sherbimet-cont .sherbimet_info .sherbimet_detail p {
+    font-size: clamp(0.63rem, -0.31rem + 1.67vw, 0.94rem);
+  }
+  main .sherbimet-cont .sherbimet_number_info {
+    margin-top: clamp(3.44rem, -1.25rem + 8.33vw, 5rem);
+  }
+  main .sherbimet-cont .sherbimet_number_info section {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  main .sherbimet-cont .sherbimet_number_info section div:first-child {
+    margin-top: clamp(1.88rem, 0rem + 3.33vw, 2.5rem);
+  }
+  main .sherbimet-cont .sherbimet_number_info section div {
+    width: 23%;
+    margin: clamp(1.88rem, 0rem + 3.33vw, 2.5rem) 0;
+  }
+  main .sherbimet-cont .sherbimet_number_info section div h1 {
+    font-size: clamp(1.88rem, 0rem + 3.33vw, 2.5rem);
+  }
+  main .sherbimet-cont .sherbimet_number_info section div p {
+    font-size: clamp(1.25rem, -0.62rem + 3.33vw, 1.88rem);
+  }
+  main .caruselCont .carusel_title h1 {
+    font-size: clamp(1.88rem, 0rem + 3.33vw, 2.5rem);
+  }
+  main .caruselCont .carusel_title h3 {
+    font-size: clamp(1.25rem, -0.62rem + 3.33vw, 1.88rem);
+  }
+  main .caruselCont .cont_photo_carusel {
+    display: none;
+  }
+  main .caruselCont .imazhet-tab-mode {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+  main .caruselCont .imazhet-tab-mode img {
+    width: 30%;
+    margin-bottom: clamp(1.25rem, -0.62rem + 3.33vw, 1.88rem);
+  }
+  main .caruselCont .imazhet-tab-mode img:hover {
+    transform: scale(110%);
+    transition: 0.4s;
+  }
+  main .caruselCont .imazhet-tab-mode img:focus {
+    transform: scale(110%);
+    transition: 0.4s;
+  }
+  main .cmimi-cont {
+    padding-bottom: clamp(3.44rem, -1.25rem + 8.33vw, 5rem);
+  }
+  main .cmimi-cont .cmimi_txt h1 {
+    font-size: clamp(1.88rem, 0rem + 3.33vw, 2.5rem);
+  }
+  main .cmimi-cont .cmimi_txt h3 {
+    font-size: clamp(1.25rem, -0.62rem + 3.33vw, 1.88rem);
+  }
+  main .cmimi-cont .cmimi_cards {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  main .cmimi-cont .cmimi_cards .card_cont {
+    width: 30%;
+    margin-bottom: 0;
+  }
+  main .cmimi-cont .cmimi_cards .card_cont div:first-child h2 {
+    font-size: clamp(1.25rem, -0.62rem + 3.33vw, 1.88rem);
+  }
+  main .cmimi-cont .cmimi_cards .card_cont div:first-child h4 {
+    font-size: clamp(0.94rem, 0rem + 1.67vw, 1.25rem);
+  }
+  main .cmimi-cont .cmimi_cards .card_cont div:last-child h1 {
+    font-size: clamp(1.25rem, -0.62rem + 3.33vw, 1.88rem);
+    padding: 0.5em 2.5em;
+  }
+  main .cmimi-cont .cmimi_cards .card_cont div:last-child button {
+    font-family: "Taviraj", serif;
+    font-size: clamp(1.06rem, 0.13rem + 1.67vw, 1.38rem);
+    font-weight: 500;
+    color: black;
+    padding: 0.2em 2em;
+    margin: 0 0 1.5em 0;
+    background-color: transparent;
+    border: 0.1em solid black;
+    -webkit-border-radius: 50em;
+    border-radius: 50em;
+    background-clip: padding-box; /* stops bg color from leaking outside the border: */
+    text-transform: uppercase;
+  }
+  main .cmimi-cont .cmimi_cards .card_cont div:last-child button:focus {
+    transition: 0.4s;
+    border-color: #b4aa00;
+    color: #b4aa00;
+  }
+  main .cmimi-cont .cmimi_cards .card_cont div:last-child button:hover {
+    transition: 0.4s;
+    border-color: #b4aa00;
+    color: #b4aa00;
+    cursor: pointer;
+  }
+  main .cmimi-cont .cmimi_cards .card_cont:last-child {
+    margin: 0;
+  }
+  main .trustedus img {
+    width: 25%;
+  }
+}
+
+@media (min-width: 900px) and (orientation: landscape) {
+  footer {
+    margin-top: clamp(3.44rem, -1.25rem + 8.33vw, 5rem);
+  }
+  footer .fot_dvup {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  footer .fot_dvup .location,
+  footer .fot_dvup .foot_nav,
+  footer .fot_dvup .more_links,
+  footer .fot_dvup .social {
+    width: 22%;
+  }
+  footer .fot_dvup .location h1,
+  footer .fot_dvup .foot_nav h1,
+  footer .fot_dvup .more_links h1,
+  footer .fot_dvup .social h1 {
+    font-size: clamp(1.25rem, -0.62rem + 3.33vw, 1.88rem);
+  }
+  footer .fot_dvup .location p {
+    font-size: clamp(0.63rem, -1.25rem + 3.33vw, 1.25rem);
+  }
+  footer .fot_dvup .location h3 {
+    font-size: clamp(0.81rem, -0.5rem + 2.33vw, 1.25rem);
+  }
+  footer .fot_dvup .location h3 svg {
+    width: clamp(1.25rem, -0.62rem + 3.33vw, 1.88rem);
+  }
+  footer .fot_dvup .foot_nav ul li,
+  footer .fot_dvup .more_links ul li {
+    font-size: clamp(0.81rem, -1.62rem + 4.33vw, 1.63rem);
+  }
+  footer .fot_dvup .social .social_ikons {
+    width: 70%;
+  }
+  footer .fot_dvup .social .social_ikons svg {
+    width: clamp(1.25rem, -0.62rem + 3.33vw, 1.88rem);
+  }
+  footer .foot_dvdown {
+    margin-top: clamp(0.94rem, -1.87rem + 5vw, 1.88rem);
+  }
+  footer .foot_dvdown h3 {
+    font-size: clamp(1.25rem, -0.62rem + 3.33vw, 1.88rem);
+  }
+}
+
+@media (min-width: 1200px) {
+  header .logo {
+    width: 10%;
+  }
+  header .logo img {
+    width: 100%;
+  }
+  header .logo svg {
+    display: none;
+  }
+  header nav {
+    display: flex;
+  }
+  header nav ul {
+    margin: 0;
+    width: 100%;
+    justify-content: center;
+  }
+  header nav ul li {
+    font-family: "Hind", sans-serif;
+    font-size: clamp(1rem, 0.38rem + 0.83vw, 1.31rem);
+    font-weight: 500;
+    color: black;
+    padding: 0;
+    margin: 0 2em 0 0;
+    cursor: pointer;
+  }
+  header nav ul li button {
+    font-family: "Hind", sans-serif;
+    font-size: clamp(0.88rem, 0.25rem + 0.83vw, 1.19rem);
+    font-weight: 500;
+    color: #b4aa00;
+    padding: 0.4em 0.9em;
+    margin: 0;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 1200px) {
+  main .main-section {
+    margin-top: clamp(3.75rem, 0rem + 5vw, 5.63rem);
+  }
+  main .main-section h1 {
+    font-size: clamp(4.06rem, 0.31rem + 5vw, 5.94rem);
+  }
+  main .main-section p {
+    font-size: clamp(1.25rem, 0.5rem + 1vw, 1.63rem);
+    width: 70%;
+  }
+  main form {
+    padding: 0 clamp(0.63rem, -0.62rem + 1.67vw, 1.25rem);
+    top: clamp(33.13rem, -3.12rem + 48.33vw, 51.25rem);
+  }
+  main form input {
+    width: 15%;
+    font-family: "Taviraj", serif;
+    font-size: clamp(1rem, 0.38rem + 0.83vw, 1.31rem);
+    font-weight: 500;
+    color: black;
+    padding: 0.2em;
+    margin: 0;
+  }
+  main form select {
+    font-family: "Taviraj", serif;
+    font-size: clamp(1rem, 0.38rem + 0.83vw, 1.31rem);
+    font-weight: 500;
+    color: black;
+    padding: 0.2em;
+    margin: 0;
+  }
+  main form .dzpozic {
+    width: 15%;
+    font-size: clamp(1rem, 0.38rem + 0.83vw, 1.31rem);
+  }
+  main form .dzpozic button {
+    width: 100%;
+    font-family: "Taviraj", serif;
+    font-size: clamp(1rem, 0.38rem + 0.83vw, 1.31rem);
+    font-weight: 500;
+    color: black;
+    padding: 0.25em 0;
+    margin: 0;
+    background-color: transparent;
+    border: 0.1em solid black;
+    -webkit-border-radius: 0.3em;
+    border-radius: 0.3em;
+    background-clip: padding-box; /* stops bg color from leaking outside the border: */
+    text-transform: uppercase;
+  }
+  main form .dzpozic button:focus {
+    transition: 0.4s;
+    border-color: #b4aa00;
+    color: #b4aa00;
+  }
+  main form .dzpozic button:hover {
+    transition: 0.4s;
+    border-color: #b4aa00;
+    color: #b4aa00;
+    cursor: pointer;
+  }
+  main .about-cont {
+    margin-top: clamp(7.5rem, 0rem + 10vw, 11.25rem);
+  }
+  main .about-cont article h1 {
+    font-size: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem);
+    padding-top: 0;
+  }
+  main .about-cont article p {
+    font-size: clamp(1.25rem, 0.5rem + 1vw, 1.63rem);
+  }
+  main .about-cont article button {
+    font-size: clamp(1.38rem, 0.63rem + 1vw, 1.75rem);
+  }
+  main .about-cont div {
+    width: 40%;
+    order: 2;
+    align-self: flex-start;
+  }
+  main .about-cont div img {
+    width: 90%;
+    margin-top: 0;
+  }
+  main .rooms-cont .rooms_txtDiv {
+    margin-top: clamp(4.06rem, 0.31rem + 5vw, 5.94rem);
+  }
+  main .rooms-cont .rooms_txtDiv h1 {
+    font-size: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem);
+  }
+  main .rooms-cont .rooms_txtDiv h3 {
+    font-size: clamp(1.38rem, 0.63rem + 1vw, 1.75rem);
+  }
+  main .rooms-cont .rooms_imgDiv {
+    margin-bottom: clamp(4.06rem, 0.31rem + 5vw, 5.94rem);
+  }
+  main .rooms-cont .rooms_imgDiv figure {
+    width: 30%;
+  }
+  main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn {
+    aspect-ratio: 1;
+  }
+  main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn .rms_info_text h1 {
+    font-size: clamp(1.56rem, 0.31rem + 1.67vw, 2.19rem);
+  }
+  main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn .rms_info_text p {
+    font-size: clamp(0.81rem, -0.06rem + 1.17vw, 1.25rem);
+  }
+  main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn .rms_info_text h3 {
+    font-size: clamp(1.25rem, 0.38rem + 1.17vw, 1.69rem);
+  }
+  main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn .btn_div button {
+    font-size: clamp(1.13rem, 0.13rem + 1.33vw, 1.63rem);
+  }
+  main .sherbimet-cont .sherbimet_text {
+    margin-top: clamp(4.06rem, 0.31rem + 5vw, 5.94rem);
+  }
+  main .sherbimet-cont .sherbimet_text h1 {
+    font-size: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem);
+  }
+  main .sherbimet-cont .sherbimet_text h3 {
+    font-size: clamp(1.38rem, 0.63rem + 1vw, 1.75rem);
+  }
+  main .sherbimet-cont .sherbimet_info .sherbimet_detail {
+    margin-left: clamp(1.25rem, 0.5rem + 1vw, 1.63rem);
+  }
+  main .sherbimet-cont .sherbimet_info .sherbimet_detail button {
+    font-size: clamp(1rem, 0.38rem + 0.83vw, 1.31rem);
+    width: clamp(5rem, 1.25rem + 5vw, 6.88rem);
+  }
+  main .sherbimet-cont .sherbimet_info .sherbimet_detail h1 {
+    font-size: clamp(1.38rem, 0.63rem + 1vw, 1.75rem);
+  }
+  main .sherbimet-cont .sherbimet_info .sherbimet_detail p {
+    font-size: clamp(0.88rem, 0.25rem + 0.83vw, 1.19rem);
+    margin-left: 2.3em;
+  }
+  main .sherbimet-cont .sherbimet_number_info {
+    margin-top: clamp(4.06rem, 0.31rem + 5vw, 5.94rem);
+  }
+  main .sherbimet-cont .sherbimet_number_info section div:first-child {
+    margin-top: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem);
+  }
+  main .sherbimet-cont .sherbimet_number_info section div {
+    width: 23%;
+    margin: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem) 0;
+  }
+  main .sherbimet-cont .sherbimet_number_info section div h1 {
+    font-size: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem);
+  }
+  main .sherbimet-cont .sherbimet_number_info section div p {
+    font-size: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+  }
+  main .caruselCont {
+    margin-top: clamp(4.06rem, 0.31rem + 5vw, 5.94rem);
+  }
+  main .caruselCont .carusel_title h1 {
+    font-size: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem);
+  }
+  main .caruselCont .carusel_title h3 {
+    margin-top: 0;
+    font-size: clamp(1.38rem, 0.63rem + 1vw, 1.75rem);
+  }
+  main .caruselCont .imazhet-tab-mode img {
+    margin-bottom: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+  }
+  main .cmimi-cont {
+    padding: clamp(4.06rem, 0.31rem + 5vw, 5.94rem) 0 clamp(5rem, 0.5rem + 6vw, 7.25rem) 0;
+  }
+  main .cmimi-cont .cmimi_txt h1 {
+    font-size: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem);
+  }
+  main .cmimi-cont .cmimi_txt h3 {
+    margin-top: 0;
+    font-size: clamp(1.38rem, 0.63rem + 1vw, 1.75rem);
+  }
+  main .cmimi-cont .cmimi_cards .card_cont div:first-child h2 {
+    font-size: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+  }
+  main .cmimi-cont .cmimi_cards .card_cont div:first-child h4 {
+    font-size: clamp(1.25rem, 0.5rem + 1vw, 1.63rem);
+  }
+  main .cmimi-cont .cmimi_cards .card_cont div:last-child h1 {
+    font-size: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+  }
+  main .cmimi-cont .cmimi_cards .card_cont div:last-child button {
+    font-family: "Taviraj", serif;
+    font-size: clamp(1.38rem, 0.63rem + 1vw, 1.75rem);
+    font-weight: 500;
+    color: black;
+    padding: 0.2em 2em;
+    margin: 0 0 1.5em 0;
+    background-color: transparent;
+    border: 0.1em solid black;
+    -webkit-border-radius: 50em;
+    border-radius: 50em;
+    background-clip: padding-box; /* stops bg color from leaking outside the border: */
+    text-transform: uppercase;
+  }
+  main .cmimi-cont .cmimi_cards .card_cont div:last-child button:focus {
+    transition: 0.4s;
+    border-color: #b4aa00;
+    color: #b4aa00;
+  }
+  main .cmimi-cont .cmimi_cards .card_cont div:last-child button:hover {
+    transition: 0.4s;
+    border-color: #b4aa00;
+    color: #b4aa00;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 1200px) {
+  footer {
+    margin-top: clamp(4.06rem, 0.31rem + 5vw, 5.94rem);
+  }
+  footer .fot_dvup .location,
+  footer .fot_dvup .foot_nav,
+  footer .fot_dvup .more_links,
+  footer .fot_dvup .social {
+    width: 22%;
+  }
+  footer .fot_dvup .location h1,
+  footer .fot_dvup .foot_nav h1,
+  footer .fot_dvup .more_links h1,
+  footer .fot_dvup .social h1 {
+    font-size: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+  }
+  footer .fot_dvup .location p {
+    font-size: clamp(1.25rem, 0rem + 1.67vw, 1.88rem);
+  }
+  footer .fot_dvup .location h3 {
+    font-size: clamp(1.13rem, 0.13rem + 1.33vw, 1.63rem);
+  }
+  footer .fot_dvup .location h3 svg {
+    width: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+  }
+  footer .fot_dvup .foot_nav ul li,
+  footer .fot_dvup .more_links ul li {
+    font-size: clamp(1.25rem, 0rem + 1.67vw, 1.88rem);
+  }
+  footer .fot_dvup .social .social_ikons svg {
+    width: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+  }
+  footer .foot_dvdown {
+    margin-top: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+  }
+  footer .foot_dvdown h3 {
+    font-size: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
