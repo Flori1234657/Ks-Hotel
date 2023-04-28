@@ -52,11 +52,13 @@
     .main-section {
       margin-top: var.$s_PC60-90; //60px
       h1 {
-        font-size: var.$s_PC65-95;
+        font-size: var.$s_PC75-90;
+        text-shadow: none;
       }
       p {
-        font-size: var.$s_PC20-26;
-        width: 70%;
+        font-size: var.$s_PC20-24;
+        width: 50%;
+        text-shadow: none;
       }
     }
     form {
@@ -106,14 +108,14 @@
       margin-top: var.$s_PC120-180;
       article {
         h1 {
-          font-size: var.$s_PC40-55;
+          font-size: var.$s_PC35-42;
           padding-top: 0;
         }
         p {
-          font-size: var.$s_PC20-26;
+          font-size: var.$s_PC17-21;
         }
         button {
-          font-size: var.$s_PC22-28;
+          font-size: var.$s_PC19-23;
         }
       }
       div {
@@ -121,44 +123,45 @@
         order: 2;
         align-self: flex-start;
         img {
-          width: 90%;
+          width: 70%;
           margin-top: 0;
         }
       }
     }
     .rooms-cont {
       .rooms_txtDiv {
-        margin-top: var.$s_PC80-100; //80px
+        margin-top: var.$s_PC50-80;
         h1 {
-          font-size: var.$s_PC40-55;
+          font-size: var.$s_PC35-42;
         }
         h3 {
-          font-size: var.$s_PC22-28;
+          font-size: var.$s_PC25-29;
         }
       }
       .rooms_imgDiv {
-        margin-bottom: var.$s_PC80-100; //80px
-
+        margin-bottom: var.$s_PC50-80;
+        justify-content: center;
+        gap: 3%;
         figure {
-          width: 30%;
+          width: 25%;
           .img {
             .rooms_info {
               .txt_btn {
                 aspect-ratio: 1;
                 .rms_info_text {
                   h1 {
-                    font-size: var.$s_PC25-35;
+                    font-size: var.$s_PC25-29;
                   }
                   p {
-                    font-size: var.$s_PC13-20;
+                    font-size: var.$s_PC13-15;
                   }
                   h3 {
-                    font-size: var.$s_PC20-27;
+                    font-size: var.$s_PC18-21;
                   }
                 }
                 .btn_div {
                   button {
-                    font-size: var.$s_PC18-26;
+                    font-size: var.$s_PC18-21;
                   }
                 }
               }
@@ -169,32 +172,35 @@
     }
     .sherbimet-cont {
       .sherbimet_text {
-        margin-top: var.$s_PC80-100;
+        margin-top: var.$s_PC50-80;
         h1 {
-          font-size: var.$s_PC40-55;
+          font-size: var.$s_PC35-42;
         }
         h3 {
-          font-size: var.$s_PC22-28;
+          font-size: var.$s_PC25-29;
         }
       }
       .sherbimet_info {
+        > img {
+          width: 35vw;
+        }
         .sherbimet_detail {
           margin-left: var.$s_PC20-26;
           button {
-            font-size: var.$s_PC16-21;
-            width: var.$s_PC80-110;
+            font-size: var.$s_PC10-12;
+            width: var.$s_PC65-90;
           }
           h1 {
-            font-size: var.$s_PC22-28;
+            font-size: var.$s_PC19-23;
           }
           p {
-            font-size: var.$s_PC14-19;
-            margin-left: 2.3em;
+            font-size: var.$s_PC14-17;
+            margin-left: 2.1em;
           }
         }
       }
       .sherbimet_number_info {
-        margin-top: var.$s_PC80-100;
+        margin-top: var.$s_PC50-80;
         section {
           div:first-child {
             margin-top: var.$s_PC40-55;
@@ -203,34 +209,38 @@
             width: 23%;
             margin: var.$s_PC40-55 0;
             h1 {
-              font-size: var.$s_PC40-55;
+              font-size: var.$s_PC35-42;
             }
             p {
-              font-size: var.$s_PC30-40;
+              font-size: var.$s_PC25-29;
             }
           }
         }
       }
     }
     .caruselCont {
-      margin-top: var.$s_PC80-100;
+      margin-top: var.$s_PC50-80;
       .carusel_title {
         h1 {
-          font-size: var.$s_PC40-55;
+          font-size: var.$s_PC35-42;
         }
         h3 {
           margin-top: 0;
-          font-size: var.$s_PC22-28;
+          font-size: var.$s_PC25-29;
         }
       }
       .imazhet-tab-mode {
+        justify-content: center;
+        gap: 3%;
         img {
+          width: 20%;
+
           margin-bottom: var.$s_PC30-40;
         }
       }
     }
     .cmimi-cont {
-      padding: var.$s_PC80-100 0 var.$s_PC80-116 0;
+      padding: var.$s_PC50-80 0 var.$s_PC50-80 0;
       .cmimi_txt {
         h1 {
           font-size: var.$s_PC40-55;
@@ -242,21 +252,23 @@
       }
       .cmimi_cards {
         .card_cont {
+          width: 25%;
           div:first-child {
             h2 {
-              font-size: var.$s_PC30-40;
+              font-size: var.$s_PC25-29;
             }
             h4 {
-              font-size: var.$s_PC20-26;
+              font-size: var.$s_PC17-21;
             }
           }
           div:last-child {
             h1 {
-              font-size: var.$s_PC30-40;
+              font-size: var.$s_PC23-27;
             }
             button {
               @include mixs.button(
-                $fs: var.$s_PC22-28,
+                $fs: var.$s_PC22-26,
+
                 $fem: 0.2em 2em,
                 $fmar: 0 0 1.5em 0,
                 $f-bcl: black,
@@ -268,30 +280,43 @@
         }
       }
     }
+    .trustedus {
+      img {
+        width: 15%;
+      }
+    }
   }
 }
 
 @mixin pcFooter {
   @include mixs.for-size(desktop-up) {
-    margin-top: var.$s_PC80-100;
+    margin-top: var.$s_PC50-80;
     .fot_dvup {
+      justify-content: flex-start;
+      gap: 3%;
       .location,
       .foot_nav,
       .more_links,
       .social {
-        width: 22%;
+        width: auto;
         h1 {
-          font-size: var.$s_PC30-40;
+          font-size: var.$s_PC25-29;
         }
       }
       .location {
+        width: 22%;
+        margin-left: var.$s_PC13-15;
+      }
+      .location {
         p {
-          font-size: var.$s_PC20-30;
+          font-size: var.$s_PC15-17;
+          cursor: pointer;
         }
         h3 {
-          font-size: var.$s_PC18-26;
+          font-size: var.$s_PC15-17;
+          cursor: pointer;
           svg {
-            width: var.$s_PC30-40;
+            width: var.$s_PC15-17;
           }
         }
       }
@@ -299,22 +324,24 @@
       .more_links {
         ul {
           li {
-            font-size: var.$s_PC20-30;
+            font-size: var.$s_PC15-17;
+            cursor: pointer;
           }
         }
       }
       .social {
         .social_ikons {
           svg {
-            width: var.$s_PC30-40;
+            width: var.$s_PC22-26;
+            cursor: pointer;
           }
         }
       }
     }
     .foot_dvdown {
-      margin-top: var.$s_PC30-40;
+      margin-top: var.$s_PC50-80;
       h3 {
-        font-size: var.$s_PC30-40;
+        font-size: var.$s_PC15-17;
       }
     }
   }

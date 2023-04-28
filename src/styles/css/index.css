@@ -1410,11 +1410,13 @@ footer .foot_dvdown h3 span {
     margin-top: clamp(3.75rem, 0rem + 5vw, 5.63rem);
   }
   main .main-section h1 {
-    font-size: clamp(4.06rem, 0.31rem + 5vw, 5.94rem);
+    font-size: clamp(4.69rem, 2.81rem + 2.5vw, 5.63rem);
+    text-shadow: none;
   }
   main .main-section p {
-    font-size: clamp(1.25rem, 0.5rem + 1vw, 1.63rem);
-    width: 70%;
+    font-size: clamp(1.25rem, 0.75rem + 0.67vw, 1.5rem);
+    width: 50%;
+    text-shadow: none;
   }
   main form {
     padding: 0 clamp(0.63rem, -0.62rem + 1.67vw, 1.25rem);
@@ -1471,14 +1473,14 @@ footer .foot_dvdown h3 span {
     margin-top: clamp(7.5rem, 0rem + 10vw, 11.25rem);
   }
   main .about-cont article h1 {
-    font-size: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem);
+    font-size: clamp(2.19rem, 1.31rem + 1.17vw, 2.63rem);
     padding-top: 0;
   }
   main .about-cont article p {
-    font-size: clamp(1.25rem, 0.5rem + 1vw, 1.63rem);
+    font-size: clamp(1.06rem, 0.56rem + 0.67vw, 1.31rem);
   }
   main .about-cont article button {
-    font-size: clamp(1.38rem, 0.63rem + 1vw, 1.75rem);
+    font-size: clamp(1.19rem, 0.69rem + 0.67vw, 1.44rem);
   }
   main .about-cont div {
     width: 40%;
@@ -1486,64 +1488,69 @@ footer .foot_dvdown h3 span {
     align-self: flex-start;
   }
   main .about-cont div img {
-    width: 90%;
+    width: 70%;
     margin-top: 0;
   }
   main .rooms-cont .rooms_txtDiv {
-    margin-top: clamp(4.06rem, 0.31rem + 5vw, 5.94rem);
+    margin-top: clamp(3.13rem, -0.62rem + 5vw, 5rem);
   }
   main .rooms-cont .rooms_txtDiv h1 {
-    font-size: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem);
+    font-size: clamp(2.19rem, 1.31rem + 1.17vw, 2.63rem);
   }
   main .rooms-cont .rooms_txtDiv h3 {
-    font-size: clamp(1.38rem, 0.63rem + 1vw, 1.75rem);
+    font-size: clamp(1.56rem, 1.06rem + 0.67vw, 1.81rem);
   }
   main .rooms-cont .rooms_imgDiv {
-    margin-bottom: clamp(4.06rem, 0.31rem + 5vw, 5.94rem);
+    margin-bottom: clamp(3.13rem, -0.62rem + 5vw, 5rem);
+    justify-content: center;
+    gap: 3%;
   }
   main .rooms-cont .rooms_imgDiv figure {
-    width: 30%;
+    width: 25%;
   }
   main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn {
     aspect-ratio: 1;
   }
   main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn .rms_info_text h1 {
-    font-size: clamp(1.56rem, 0.31rem + 1.67vw, 2.19rem);
+    font-size: clamp(1.56rem, 1.06rem + 0.67vw, 1.81rem);
   }
   main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn .rms_info_text p {
-    font-size: clamp(0.81rem, -0.06rem + 1.17vw, 1.25rem);
+    font-size: clamp(0.81rem, 0.56rem + 0.33vw, 0.94rem);
   }
   main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn .rms_info_text h3 {
-    font-size: clamp(1.25rem, 0.38rem + 1.17vw, 1.69rem);
+    font-size: clamp(1.13rem, 0.75rem + 0.5vw, 1.31rem);
   }
   main .rooms-cont .rooms_imgDiv figure .img .rooms_info .txt_btn .btn_div button {
-    font-size: clamp(1.13rem, 0.13rem + 1.33vw, 1.63rem);
+    font-size: clamp(1.13rem, 0.75rem + 0.5vw, 1.31rem);
   }
   main .sherbimet-cont .sherbimet_text {
-    margin-top: clamp(4.06rem, 0.31rem + 5vw, 5.94rem);
+    margin-top: clamp(3.13rem, -0.62rem + 5vw, 5rem);
   }
   main .sherbimet-cont .sherbimet_text h1 {
-    font-size: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem);
+    font-size: clamp(2.19rem, 1.31rem + 1.17vw, 2.63rem);
   }
   main .sherbimet-cont .sherbimet_text h3 {
-    font-size: clamp(1.38rem, 0.63rem + 1vw, 1.75rem);
+    font-size: clamp(1.56rem, 1.06rem + 0.67vw, 1.81rem);
+  }
+  main .sherbimet-cont .sherbimet_info > img {
+    width: 35vw;
   }
   main .sherbimet-cont .sherbimet_info .sherbimet_detail {
     margin-left: clamp(1.25rem, 0.5rem + 1vw, 1.63rem);
   }
   main .sherbimet-cont .sherbimet_info .sherbimet_detail button {
-    font-size: clamp(1rem, 0.38rem + 0.83vw, 1.31rem);
-    width: clamp(5rem, 1.25rem + 5vw, 6.88rem);
+    font-size: clamp(0.63rem, 0.38rem + 0.33vw, 0.75rem);
+    width: clamp(4.06rem, 0.94rem + 4.17vw, 5.63rem);
   }
   main .sherbimet-cont .sherbimet_info .sherbimet_detail h1 {
-    font-size: clamp(1.38rem, 0.63rem + 1vw, 1.75rem);
+    font-size: clamp(1.19rem, 0.69rem + 0.67vw, 1.44rem);
   }
   main .sherbimet-cont .sherbimet_info .sherbimet_detail p {
-    font-size: clamp(0.88rem, 0.25rem + 0.83vw, 1.19rem);
-    margin-left: 2.3em;
+    font-size: clamp(0.88rem, 0.5rem + 0.5vw, 1.06rem);
+    margin-left: 2.1em;
   }
   main .sherbimet-cont .sherbimet_number_info {
-    margin-top: clamp(4.06rem, 0.31rem + 5vw, 5.94rem);
+    margin-top: clamp(3.13rem, -0.62rem + 5vw, 5rem);
   }
   main .sherbimet-cont .sherbimet_number_info section div:first-child {
     margin-top: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem);
@@ -1553,26 +1560,31 @@ footer .foot_dvdown h3 span {
     margin: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem) 0;
   }
   main .sherbimet-cont .sherbimet_number_info section div h1 {
-    font-size: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem);
+    font-size: clamp(2.19rem, 1.31rem + 1.17vw, 2.63rem);
   }
   main .sherbimet-cont .sherbimet_number_info section div p {
-    font-size: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+    font-size: clamp(1.56rem, 1.06rem + 0.67vw, 1.81rem);
   }
   main .caruselCont {
-    margin-top: clamp(4.06rem, 0.31rem + 5vw, 5.94rem);
+    margin-top: clamp(3.13rem, -0.62rem + 5vw, 5rem);
   }
   main .caruselCont .carusel_title h1 {
-    font-size: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem);
+    font-size: clamp(2.19rem, 1.31rem + 1.17vw, 2.63rem);
   }
   main .caruselCont .carusel_title h3 {
     margin-top: 0;
-    font-size: clamp(1.38rem, 0.63rem + 1vw, 1.75rem);
+    font-size: clamp(1.56rem, 1.06rem + 0.67vw, 1.81rem);
+  }
+  main .caruselCont .imazhet-tab-mode {
+    justify-content: center;
+    gap: 3%;
   }
   main .caruselCont .imazhet-tab-mode img {
+    width: 20%;
     margin-bottom: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
   }
   main .cmimi-cont {
-    padding: clamp(4.06rem, 0.31rem + 5vw, 5.94rem) 0 clamp(5rem, 0.5rem + 6vw, 7.25rem) 0;
+    padding: clamp(3.13rem, -0.62rem + 5vw, 5rem) 0 clamp(3.13rem, -0.62rem + 5vw, 5rem) 0;
   }
   main .cmimi-cont .cmimi_txt h1 {
     font-size: clamp(2.5rem, 0.63rem + 2.5vw, 3.44rem);
@@ -1581,14 +1593,17 @@ footer .foot_dvdown h3 span {
     margin-top: 0;
     font-size: clamp(1.38rem, 0.63rem + 1vw, 1.75rem);
   }
+  main .cmimi-cont .cmimi_cards .card_cont {
+    width: 25%;
+  }
   main .cmimi-cont .cmimi_cards .card_cont div:first-child h2 {
-    font-size: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+    font-size: clamp(1.56rem, 1.06rem + 0.67vw, 1.81rem);
   }
   main .cmimi-cont .cmimi_cards .card_cont div:first-child h4 {
-    font-size: clamp(1.25rem, 0.5rem + 1vw, 1.63rem);
+    font-size: clamp(1.06rem, 0.56rem + 0.67vw, 1.31rem);
   }
   main .cmimi-cont .cmimi_cards .card_cont div:last-child h1 {
-    font-size: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+    font-size: clamp(1.44rem, 0.94rem + 0.67vw, 1.69rem);
   }
   main .cmimi-cont .cmimi_cards .card_cont div:last-child button {
     font-family: "Taviraj", serif;
@@ -1615,45 +1630,60 @@ footer .foot_dvdown h3 span {
     color: #b4aa00;
     cursor: pointer;
   }
+  main .trustedus img {
+    width: 15%;
+  }
 }
 
 @media (min-width: 1200px) {
   footer {
-    margin-top: clamp(4.06rem, 0.31rem + 5vw, 5.94rem);
+    margin-top: clamp(3.13rem, -0.62rem + 5vw, 5rem);
+  }
+  footer .fot_dvup {
+    justify-content: flex-start;
+    gap: 3%;
   }
   footer .fot_dvup .location,
   footer .fot_dvup .foot_nav,
   footer .fot_dvup .more_links,
   footer .fot_dvup .social {
-    width: 22%;
+    width: auto;
   }
   footer .fot_dvup .location h1,
   footer .fot_dvup .foot_nav h1,
   footer .fot_dvup .more_links h1,
   footer .fot_dvup .social h1 {
-    font-size: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+    font-size: clamp(1.56rem, 1.06rem + 0.67vw, 1.81rem);
+  }
+  footer .fot_dvup .location {
+    width: 22%;
+    margin-left: clamp(0.81rem, 0.56rem + 0.33vw, 0.94rem);
   }
   footer .fot_dvup .location p {
-    font-size: clamp(1.25rem, 0rem + 1.67vw, 1.88rem);
+    font-size: clamp(0.94rem, 0.69rem + 0.33vw, 1.06rem);
+    cursor: pointer;
   }
   footer .fot_dvup .location h3 {
-    font-size: clamp(1.13rem, 0.13rem + 1.33vw, 1.63rem);
+    font-size: clamp(0.94rem, 0.69rem + 0.33vw, 1.06rem);
+    cursor: pointer;
   }
   footer .fot_dvup .location h3 svg {
-    width: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+    width: clamp(0.94rem, 0.69rem + 0.33vw, 1.06rem);
   }
   footer .fot_dvup .foot_nav ul li,
   footer .fot_dvup .more_links ul li {
-    font-size: clamp(1.25rem, 0rem + 1.67vw, 1.88rem);
+    font-size: clamp(0.94rem, 0.69rem + 0.33vw, 1.06rem);
+    cursor: pointer;
   }
   footer .fot_dvup .social .social_ikons svg {
-    width: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+    width: clamp(1.38rem, 0.63rem + 1vw, 1.75rem);
+    cursor: pointer;
   }
   footer .foot_dvdown {
-    margin-top: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+    margin-top: clamp(3.13rem, -0.62rem + 5vw, 5rem);
   }
   footer .foot_dvdown h3 {
-    font-size: clamp(1.88rem, 0.63rem + 1.67vw, 2.5rem);
+    font-size: clamp(0.94rem, 0.69rem + 0.33vw, 1.06rem);
   }
 }
 
