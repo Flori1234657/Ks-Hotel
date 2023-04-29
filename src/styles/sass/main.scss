@@ -3,7 +3,7 @@
 @use "animations" as anim;
 @use "mediaQuery/tabletlandscape" as min900;
 @use "mediaQuery/pcscreen" as min1200;
-
+@use "mediaQuery/bigPcScreen" as min1800;
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Taviraj:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
@@ -97,7 +97,6 @@ main {
     h1 {
       @include mixs.font(var.$font-hind, var.$s_25-75, 700, white, 0, 0);
       text-transform: uppercase;
-      text-shadow: 1px 1px 7px rgba(0, 0, 0, 1);
     }
     p {
       @include mixs.font(
@@ -109,7 +108,6 @@ main {
         0
       );
       text-align: center;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
     }
   }
 
@@ -817,4 +815,14 @@ main {
 }
 footer {
   @include min1200.pcFooter();
+}
+//PC SCREEN min-width 1800px
+header {
+  @include min1800.pcBigHeader();
+}
+main {
+  @include min1800.pcBigMain();
+}
+footer {
+  @include min1800.pcBigFooter();
 }

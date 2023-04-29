@@ -49,9 +49,20 @@
 
       <!--BOKKING FORM_________________/////////////////////////////-->
       <form>
-        <input type="date" />
-        <input type="date" />
+        <input
+          value="Data e marrjes"
+          class="textbox-n"
+          type="text"
+          onfocus="(this.type='date')"
+        />
+        <input
+          value="Data e lënjes"
+          class="textbox-n"
+          type="text"
+          onfocus="(this.type='date')"
+        />
         <select name="adoleshentat" id="">
+          <option disabled selected>Adoleshentat</option>
           <option value="">1</option>
           <option value="">2</option>
           <option value="">3</option>
@@ -59,6 +70,7 @@
           <option value="">5</option>
         </select>
         <select name="femijet" id="">
+          <option disabled selected>Fëmijët</option>
           <option value="">1</option>
           <option value="">2</option>
           <option value="">3</option>
