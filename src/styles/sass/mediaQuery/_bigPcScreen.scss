@@ -278,8 +278,12 @@
       }
     }
     .trustedus {
-      img {
-        width: 15%;
+      overflow: hidden;
+      width: 100%;
+      .slide {
+        img {
+          width: 15vw;
+        }
       }
     }
   }
@@ -287,7 +291,7 @@
 
 @mixin pcBigFooter {
   @include mixs.for-size(big-desktop-up) {
-    margin-top: var.$s_PC_BIG80-110;
+    margin-top: 0; //var.$s_PC_BIG80-110
     .fot_dvup {
       justify-content: flex-start;
       gap: 3%;
@@ -339,6 +343,116 @@
       margin-top: var.$s_PC_BIG80-110;
       h3 {
         font-size: var.$s_PC_BIG17-19;
+      }
+    }
+  }
+}
+
+@mixin bigPcBody {
+  @include mixs.for-size(big-desktop-up) {
+    #modal {
+      font-size: var.$s_PC_BIG21-26;
+      .container {
+        .loader {
+          width: var.$s_PC_BIG90-105;
+
+          border: var.$s_PC_BIG15-17 solid whitesmoke;
+          border-top: var.$s_PC_BIG15-17 solid var.$epesta;
+
+          margin: var.$s_PC_BIG21-26;
+        }
+
+        .res_form_cont {
+          h6 {
+            font-size: var.$s_PC_BIG17-19;
+          }
+          section {
+            margin: var.$s_PC_BIG30-40 var.$s_PC_BIG55-70;
+            h3 {
+              font-size: var.$s_PC_BIG17-19;
+            }
+            h1 {
+              font-size: var.$s_PC_BIG35-45;
+            }
+          }
+          form {
+            margin: 0 var.$s_PC_BIG55-70;
+
+            .checkinout,
+            .emrMbiemr {
+              margin-bottom: var.$s_PC_BIG15-17;
+              > div {
+                .qs-datepicker-container {
+                  font-size: var.$s_PC_BIG17-19;
+                }
+                label {
+                  font-size: var.$s_PC_BIG19-24;
+                }
+                input {
+                  width: 20vw;
+                  font-size: var.$s_PC_BIG19-24;
+                }
+              }
+            }
+            .email,
+            .tel {
+              margin-bottom: var.$s_PC_BIG15-17;
+              label {
+                font-size: var.$s_PC_BIG19-24;
+              }
+              input {
+                width: 20vw;
+                font-size: var.$s_PC_BIG19-24;
+              }
+            }
+            .femijterritur {
+              margin-bottom: var.$s_PC_BIG15-17;
+              div {
+                label {
+                  font-size: var.$s_PC_BIG19-24;
+                }
+                select {
+                  width: 20vw;
+                  font-size: var.$s_PC_BIG19-24;
+                }
+              }
+            }
+            .llojiDhomes {
+              margin-bottom: var.$s_PC_BIG15-17;
+              div:first-child {
+                label {
+                  font-size: var.$s_PC_BIG19-24;
+                }
+                select {
+                  width: 20vw;
+                  font-size: var.$s_PC_BIG19-24;
+                }
+              }
+              .cmimiTotal {
+                margin: var.$s_PC_BIG15-17;
+                h2,
+                h4 {
+                  font-size: var.$s_PC_BIG23-27;
+                }
+                h4 {
+                  margin-left: 26em;
+                }
+              }
+            }
+            .butons {
+              margin-bottom: var.$s_PC_BIG30-40;
+              button {
+                font-size: var.$s_PC_BIG23-27;
+              }
+            }
+          }
+        }
+        .ldr {
+          width: var.$s_PC_BIG90-105;
+          border: var.$s_PC_BIG15-17 solid whitesmoke;
+          border-top: var.$s_PC_BIG15-17 solid var.$epesta;
+          margin: var.$s_PC_BIG21-26;
+        }
       }
     }
   }

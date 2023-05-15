@@ -1,5 +1,25 @@
 {
   "dependencies": {
+    "firebase": "^9.21.0",
+    "js-datepicker": "^5.18.2",
     "json-server": "^0.17.3"
-  }
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.3",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.2.2",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.81.0",
+    "webpack-cli": "^5.0.2"
+  },
+  "name": "jsproj",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

@@ -310,8 +310,12 @@
       }
     }
     .trustedus {
-      img {
-        width: 25%;
+      overflow: hidden;
+      width: 100%;
+      .slide {
+        img {
+          width: 15vw;
+        }
       }
     }
   }
@@ -319,7 +323,7 @@
 
 @mixin tabLandscFooter {
   @include mixs.for-size(tablet-landscape-up) {
-    margin-top: var.$s_55-80;
+    margin-top: 0; //var.$s_55-80
     .fot_dvup {
       width: 100%;
       flex-direction: row;
@@ -366,6 +370,138 @@
       margin-top: var.$s_tab15-30;
       h3 {
         font-size: var.$s_tab20-30;
+      }
+    }
+  }
+}
+
+@mixin tabLandscBody {
+  @include mixs.for-size(tablet-landscape-up) {
+    #modal {
+      font-size: var.$s_16-21;
+      .container {
+        .loader {
+          width: var.$s_tab50-80;
+
+          border: var.$s_tab10-13 solid whitesmoke;
+          border-top: var.$s_tab10-13 solid var.$epesta;
+
+          margin: var.$s_tab20-30;
+        }
+        .errorMsg {
+          h3 {
+            font-size: var.$s_tab20-22;
+          }
+          button {
+            font-size: var.$s_tab20-22;
+          }
+        }
+        .res_form_cont {
+          h6 {
+            font-size: var.$s_tab13-17;
+          }
+          section {
+            margin: var.$s_tab20-45 var.$s_tab55-75;
+            h3 {
+              font-size: var.$s_tab13-17;
+            }
+            h1 {
+              font-size: var.$s_tab30-40;
+            }
+          }
+          form {
+            margin: 0 var.$s_tab55-75;
+
+            .checkinout,
+            .emrMbiemr {
+              margin-bottom: var.$s_tab10-20;
+              > div {
+                .qs-datepicker-container {
+                  font-size: var.$s_tab13-17;
+                }
+                label {
+                  font-size: var.$s_tab13-20;
+                }
+                input {
+                  width: 20vw;
+                  font-size: var.$s_tab15-23;
+                }
+              }
+            }
+            .checkinout {
+              flex-direction: row;
+            }
+            .email,
+            .tel {
+              margin-bottom: var.$s_tab10-20;
+              label {
+                font-size: var.$s_tab13-20;
+              }
+              input {
+                width: 20vw;
+                font-size: var.$s_tab15-23;
+              }
+            }
+            .femijterritur {
+              margin-bottom: var.$s_tab10-20;
+              div {
+                label {
+                  font-size: var.$s_tab13-20;
+                }
+                select {
+                  width: 20vw;
+                  font-size: var.$s_tab15-23;
+                }
+              }
+            }
+            .llojiDhomes {
+              margin-bottom: var.$s_tab10-20;
+              div:first-child {
+                label {
+                  font-size: var.$s_tab13-20;
+                }
+                select {
+                  width: 20vw;
+                  font-size: var.$s_tab15-23;
+                }
+              }
+              .cmimiTotal {
+                margin: var.$s_tab10-20 0;
+                h2,
+                h4 {
+                  font-size: var.$s_tab20-30;
+                }
+                h4 {
+                  margin-left: 11em;
+                }
+              }
+            }
+            .butons {
+              margin-bottom: var.$s_tab20-45;
+              button {
+                font-size: var.$s_tab20-30;
+              }
+            }
+          }
+        }
+        .aftr_ldr {
+          h3 {
+            font-size: var.$s_tab30-35;
+
+            span {
+              font-size: var.$s_tab15-17;
+            }
+          }
+          button {
+            font-size: var.$s_tab20-22;
+          }
+        }
+        .ldr {
+          width: var.$s_tab50-80;
+          border: var.$s_tab10-13 solid whitesmoke;
+          border-top: var.$s_tab10-13 solid var.$epesta;
+          margin: var.$s_tab20-30;
+        }
       }
     }
   }

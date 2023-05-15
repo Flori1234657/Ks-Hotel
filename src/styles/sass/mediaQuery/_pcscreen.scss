@@ -1,5 +1,6 @@
 @use "../var" as var;
 @use "../mixin" as mixs;
+@use "../animations" as anim;
 
 @mixin pcHeader {
   @include mixs.for-size(desktop-up) {
@@ -165,6 +166,15 @@
               }
             }
           }
+          opacity: 0;
+        }
+        .addRight {
+          //dy anash
+          animation: treshjaAnash 1s forwards;
+        }
+        .addLeft {
+          // qendra
+          animation: treshjaMes 1s forwards;
         }
       }
     }
@@ -208,6 +218,10 @@
             margin: var.$s_PC40-55 0;
             h1 {
               font-size: var.$s_PC35-42;
+              opacity: 0;
+            }
+            .shfaq {
+              opacity: 1;
             }
             p {
               font-size: var.$s_PC25-29;
@@ -232,8 +246,10 @@
         gap: 3%;
         img {
           width: 20%;
-
           margin-bottom: var.$s_PC30-40;
+        }
+        .addTresh {
+          animation: treshjaMesDy 1s forwards;
         }
       }
     }
@@ -279,8 +295,12 @@
       }
     }
     .trustedus {
-      img {
-        width: 15%;
+      overflow: hidden;
+      width: 100%;
+      .slide {
+        img {
+          width: 15vw;
+        }
       }
     }
   }
@@ -288,7 +308,7 @@
 
 @mixin pcFooter {
   @include mixs.for-size(desktop-up) {
-    margin-top: var.$s_PC50-80;
+    margin-top: 0; //var.$s_PC50-80
     .fot_dvup {
       justify-content: flex-start;
       gap: 3%;
@@ -340,6 +360,139 @@
       margin-top: var.$s_PC50-80;
       h3 {
         font-size: var.$s_PC15-17;
+      }
+    }
+  }
+}
+
+@include anim.scrollPc();
+
+@mixin minPcBody {
+  @include mixs.for-size(desktop-up) {
+    #modal {
+      font-size: var.$s_PC16-21;
+      .container {
+        .loader {
+          width: var.$s_PC75-90;
+
+          border: var.$s_PC13-15 solid whitesmoke;
+          border-top: var.$s_PC13-15 solid var.$epesta;
+
+          margin: var.$s_PC30-40;
+        }
+        .errorMsg {
+          h3 {
+            font-size: var.$s_PC22-30;
+          }
+          button {
+            font-size: var.$s_PC22-30;
+          }
+        }
+        .res_form_cont {
+          h6 {
+            font-size: var.$s_PC13-17;
+          }
+          section {
+            margin: var.$s_PC25-35 var.$s_PC50-65;
+            h3 {
+              font-size: var.$s_PC13-17;
+            }
+            h1 {
+              font-size: var.$s_PC30-40;
+            }
+          }
+          form {
+            margin: 0 var.$s_PC50-65;
+
+            .checkinout,
+            .emrMbiemr {
+              margin-bottom: var.$s_PC10-15;
+              > div {
+                .qs-datepicker-container {
+                  font-size: var.$s_PC15-17;
+                }
+                label {
+                  font-size: var.$s_PC18-23;
+                }
+                input {
+                  width: 20vw;
+                  font-size: var.$s_PC18-23;
+                }
+              }
+            }
+            .email,
+            .tel {
+              margin-bottom: var.$s_PC10-15;
+              label {
+                font-size: var.$s_PC18-23;
+              }
+              input {
+                width: 20vw;
+                font-size: var.$s_PC18-23;
+              }
+            }
+            .femijterritur {
+              margin-bottom: var.$s_PC10-15;
+              div {
+                label {
+                  font-size: var.$s_PC18-23;
+                }
+                select {
+                  width: 20vw;
+                  font-size: var.$s_PC18-23;
+                }
+              }
+            }
+            .llojiDhomes {
+              margin-bottom: var.$s_PC10-15;
+              div:first-child {
+                label {
+                  font-size: var.$s_PC18-23;
+                }
+                select {
+                  width: 20vw;
+                  font-size: var.$s_PC18-23;
+                }
+              }
+              .cmimiTotal {
+                margin: var.$s_PC10-15 0;
+                h2,
+                h4 {
+                  font-size: var.$s_PC22-27;
+                }
+                h4 {
+                  margin-left: 17em;
+                }
+              }
+            }
+            .butons {
+              margin-bottom: var.$s_PC25-35;
+              button {
+                font-size: var.$s_PC22-27;
+              }
+            }
+          }
+        }
+        .ldr {
+          width: var.$s_PC75-90;
+
+          border: var.$s_PC13-15 solid whitesmoke;
+          border-top: var.$s_PC13-15 solid var.$epesta;
+
+          margin: var.$s_PC30-40;
+        }
+        .aftr_ldr {
+          h3 {
+            font-size: var.$s_PC35-45;
+
+            span {
+              font-size: var.$s_PC17-21;
+            }
+          }
+          button {
+            font-size: var.$s_PC22-30;
+          }
+        }
       }
     }
   }

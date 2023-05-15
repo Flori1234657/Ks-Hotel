@@ -4,24 +4,349 @@
 @use "mediaQuery/tabletlandscape" as min900;
 @use "mediaQuery/pcscreen" as min1200;
 @use "mediaQuery/bigPcScreen" as min1800;
+@import "../../../node_modules/js-datepicker/src/datepicker";
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Taviraj:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 *,
 *::after,
 ::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+*a {
+  text-decoration: none;
+  color: black;
 }
 
 html {
   width: 100%;
   height: 100%;
+  scroll-behavior: smooth;
 }
 body {
   width: 100%;
   height: 100%;
+  .preloader-cont {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var.$shtesCpBckg;
+    @include mixs.flex();
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    .preeloader {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: inline-block;
+      position: relative;
+      border: 3px solid;
+      border-color: #fff #fff transparent transparent;
+      box-sizing: border-box;
+      animation: rotation 1s linear infinite;
+    }
+    .preeloader::after,
+    .preeloader::before {
+      content: "";
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      border: 3px solid;
+      border-color: transparent transparent var.$epesta var.$epesta;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      box-sizing: border-box;
+      animation: rotationBack 0.5s linear infinite;
+      transform-origin: center center;
+    }
+    .preeloader::before {
+      width: 32px;
+      height: 32px;
+      border-color: #fff #fff transparent transparent;
+      animation: rotation 1.5s linear infinite;
+    }
+  }
+
+  #modal {
+    margin: auto;
+    background-color: transparent;
+    border: none;
+    font-size: var.$s_13-26; //vetem per te rregulluar borderin
+    @include mixs.border-radius(0.3em);
+    .container {
+      @include mixs.flex();
+
+      .loader {
+        width: var.$s_50-120;
+        aspect-ratio: 1;
+        border: var.$s_10-20 solid whitesmoke;
+        border-top: var.$s_10-20 solid var.$epesta;
+        @include mixs.border-radius(50%);
+        animation: spinner 2s linear infinite;
+        margin: var.$s_13-26;
+      }
+      .errorMsg {
+        @include mixs.flex();
+
+        h3 {
+          text-align: center;
+          @include mixs.font(
+            var.$font-hind,
+            var.$s_13-31,
+            500,
+            var.$error,
+            1em 1em 0 1em,
+            0
+          );
+          text-align: center;
+        }
+        button {
+          @include mixs.button(
+            $fs: var.$s_13-31,
+            $fem: 0.1em 1.5em,
+            $fmar: 1em 0,
+            $f-bcl: var.$error,
+            $hovcl: var.$error,
+            $brdius: 0.8em
+          );
+        }
+      }
+      .res_form_cont {
+        @include mixs.flex($al: flex-start);
+        h6 {
+          //error msg
+          @include mixs.font(
+            var.$font-khula,
+            var.$s_10-20,
+            500,
+            var.$error,
+            0.1em 0,
+            0
+          );
+          display: none;
+        }
+        section {
+          @include mixs.flex($al: flex-start);
+          margin: var.$s_13-26 var.$s_20-55;
+
+          h3 {
+            @include mixs.font(
+              var.$font-hind,
+              var.$s_10-20,
+              500,
+              var.$error,
+              1em 0 0 0,
+              0
+            );
+            display: none;
+          }
+          h1 {
+            @include mixs.font(
+              var.$font-hind,
+              var.$s_25-75,
+              600,
+              var.$rsformh1,
+              0,
+              0
+            );
+          }
+        }
+        form {
+          @include mixs.flex($al: flex-start);
+          margin: 0 var.$s_20-55;
+          .checkinout,
+          .emrMbiemr {
+            margin-bottom: var.$s_10-20;
+            @include mixs.flex($dir: row, $al: flex-start);
+            > div {
+              @include mixs.flex($al: flex-start, $js: space-between);
+              .qs-datepicker-container {
+                font-size: var.$s_10-20;
+              }
+              label {
+                @include mixs.label();
+              }
+              input {
+                @include mixs.input();
+              }
+
+              input::placeholder {
+                color: var.$rsforminputcol;
+              }
+              input:focus {
+                outline: none;
+              }
+            }
+            div:last-child {
+              input {
+                margin-right: 0;
+              }
+            }
+          }
+          .checkinout {
+            flex-direction: column;
+          }
+          .email,
+          .tel {
+            margin-bottom: var.$s_10-20;
+            @include mixs.flex($al: flex-start, $js: space-between);
+            label {
+              @include mixs.label();
+            }
+            input {
+              @include mixs.input($w: 45vw);
+              margin-right: 0;
+            }
+
+            input::placeholder {
+              color: var.$rsforminputcol;
+            }
+            input:focus {
+              outline: none;
+            }
+          }
+          .femijterritur {
+            margin-bottom: var.$s_10-20;
+            @include mixs.flex($dir: row, $al: flex-start);
+            div {
+              @include mixs.flex($al: flex-start, $js: space-between);
+              label {
+                @include mixs.label();
+              }
+              select {
+                @include mixs.input();
+              }
+            }
+            div:last-child {
+              select {
+                margin-right: 0;
+              }
+            }
+          }
+          .llojiDhomes {
+            margin-bottom: var.$s_10-20;
+            @include mixs.flex($al: flex-start, $js: space-between);
+            div:first-child {
+              @include mixs.flex($al: flex-start, $js: space-between);
+              label {
+                @include mixs.label();
+              }
+              select {
+                @include mixs.input();
+                margin-right: 0;
+              }
+            }
+            .cmimiTotal {
+              border-top: 1px solid var.$rsforminputcol;
+              @include mixs.flex($js: flex-start, $dir: row);
+              margin-top: var.$s_10-20;
+              h2 {
+                @include mixs.font(
+                  var.$font-khula,
+                  var.$s_15-40,
+                  700,
+                  var.$rsformh1,
+                  0.5em 0 0 0,
+                  0
+                );
+              }
+              h4 {
+                @include mixs.font(
+                  var.$font-khula,
+                  var.$s_15-40,
+                  500,
+                  black,
+                  0.5em 0 0 0,
+                  0 0 0 8em
+                );
+              }
+            }
+          }
+          .butons {
+            @include mixs.flex($js: flex-start, $dir: row);
+            margin-bottom: var.$s_13-26;
+            button {
+              @include mixs.font(
+                var.$font-hind,
+                var.$s_15-40,
+                600,
+                black,
+                0.1em 1em,
+                0 0.8em 0 0
+              );
+              background-color: transparent;
+              border: 1px solid var.$rsformh1;
+              border-radius: 0.2em;
+              cursor: pointer;
+            }
+            button:last-child {
+              background-color: var.$rsformh1Disabled;
+              border-color: var.$rsformh1Disabled;
+              color: white;
+              transition: 0.4s;
+              cursor: not-allowed;
+            }
+          }
+        }
+      }
+      .aftr_ldr {
+        @include mixs.flex();
+        h3 {
+          @include mixs.font(
+            var.$font-hind,
+            var.$s_20-50,
+            700,
+            var.$success,
+            1em 2em 0 2em,
+            0
+          );
+          line-height: 0.4em;
+          text-align: center;
+          span {
+            font-size: var.$s_10-20; //20px
+            color: var.$rsformlabel;
+            font-weight: 600;
+          }
+        }
+        button {
+          @include mixs.button(
+            $fs: var.$s_13-31,
+
+            $fem: 0.1em 1.5em,
+            $fmar: 1em 0,
+            $f-bcl: var.$rsformlabel,
+            $hovcl: var.$epesta,
+            $brdius: 0.8em
+          );
+        }
+      }
+      .ldr {
+        width: var.$s_50-120;
+        aspect-ratio: 1;
+        border: var.$s_10-20 solid whitesmoke;
+        border-top: var.$s_10-20 solid var.$epesta;
+        @include mixs.border-radius(50%);
+        animation: spinner 2s linear infinite;
+        margin: var.$s_13-26;
+      } //transparemt modal res_form_cont_not display
+    }
+  }
+  @include min900.tabLandscBody();
+  @include min1200.minPcBody();
+  @include min1800.bigPcBody();
 }
 header {
   width: 100%;
@@ -49,6 +374,8 @@ header {
   nav {
     width: 50%;
     @include mixs.flex();
+    transform: translateY(-10%);
+    animation: scaleNav 0.5s forwards;
     ul {
       margin: var.$s_10-20 0;
       list-style-type: none;
@@ -73,7 +400,8 @@ header {
           color: var.$primarja;
         }
       }
-      .list:hover {
+
+      .list:hover a {
         transition: 0.4s;
         color: var.$epesta;
         border-bottom: 0.1em solid var.$epesta;
@@ -91,12 +419,14 @@ main {
     aspect-ratio: 1.28;
     @include mixs.flex();
     @include mixs.bckgImg(
-      $url: url("../../images/light//randomBackg/lightbc.png")
+      $url: url("../../images/light//randomBackg/rando3.png")
     );
+    transition: 1.5s;
     margin-top: var.$s_55-182;
     h1 {
       @include mixs.font(var.$font-hind, var.$s_25-75, 700, white, 0, 0);
       text-transform: uppercase;
+      opacity: 0;
     }
     p {
       @include mixs.font(
@@ -108,6 +438,10 @@ main {
         0
       );
       text-align: center;
+      opacity: 0;
+    }
+    .addUp {
+      animation: scrollUp 1s forwards;
     }
   }
 
@@ -117,6 +451,7 @@ main {
     @include mixs.flex();
     gap: var.$s_10-20;
     background-color: whitesmoke;
+    opacity: 0;
     input {
       width: 80%;
       @include mixs.font(var.$font-taviraj, var.$s_13-26, 500, black, 0.2em, 0);
@@ -174,6 +509,9 @@ main {
       }
     }
   }
+  .addLeft {
+    animation: scrollLeft 1s forwards;
+  }
   .about-cont {
     width: 100%;
     @include mixs.flex();
@@ -181,6 +519,7 @@ main {
       width: 90%;
       @include mixs.flex();
       order: 2;
+      opacity: 0;
       h1 {
         @include mixs.font(
           var.$font-khula,
@@ -233,13 +572,21 @@ main {
         }
       }
     }
+    .addRight {
+      animation: scrollRight 1s forwards;
+    }
     div {
       width: 90%;
       @include mixs.flex($dir: row);
+      opacity: 0;
+
       img {
         width: 80%;
         margin-top: var.$s_10-20;
       }
+    }
+    .addLeft {
+      animation: scrollLeft 1s forwards;
     }
   }
   .rooms-cont {
@@ -263,9 +610,14 @@ main {
         );
         text-align: center;
         // text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        opacity: 0;
       }
       h3 {
         @include mixs.font(var.$font-hind, var.$s_13-26, 400, black, 0, 0);
+        opacity: 0;
+      }
+      .addUp {
+        animation: scrollUp 1s forwards;
       }
     }
     .rooms_imgDiv {
@@ -345,6 +697,7 @@ main {
           }
           display: none;
         }
+        opacity: 0;
       }
       figure:first-child {
         .img {
@@ -360,6 +713,12 @@ main {
         .img {
           @include mixs.bckgImg($url: url("../../images/dhomehapesir.jpg"));
         }
+      }
+      .addRight {
+        animation: scrollRight 1s forwards;
+      }
+      .addLeft {
+        animation: scrollLeft 1s forwards;
       }
     }
   }
@@ -382,9 +741,14 @@ main {
         );
         text-align: center;
         // text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        opacity: 0;
       }
       h3 {
         @include mixs.font(var.$font-hind, var.$s_13-26, 400, black, 0, 0);
+        opacity: 0;
+      }
+      .addUp {
+        animation: scrollUp 1s forwards;
       }
     }
     .sherbimet_info {
@@ -394,6 +758,10 @@ main {
       > img {
         width: 100%;
         margin-bottom: var.$s_25-75;
+        opacity: 0;
+      }
+      .addLeft {
+        animation: scrollLeft 1s forwards;
       }
       .sherbimet_detail {
         width: 100%;
@@ -457,6 +825,10 @@ main {
             color: var.$epesta;
           }
         }
+        opacity: 0;
+      }
+      .addRight {
+        animation: scrollRight 1s forwards;
       }
     }
     .sherbimet_number_info {
@@ -513,6 +885,7 @@ main {
         span {
           color: var.$epesta;
         }
+        opacity: 0;
       }
       h3 {
         @include mixs.font(
@@ -523,6 +896,10 @@ main {
           0,
           var.$s_25-75 0 0 0
         );
+        opacity: 0;
+      }
+      .addUp {
+        animation: scrollUp 1s forwards;
       }
     }
     .imazhet-tab-mode {
@@ -560,6 +937,10 @@ main {
           background-color: rgba(0, 0, 0, 0.5);
         }
       }
+      opacity: 0;
+    }
+    .addUp {
+      animation: scrollUp 1s forwards;
     }
   }
   .cmimi-cont {
@@ -581,6 +962,7 @@ main {
         );
         text-align: center;
         // text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        opacity: 0;
       }
       h3 {
         @include mixs.font(
@@ -591,6 +973,10 @@ main {
           0,
           var.$s_25-75 0 0 0
         );
+        opacity: 0;
+      }
+      .addUp {
+        animation: scrollUp 1s forwards;
       }
     }
     .cmimi_cards {
@@ -654,9 +1040,16 @@ main {
             );
           }
         }
+        opacity: 0;
       }
       .card_cont:last-child {
         margin-bottom: var.$s_25-75;
+      }
+      .addRight {
+        animation: scrollRight 1s forwards;
+      }
+      .addLeft {
+        animation: scrollLeft 1s forwards;
       }
     }
   }
@@ -664,10 +1057,14 @@ main {
   //SEKSIONI I PARAFUNDIT
   .trustedus {
     width: 100%;
-    overflow-x: scroll;
-    @include mixs.flex($dir: row, $js: flex-start);
-    img {
-      width: 40%;
+    overflow: hidden;
+    display: flex;
+    .slide {
+      display: flex;
+      animation: trstdus 20s infinite linear;
+      img {
+        width: 40vw;
+      }
     }
   }
 }
@@ -676,7 +1073,7 @@ main {
 
 footer {
   width: 100%;
-  margin-top: var.$s_25-75;
+  margin-top: 0; //var.$s_25-75
   background-color: black;
   @include mixs.flex();
   color: white;
@@ -826,3 +1223,24 @@ main {
 footer {
   @include min1800.pcBigFooter();
 }
+
+//ANIMATIONS
+@include anim.scroll();
+@include anim.scrollAdd();
+@include anim.trustedUsAnimation();
+@keyframes scaleNav {
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+//Preloader
+@include anim.preload();

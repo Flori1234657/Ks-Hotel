@@ -5,14 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../src/styles/css/index.css" />
+    <script src="./bundle.js" defer></script>
     <title>Document</title>
   </head>
   <body>
+    <div class="preloader-cont"><span class="preeloader"></span></div>
+
     <header>
       <div class="logo">
         <img src="../src/images/logo.png" alt="Logua" />
 
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          id="openMenu"
+        >
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
@@ -22,15 +30,15 @@
         </svg>
       </div>
 
-      <nav>
+      <nav id="naviFshehur">
         <ul>
-          <li class="list">Kreu</li>
-          <li class="list">Rreth Nesh</li>
-          <li class="list">Dhomat</li>
-          <li class="list">Shërbimet</li>
-          <li class="list">Çmimi</li>
+          <li class="list"><a href="">Kreu</a></li>
+          <li class="list"><a href="#aboutCont">Rreth Nesh</a></li>
+          <li class="list"><a href="#roomsCont">Dhomat</a></li>
+          <li class="list"><a href="#shrbmCont">Shërbimet</a></li>
+          <li class="list"><a href="#cmimCont">Çmimi</a></li>
           <li>
-            <button>REZERVO TANI</button>
+            <button id="rezNow">REZERVO TANI</button>
           </li>
         </ul>
       </nav>
@@ -38,8 +46,8 @@
     <main>
       <!--MAIN HEADER-->
       <section class="main-section">
-        <h1>Mirësevini në Ksamil</h1>
-        <p>
+        <h1 class="up">Mirësevini në Ksamil</h1>
+        <p class="up">
           Përshëndetje!Ky është një nga Hotelet më moderne në Qytezën e
           Ksamilit, i ndodhur fare pranë detit me një pamje mahintëse dhe cmime
           konkuruese në treg.
@@ -48,47 +56,52 @@
       <!--MAIN HEADER-->
 
       <!--BOKKING FORM_________________/////////////////////////////-->
-      <form>
+      <form class="left" id="forma">
         <input
           value="Data e marrjes"
           class="textbox-n"
           type="text"
           onfocus="(this.type='date')"
+          id="datFillim"
+          min="2023-06-01"
+          max="2023-08-31"
         />
         <input
           value="Data e lënjes"
           class="textbox-n"
           type="text"
           onfocus="(this.type='date')"
+          id="datMbarim"
+          min="2023-06-01"
+          max="2023-08-31"
         />
-        <select name="adoleshentat" id="">
+        <select name="adoleshentat" id="adoleshenta">
           <option disabled selected>Adoleshentat</option>
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-          <option value="">4</option>
-          <option value="">5</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
         </select>
-        <select name="femijet" id="">
+        <select name="femijet" id="femije">
           <option disabled selected>Fëmijët</option>
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-          <option value="">4</option>
-          <option value="">5</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
         </select>
 
         <div class="dzpozic">
-          <button>Dizpozicion?</button>
-          <h3 style="display: none">Dizpozicion ose Jo</h3>
-          <button type="submit" style="display: none">Rezervo</button>
+          <button type="submit">Dizpozicion?</button>
         </div>
       </form>
       <!--BOKKING FORM-->
 
       <!--RRETH SECTION ____________________________-->
-      <section class="about-cont">
-        <article>
+      <section class="about-cont" id="aboutCont">
+        <article class="right">
           <h1>
             Mirësevini në <span>Ks Hotel</span> nga më të mirët në qytezë!
           </h1>
@@ -101,20 +114,20 @@
           </p>
           <button id="prov">LEXO</button>
         </article>
-        <div>
+        <div class="left">
           <img src="../src/images/dyshet.jpg" alt="" />
         </div>
       </section>
       <!--RRETH SECTION-->
 
       <!--ROOMS SECTION ____________________________-->
-      <section class="rooms-cont">
+      <section class="rooms-cont" id="roomsCont">
         <div class="rooms_txtDiv">
-          <h3>Zgjidh Dhomat</h3>
-          <h1>Llojet e dhomave</h1>
+          <h3 class="up">Zgjidh Dhomat</h3>
+          <h1 class="up">Llojet e dhomave</h1>
         </div>
         <div class="rooms_imgDiv">
-          <figure>
+          <figure class="right">
             <div class="img">
               <div class="rooms_info">
                 <div class="txt_btn">
@@ -128,12 +141,14 @@
                     </p>
                     <h3>$100/Për Nat</h3>
                   </div>
-                  <div class="btn_div"><button>REZERVO</button></div>
+                  <div class="btn_div">
+                    <button id="rooms-rztek">REZERVO</button>
+                  </div>
                 </div>
               </div>
             </div>
           </figure>
-          <figure>
+          <figure class="left">
             <div class="img">
               <div class="rooms_info">
                 <div class="txt_btn">
@@ -147,12 +162,14 @@
                     </p>
                     <h3>$120/Për Nat</h3>
                   </div>
-                  <div class="btn_div"><button>REZERVO</button></div>
+                  <div class="btn_div">
+                    <button id="rooms-rzcift">REZERVO</button>
+                  </div>
                 </div>
               </div>
             </div>
           </figure>
-          <figure>
+          <figure class="right">
             <div class="img">
               <div class="rooms_info">
                 <div class="txt_btn">
@@ -166,7 +183,9 @@
                     </p>
                     <h3>$150/Për Nat</h3>
                   </div>
-                  <div class="btn_div"><button>REZERVO</button></div>
+                  <div class="btn_div">
+                    <button id="rooms-rzfamiljar">REZERVO</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -176,15 +195,15 @@
       <!--ROOMS SECTION-->
 
       <!--SHERBIMET SECTION ____________________________-->
-      <section class="sherbimet-cont">
+      <section class="sherbimet-cont" id="shrbmCont">
         <div class="sherbimet_text">
-          <h3>Ne jemi këtu për ty</h3>
-          <h1>Shërbimet që ne ofrojmë</h1>
+          <h3 class="up">Ne jemi këtu për ty</h3>
+          <h1 class="up">Shërbimet që ne ofrojmë</h1>
         </div>
         <div class="sherbimet_info">
-          <img src="../src/images/sherbimetEHotelit.jpg" alt="" />
+          <img src="../src/images/sherbimetEHotelit.jpg" alt="" class="left" />
 
-          <div class="sherbimet_detail">
+          <div class="sherbimet_detail right">
             <button>
               <img src="../src/images/ikonat/Halal.png" alt="" />
             </button>
@@ -194,7 +213,7 @@
               Ne nuk përdorim dhe as lejojmë alkoolin në hotelin tonë
             </p>
           </div>
-          <div class="sherbimet_detail">
+          <div class="sherbimet_detail right">
             <button>
               <img src="../src/images/ikonat/ash.png" alt="" />
             </button>
@@ -204,7 +223,7 @@
               shkallët hoteli jonë ofron <span>ashensorët</span>.
             </p>
           </div>
-          <div class="sherbimet_detail">
+          <div class="sherbimet_detail right">
             <button>
               <img src="../src/images/ikonat/restor.png" alt="" />
             </button>
@@ -214,7 +233,7 @@
               mbrekullueshme,pasi ndodhet në pjesën më të lartme të hotelit.
             </p>
           </div>
-          <div class="sherbimet_detail">
+          <div class="sherbimet_detail right">
             <button>
               <img src="../src/images/ikonat/sallKonf.png" alt="" />
             </button>
@@ -229,19 +248,19 @@
         <div class="sherbimet_number_info">
           <section>
             <div>
-              <h1>23212+</h1>
+              <h1 class="numratHiden" id="njTeKenaq">23212+</h1>
               <p>Njerëz të kënaqur</p>
             </div>
             <div>
-              <h1>1320+</h1>
+              <h1 class="numratHiden" id="njTeRinj">1320+</h1>
               <p>Klienta të rinj</p>
             </div>
             <div>
-              <h1>13200+</h1>
+              <h1 class="numratHiden" id="vlrMePesYj">13200+</h1>
               <p>Vlerësuar me 5 yje</p>
             </div>
             <div>
-              <h1>1396+</h1>
+              <h1 class="numratHiden" id="rezOnline">1396+</h1>
               <p>Rezervime online</p>
             </div>
           </section>
@@ -252,46 +271,41 @@
       <!--Foto Carusel______________________________-->
       <section class="caruselCont">
         <div class="carusel_title">
-          <h3>Imazhet më të mira</h3>
-          <h1>Disa nga imazhet e <span>Ks Hotel</span></h1>
+          <h3 class="up">Imazhet më të mira</h3>
+          <h1 class="up">Disa nga imazhet e <span>Ks Hotel</span></h1>
         </div>
         <div class="imazhet-tab-mode">
-          <img src="../src/images/gallery/gallery1.jpg" alt="" /><img
+          <img
+            src="../src/images/gallery/gallery1.jpg"
+            alt=""
+            class="imazhs"
+            id="gallImg1"
+          />
+          <img
             src="../src/images/gallery/gallery2.jpg"
             alt=""
-          /><img src="../src/images/gallery/gallery3.jpg" alt="" />
+            class="imazhs"
+            id="gallImg2"
+          />
+          <img
+            src="../src/images/gallery/gallery3.jpg"
+            alt=""
+            class="imazhs"
+            id="gallImg3"
+          />
         </div>
-        <div class="cont_photo_carusel">
+        <div class="cont_photo_carusel up">
           <div>
-            >
-            <button>
+            <button id="circleButon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
-                class="bi bi-circle-fill"
+                class="bi bi-caret-right"
                 viewBox="0 0 16 16"
               >
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-            </button>
-            <button>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                class="bi bi-circle-fill"
-                viewBox="0 0 16 16"
-              >
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-            </button>
-            <button>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                class="bi bi-circle-fill"
-                viewBox="0 0 16 16"
-              >
-                <circle cx="8" cy="8" r="8" />
+                <path
+                  d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"
+                />
               </svg>
             </button>
           </div>
@@ -300,13 +314,13 @@
       <!--Foto Carusel-->
 
       <!--CMIMI SECTION ____________________________-->
-      <section class="cmimi-cont">
+      <section class="cmimi-cont" id="cmimCont">
         <div class="cmimi_txt">
-          <h3>Çmime konkuruese</h3>
-          <h1>Çmimet tona</h1>
+          <h3 class="up">Çmime konkuruese</h3>
+          <h1 class="up">Çmimet tona</h1>
         </div>
         <div class="cmimi_cards">
-          <div class="card_cont">
+          <div class="card_cont right">
             <div>
               <h2>Familjare</h2>
               <h4>Gjeri 5 persona për hyrje</h4>
@@ -316,10 +330,10 @@
             </div>
             <div>
               <h1>$150<span>/NATA</span></h1>
-              <button>Rezervo</button>
+              <button id="cards-rzvfamiljar">Rezervo</button>
             </div>
           </div>
-          <div class="card_cont">
+          <div class="card_cont left">
             <div>
               <h2>Tek Person</h2>
               <h4>Mëngjesi nga Hoteli</h4>
@@ -329,10 +343,10 @@
             </div>
             <div>
               <h1>$100<span>/NATA</span></h1>
-              <button>Rezervo</button>
+              <button id="cards-rzvtek">Rezervo</button>
             </div>
           </div>
-          <div class="card_cont">
+          <div class="card_cont right">
             <div>
               <h2>Çift</h2>
               <h4>Hyrje të izoluara nga zhurmat</h4>
@@ -342,7 +356,7 @@
             </div>
             <div>
               <h1>$120<span>/NATA</span></h1>
-              <button>Rezervo</button>
+              <button id="cards-rzvcift">Rezervo</button>
             </div>
           </div>
         </div>
@@ -350,26 +364,74 @@
       <!--CMIMI SECTION-->
 
       <section class="trustedus">
-        <img
-          src="../src/images/bizneset/boat-tours-logo-zip-file/png/logo-color.png"
-          alt="Boat Tours"
-        />
-        <img
-          src="../src/images/bizneset/ks-rent-logo-zip-file/png/logo-black.png"
-          alt="Ks Rent"
-        />
-        <img
-          src="../src/images/bizneset/ksamili-butik-logo-zip-file/png/logo-color.png"
-          alt="Ksamil Butik"
-        />
-        <img
-          src="../src/images/bizneset/medina-agency-logo-zip-file/png/logo-color.png"
-          alt="Meina Agency"
-        />
-        <img
-          src="../src/images/bizneset/restorant-nur-logo-zip-file/png/logo-black.png"
-          alt="Restorant Nur"
-        />
+        <div class="slide">
+          <img
+            src="../src/images/bizneset/boat-tours-logo-zip-file/png/logo-color.png"
+            alt="Boat Tours"
+          />
+          <img
+            src="../src/images/bizneset/ks-rent-logo-zip-file/png/logo-black.png"
+            alt="Ks Rent"
+          />
+          <img
+            src="../src/images/bizneset/ksamili-butik-logo-zip-file/png/logo-color.png"
+            alt="Ksamil Butik"
+          />
+          <img
+            src="../src/images/bizneset/medina-agency-logo-zip-file/png/logo-color.png"
+            alt="Meina Agency"
+          />
+          <img
+            src="../src/images/bizneset/restorant-nur-logo-zip-file/png/logo-black.png"
+            alt="Restorant Nur"
+          />
+          <img
+            src="../src/images/bizneset/servis-ksamili-logo-zip-file/png/logo-black.png"
+            alt="Servis Makinash"
+          />
+          <img
+            src="../src/images/bizneset/posta-ks-logo-zip-file/png/logo-black.png"
+            alt="Post Agency"
+          />
+          <img
+            src="../src/images/bizneset/interksnet-logo-zip-file/png/logo-black.png"
+            alt="Post Agency"
+          />
+        </div>
+        <div class="slide">
+          <img
+            src="../src/images/bizneset/boat-tours-logo-zip-file/png/logo-color.png"
+            alt="Boat Tours"
+          />
+          <img
+            src="../src/images/bizneset/ks-rent-logo-zip-file/png/logo-black.png"
+            alt="Ks Rent"
+          />
+          <img
+            src="../src/images/bizneset/ksamili-butik-logo-zip-file/png/logo-color.png"
+            alt="Ksamil Butik"
+          />
+          <img
+            src="../src/images/bizneset/medina-agency-logo-zip-file/png/logo-color.png"
+            alt="Meina Agency"
+          />
+          <img
+            src="../src/images/bizneset/restorant-nur-logo-zip-file/png/logo-black.png"
+            alt="Restorant Nur"
+          />
+          <img
+            src="../src/images/bizneset/servis-ksamili-logo-zip-file/png/logo-black.png"
+            alt="Servis Makinash"
+          />
+          <img
+            src="../src/images/bizneset/posta-ks-logo-zip-file/png/logo-black.png"
+            alt="Post Agency"
+          />
+          <img
+            src="../src/images/bizneset/interksnet-logo-zip-file/png/logo-black.png"
+            alt="Post Agency"
+          />
+        </div>
       </section>
     </main>
     <footer>
@@ -501,6 +563,125 @@
         </h3>
       </div>
     </footer>
+    <!--MODAL-->
+    <dialog id="modal">
+      <div class="container">
+        <div class="loader"></div>
+        <div class="errorMsg" style="display: none">
+          <h3>
+            Nuk u lidha dot me serverin!
+            <br />
+            Ju lutem provoni më vonë.
+          </h3>
+          <button id="ringarko">Ringarko</button>
+        </div>
+        <div class="res_form_cont" style="display: none">
+          <section>
+            <h3 class="kaOseSkaGjendje">Ka ose jo Gjendje</h3>
+            <h1>Rezervoni</h1>
+          </section>
+          <form>
+            <div class="emrMbiemr">
+              <div class="emr">
+                <label>Emri</label>
+                <input type="text" placeholder="Emri" id="emriInput" />
+                <h6>Error</h6>
+              </div>
+              <div class="mbiemr">
+                <label>Mbiemri</label>
+                <input type="text" placeholder="Mbiemri" id="mbiemriInput" />
+                <h6>Error</h6>
+              </div>
+            </div>
+            <div class="femijterritur">
+              <div>
+                <label>Të rritur</label>
+                <select id="selectTeRritur">
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <h6>Error</h6>
+              </div>
+              <div>
+                <label>Fëmijë</label>
+                <select id="selectFemije">
+                  <option value="0" selected>0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <h6>Error</h6>
+              </div>
+            </div>
+            <div class="checkinout">
+              <div class="ardh">
+                <label>Ardhja</label>
+                <input type="text" placeholder="ardhja" id="ardhjaForme" />
+                <h6 id="ardhjaError">Error</h6>
+              </div>
+              <div class="ikj">
+                <label>Ikja</label>
+                <input type="text" placeholder="ikja" id="ikjaForme" />
+                <h6 id="ikjaError">Error</h6>
+              </div>
+            </div>
+            <div class="email">
+              <label>Email</label>
+              <input type="email" placeholder="Email" id="emailForme" />
+              <h6>Error</h6>
+            </div>
+            <div class="tel">
+              <label>Telefoni</label>
+              <input type="tel" placeholder="Telefoni" id="telefoniForme" />
+              <h6>Error</h6>
+            </div>
+            <div class="llojiDhomes">
+              <div class="select-dhomat">
+                <label>Dhomat në Dizpozicion</label>
+                <select id="dhomatDizpozicSelc">
+                  <option value="zgjidh" selected disabled>Zgjidh</option>
+                  <option value="dhomteke" id="dhomTekOpt">Dhomë Teke</option>
+                  <option value="dhomcift" id="dhomÇiftOpt">Dhomë Çift</option>
+                  <option value="dhomfamiljare" id="dhomFamilOpt">
+                    Dhomë Familjare
+                  </option>
+                </select>
+                <h6>Error</h6>
+              </div>
+              <div class="cmimiTotal">
+                <h2>Totali</h2>
+                <h4 id="totaliLek">$0</h4>
+              </div>
+            </div>
+            <div class="butons">
+              <button id="anulloFormBtn">Anullo</button>
+              <button type="submit" id="rezervoFormBtn" disabled>
+                Rezervo
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="aftr_ldr" style="display: none">
+          <h3>
+            Sukses!<br />
+            <span
+              >Do të merrni një njoftim <br />
+              me email ose telefon brënda ditës. <br />
+              Nëse rezervimi juaj është pranuar</span
+            >
+          </h3>
+          <button id="afterSbmDil">Dil</button>
+        </div>
+
+        <div class="ldr" style="display: none"></div>
+      </div>
+    </dialog>
   </body>
   <!--MArkup Perfundoi INSHAALLAH-->
 </html>

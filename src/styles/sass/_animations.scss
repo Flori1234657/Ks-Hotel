@@ -1,1 +1,140 @@
 @use "var" as var;
+
+@mixin scroll() {
+  @keyframes scrup {
+    0% {
+      transform: translateY(140%);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes scrupPja {
+    0% {
+      transform: translateY(140%);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes scranashForm {
+    0% {
+      transform: translateX(140%);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+@mixin scrollAdd() {
+  @keyframes scrollUp {
+    0% {
+      transform: translateY(140%);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(140%);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes scrollDown {
+    0% {
+      transform: translateY(-140%);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes scrollRight {
+    0% {
+      transform: translateX(-140%);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+@mixin scrollPc() {
+  @keyframes treshjaAnash {
+    0% {
+      transform: rotateX(180deg);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: rotateX(360deg);
+    }
+  }
+  @keyframes treshjaMes {
+    0% {
+      transform: rotateY(180deg);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: rotateY(360deg);
+    }
+  }
+  @keyframes treshjaMesDy {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: scale(100%);
+    }
+  }
+}
+
+@mixin trustedUsAnimation() {
+  @keyframes trstdus {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+@mixin preload() {
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotationBack {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+}
