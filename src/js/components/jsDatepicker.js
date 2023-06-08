@@ -23,15 +23,15 @@ let disabledPastDate;
 //Bllokojme te gjitha datat nga sot e pas InshaaAllah
 const disablePastDates = () => {
   const disabledPastDat = [];
-
-  if (dataSot.getDate() == 7) {
+  console.log(dataSot.getDate());
+  if (dataSot.getMonth() == 7) {
     for (let i = Number(dataSot.getDate()); i > 0; i--) {
       disabledPastDat.push(`${currentYear}, ${dataSot.getMonth()}, ${i}`);
     }
     for (let i = 30; i > 0; i--) {
       disabledPastDat.push(`${currentYear}, 6, ${i}`);
     }
-  } else if (dataSot.getDate() == 8) {
+  } else if (dataSot.getMonth() == 8) {
     for (let i = Number(dataSot.getDate()); i > 0; i--) {
       disabledPastDat.push(`${currentYear}, ${dataSot.getMonth()}, ${i}`);
     }

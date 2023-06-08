@@ -23890,15 +23890,15 @@ let disabledPastDate;
 //Bllokojme te gjitha datat nga sot e pas InshaaAllah
 const disablePastDates = () => {
   const disabledPastDat = [];
-
-  if (dataSot.getDate() == 7) {
+  console.log(dataSot.getDate());
+  if (dataSot.getMonth() == 7) {
     for (let i = Number(dataSot.getDate()); i > 0; i--) {
       disabledPastDat.push(`${currentYear}, ${dataSot.getMonth()}, ${i}`);
     }
     for (let i = 30; i > 0; i--) {
       disabledPastDat.push(`${currentYear}, 6, ${i}`);
     }
-  } else if (dataSot.getDate() == 8) {
+  } else if (dataSot.getMonth() == 8) {
     for (let i = Number(dataSot.getDate()); i > 0; i--) {
       disabledPastDat.push(`${currentYear}, ${dataSot.getMonth()}, ${i}`);
     }
@@ -24687,6 +24687,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const modali = document.getElementById("modal");
 let id;
+const drgTime = new Date();
 
 const dergoObjektin = async () => {
   document.getElementById("afterSbmDil").addEventListener("click", () => {
@@ -24700,6 +24701,20 @@ const dergoObjektin = async () => {
   document.querySelector(".ldr").style.display = "block";
 
   id = `${_validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.ardhja.value.match(/\d+/g)}-${_validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.ikja.value.match(/\d+/g)}`;
+  let dhomaPerDergim;
+
+  const setDhmPrDrg = () => {
+    if (_validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.dhDizpozicion.value == "dhomteke") {
+      dhomaPerDergim = "dhomTeke";
+    } else if (_validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.dhDizpozicion.value == "dhomfamiljare") {
+      dhomaPerDergim = "dhomFamiljare";
+    } else if (_validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.dhDizpozicion.value == "dhomcift") {
+      dhomaPerDergim = "dhomCift";
+    }
+  };
+
+  setDhmPrDrg();
+
   const rezervimi = {
     idja: id,
     emri: _validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.emri.value,
@@ -24708,11 +24723,17 @@ const dergoObjektin = async () => {
       femij: _validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.selectFemije.value,
       teRritur: _validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.selectTeRitur.value,
     },
+    derguarNe: {
+      data: `${drgTime.getDate()}/${
+        Number(drgTime.getMonth()) + 1
+      }/${drgTime.getFullYear()}`,
+      ora: `${drgTime.getHours()}:${drgTime.getMinutes()}`,
+    },
     ditaArdjhes: _validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.ardhja.value,
     ditaIkjes: _validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.ikja.value,
     email: _validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.email.value,
     telefon: _validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.telefon.value,
-    dhoma: _validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.dhDizpozicion.value,
+    dhoma: dhomaPerDergim,
     ditetEQendrimitL: _validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.ditetQendrimitArrAutofill,
     perTuPaguar: _validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.lekTotal.innerHTML,
     pranuar: false,
@@ -24722,6 +24743,7 @@ const dergoObjektin = async () => {
       document.querySelector(".ldr").style.display = "none";
       document.querySelector(".aftr_ldr").style.display = "flex";
     });
+    // await addDoc(collection(db, "Dizpozicioni"), newObj); shto direkt ne firestore
   } catch (error) {
     console.log(error);
     alert("Pati një problem ju lutem provoni më vonë");
