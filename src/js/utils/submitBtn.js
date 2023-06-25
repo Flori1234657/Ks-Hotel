@@ -28,7 +28,7 @@ export const dergoObjektin = async () => {
   modali.style.backgroundClip = "transparent";
   document.querySelector(".ldr").style.display = "block";
 
-  id = `${ardhja.value.match(/\d+/g)}-${ikja.value.match(/\d+/g)}`;
+  id = `${emri.value}_${telefon.value}_${mbiemri.value}`;
   let dhomaPerDergim;
 
   const setDhmPrDrg = () => {

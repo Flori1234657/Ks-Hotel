@@ -24700,7 +24700,7 @@ const dergoObjektin = async () => {
   modali.style.backgroundClip = "transparent";
   document.querySelector(".ldr").style.display = "block";
 
-  id = `${_validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.ardhja.value.match(/\d+/g)}-${_validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.ikja.value.match(/\d+/g)}`;
+  id = `${_validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.emri.value}_${_validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.telefon.value}_${_validateDizpozicion__WEBPACK_IMPORTED_MODULE_0__.mbiemri.value}`;
   let dhomaPerDergim;
 
   const setDhmPrDrg = () => {
