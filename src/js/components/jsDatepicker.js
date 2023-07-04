@@ -10,7 +10,7 @@ const submitBtn = document.getElementById("rezervoFormBtn");
 let disabledDatesQershor = [];
 let disabledDatesKorrig = [];
 let disabledDatesGusht = [];
-//Kto posht per ti ekportuar para se te boshatisen arrayt lart
+//Kto posht per ti eksportuar para se te boshatisen arrayt lart
 export let disabledDatesQershorExport;
 export let disabledDatesKorrigExport;
 export let disabledDatesGushtExport;
@@ -18,40 +18,41 @@ export let disabledDatesGushtExport;
 export const currentYear = new Date().getFullYear();
 const dataSot = new Date();
 
-let disabledPastDate;
+const disabledPastDate = [];
 
 //Bllokojme te gjitha datat nga sot e pas InshaaAllah
-const disablePastDates = () => {
-  const disabledPastDat = [];
+let dsbDatI = Number(dataSot.getDate());
 
-  if (dataSot.getMonth() == 7) {
-    for (let i = Number(dataSot.getDate()); i > 0; i--) {
-      disabledPastDat.push(`${currentYear}, ${dataSot.getMonth()}, ${i}`);
+const disablePastDates = (muaj) => {
+  if (dsbDatI === 0) return;
+
+  if (muaj == 6) {
+    disabledPastDate.push(`${currentYear}, ${muaj}, ${dsbDatI}`);
+    dsbDatI--;
+    disablePastDates(muaj);
+  } else if (muaj == 7) {
+    disabledPastDate.push(`${currentYear}, ${muaj}, ${dsbDatI}`);
+    if (dsbDatI === 1) {
+      dsbDatI = 30;
+      disablePastDates(6);
+      return;
     }
-    for (let i = 30; i > 0; i--) {
-      disabledPastDat.push(`${currentYear}, 6, ${i}`);
+    dsbDatI--;
+    disablePastDates(7);
+  } else if (muaj == 8) {
+    disabledPastDate.push(`${currentYear}, ${muaj}, ${dsbDatI}`);
+    if (dsbDatI === 1) {
+      dsbDatI = 31;
+      disablePastDates(7);
+      return;
     }
-  } else if (dataSot.getMonth() == 8) {
-    for (let i = Number(dataSot.getDate()); i > 0; i--) {
-      disabledPastDat.push(`${currentYear}, ${dataSot.getMonth()}, ${i}`);
-    }
-    for (let i = 31; i > 0; i--) {
-      disabledPastDat.push(`${currentYear}, 7, ${i}`);
-    }
-    for (let i = 30; i > 0; i--) {
-      disabledPastDat.push(`${currentYear}, 6, ${i}`);
-    }
-  } else {
-    for (let i = Number(dataSot.getDate()); i > 0; i--) {
-      disabledPastDat.push(`${currentYear}, ${dataSot.getMonth()}, ${i}`);
-    }
+    dsbDatI--;
+    disablePastDates(8);
   }
-
-  disabledPastDate = disabledPastDat;
 };
 
 export const getFirestoreDate = async () => {
-  disablePastDates();
+  disablePastDates(dataSot.getMonth() + 1);
   try {
     const docs = await getDocs(collection(db, "Dizpozicioni")).then((dc) => {
       return dc.docs.map((el) => {
