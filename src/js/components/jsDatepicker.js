@@ -23,7 +23,7 @@ let disabledPastDate;
 //Bllokojme te gjitha datat nga sot e pas InshaaAllah
 const disablePastDates = () => {
   const disabledPastDat = [];
-  console.log(dataSot.getDate());
+
   if (dataSot.getMonth() == 7) {
     for (let i = Number(dataSot.getDate()); i > 0; i--) {
       disabledPastDat.push(`${currentYear}, ${dataSot.getMonth()}, ${i}`);

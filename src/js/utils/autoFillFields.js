@@ -18,28 +18,24 @@ const dhomCift = document.getElementById("dhomÇiftOpt");
 const dhomFamil = document.getElementById("dhomFamilOpt");
 const lekTotal = document.getElementById("totaliLek");
 
-let llDhoms = "";
-let lekNata = 0;
+const roomsObj = {
+  dhomFamiljare: 150,
+  dhomCift: 120,
+  dhomTeke: 100,
+};
+
+let llDhoms = llojIDhomes.toLowerCase();
+let lekNata = roomsObj[llojIDhomes];
 
 const autoComplete = () => {
-  if (llojIDhomes == "dhomFamiljare") {
-    llDhoms = "dhomfamiljare";
-    lekNata = 150;
-  } else if (llojIDhomes == "dhomCift") {
-    llDhoms = "dhomcift";
-    lekNata = 120;
-  } else if (llojIDhomes == "dhomTeke") {
-    llDhoms = "dhomteke";
-    lekNata = 100;
-  }
-
   //Ndryshojme formatin InshaaAllah nese na duhet
+  const pathMatch = value.match(/\d{4}|(?<=-0)\d|(?<=-)[^0]\d+/g);
   if (/\d+-\d+-\d+/g.test(checkIn.value)) {
-    const datatA = checkIn.value.match(/\d{4}|(?<=-0)\d|(?<=-)[^0]\d+/g);
+    const datatA = checkIn[pathMatch];
     ardhja.value = `${datatA[1]}/${datatA[2]}/${datatA[0]}`; //muaj/dit/vit
   }
   if (/\d+-\d+-\d+/g.test(checkOut.value)) {
-    const datatB = checkOut.value.match(/\d{4}|(?<=-0)\d|(?<=-)[^0]\d+/g);
+    const datatB = checkOut[pathMatch];
     ikja.value = `${datatB[1]}/${datatB[2]}/${datatB[0]}`;
   }
   selectTeRitur.value = adoleshent.value;
