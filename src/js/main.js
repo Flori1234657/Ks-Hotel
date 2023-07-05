@@ -63,21 +63,12 @@ function mainBckgChange() {
   let final = array[Math.floor(Math.random() * (4 - 0) + 0)];
   mainBck.style.backgroundImage = `url(${final})`;
 }
-setInterval(() => {
-  mainBckgChange();
-}, 3000);
 
 //Ndryshimi i imazheve te galeris
 function galleryChange() {
-  const array1 = a1;
-  const array2 = a2;
-  const array3 = a3;
+  const el = Math.floor(Math.random() * (5 - 0) + 0);
 
-  let final1 = array1[Math.floor(Math.random() * (5 - 0) + 0)];
-
-  let final2 = array2[Math.floor(Math.random() * (5 - 0) + 0)];
-
-  let final3 = array3[Math.floor(Math.random() * (5 - 0) + 0)];
+  const [final1, final2, final3] = [a1[el], a2[el], a3[el]];
 
   if (final1 === final2 || final2 === final3 || final1 === final3) {
     return;
@@ -90,19 +81,20 @@ function galleryChange() {
     img3.setAttribute("src", `${final3}`);
   }
 }
+//I therrasim func e ndryshimeve ktu InshaaAllah
 setInterval(() => {
+  mainBckgChange();
   galleryChange();
 }, 3000);
 
 let rritNr = 0;
 ndrroImazhBtn.addEventListener("click", () => {
-  const array = a1;
-  if (rritNr == array.length - 1) {
+  if (rritNr == a1.length - 1) {
     rritNr = 0;
-    karuseliImazheveTelefon.style.backgroundImage = `url(${array[rritNr]})`;
+    karuseliImazheveTelefon.style.backgroundImage = `url(${a1[rritNr]})`;
   } else {
     rritNr += 1;
-    karuseliImazheveTelefon.style.backgroundImage = `url(${array[rritNr]})`;
+    karuseliImazheveTelefon.style.backgroundImage = `url(${a1[rritNr]})`;
   }
 });
 

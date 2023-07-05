@@ -24414,6 +24414,8 @@ let lidhjaMeServerin = false;
 let llojIDhomes = "";
 let arrLength = "";
 
+const datSot = new Date();
+
 const submitForm = async () => {
   const datObj = {
     fillim: checkIn.value.match(/(?<=-0)\d|(?<=-)[^0]\d+/g), //[2,11] shembull
@@ -24422,144 +24424,154 @@ const submitForm = async () => {
     femij: femijet.value,
   };
 
+  const muajMeEmrObj = {
+    6: "qershor",
+    7: "korrig",
+    8: "gusht",
+  };
+
   const dataFiltruar = {
     ardhja: {
       data: datObj.fillim[1],
-      muaj: datObj.fillim[0],
+      muaj: muajMeEmrObj[datObj.fillim[0]],
     },
     ikja: {
       data: datObj.mbarim[1],
-      muaj: datObj.mbarim[0],
+      muaj: muajMeEmrObj[datObj.mbarim[0]],
     },
   };
 
-  //Ndryshim nga numra ne muaj me emer dhe heqja e zerove para numrave
-  if (dataFiltruar.ardhja.muaj == "6") {
-    dataFiltruar.ardhja.muaj = "qershor";
-  } else if (dataFiltruar.ardhja.muaj == "7") {
-    dataFiltruar.ardhja.muaj = "korrig";
-  } else if (dataFiltruar.ardhja.muaj == "8") {
-    dataFiltruar.ardhja.muaj = "gusht";
-  }
+  const dataSot = `${datSot.getDate()}${
+    datSot.getMonth() + 1
+  }${datSot.getFullYear()}`;
+  const ardhjaFull = `${datObj.fillim[1]}${
+    datObj.fillim[0]
+  }${datSot.getFullYear()}`;
 
-  if (dataFiltruar.ikja.muaj == "6") {
-    dataFiltruar.ikja.muaj = "qershor";
-  } else if (dataFiltruar.ikja.muaj == "7") {
-    dataFiltruar.ikja.muaj = "korrig";
-  } else if (dataFiltruar.ikja.muaj == "8") {
-    dataFiltruar.ikja.muaj = "gusht";
-  }
+  //Dmth nese personi ka zgjedhur nje dat qe eshte mbas dates se sotme mbyllim funksionin InshaaAllah
+  if (Number(datSot) >= Number(ardhjaFull)) {
+    dizP = false;
+    lidhjaMeServerin = true; //qe mos te na japi error
+    return;
+  } else {
+    try {
+      const docs = await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.getDocs)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.collection)(_config_firebase_js__WEBPACK_IMPORTED_MODULE_1__.db, "Dizpozicioni")).then((dc) => {
+        lidhjaMeServerin = true;
 
-  try {
-    const docs = await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.getDocs)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_0__.collection)(_config_firebase_js__WEBPACK_IMPORTED_MODULE_1__.db, "Dizpozicioni")).then((dc) => {
-      lidhjaMeServerin = true;
-
-      return dc.docs.map((el) => {
-        return el.data();
+        return dc.docs.map((el) => {
+          return el.data();
+        });
       });
-    });
 
-    //Tani InshaaAllah shikojme se cila lloj dhome na duhet
-    if (Number(datObj.adults) >= 1 && Number(datObj.femij) >= 1) {
-      llojIDhomes = "dhomFamiljare";
-    } else if (Number(datObj.adults) == 2 && Number(datObj.femij) == 0) {
-      llojIDhomes = "dhomCift";
-    } else if (Number(datObj.adults) == 1 && Number(datObj.femij) == 0) {
-      llojIDhomes = "dhomTeke";
-    } else if (Number(datObj.adults) > 2 && Number(datObj.femij) == 0) {
-      llojIDhomes = "dhomFamiljare";
-    }
+      //Tani InshaaAllah shikojme se cila lloj dhome na duhet
+      if (Number(datObj.adults) >= 1 && Number(datObj.femij) >= 1) {
+        llojIDhomes = "dhomFamiljare";
+      } else if (Number(datObj.adults) === 2 && Number(datObj.femij) === 0) {
+        llojIDhomes = "dhomCift";
+      } else if (Number(datObj.adults) === 1 && Number(datObj.femij) === 0) {
+        llojIDhomes = "dhomTeke";
+      } else if (Number(datObj.adults) > 2 && Number(datObj.femij) === 0) {
+        llojIDhomes = "dhomFamiljare";
+      }
 
-    docs.forEach((el) => {
-      //kemi vetem nje dokument
-      if (
-        /(gusht)|(korrig)|(qershor)/g.test(dataFiltruar.ardhja.muaj) &&
-        /(gusht)|(korrig)|(qershor)/g.test(dataFiltruar.ikja.muaj)
-      ) {
-        const dataArdhjes = dataFiltruar.ardhja.data;
-        const dataIkjes = dataFiltruar.ikja.data;
+      docs.forEach((el) => {
+        //kemi vetem nje dokument
+        if (
+          /(gusht)|(korrig)|(qershor)/g.test(dataFiltruar.ardhja.muaj) &&
+          /(gusht)|(korrig)|(qershor)/g.test(dataFiltruar.ikja.muaj)
+        ) {
+          const dataArdhjes = dataFiltruar.ardhja.data;
+          const dataIkjes = dataFiltruar.ikja.data;
+          const muajArdhjes = dataFiltruar.ardhja.muaj;
+          const muajIkjes = dataFiltruar.ikja.muaj;
 
-        const datQendrimitArr = [];
+          const datQendrimitArr = [];
 
-        //INSHAAALLAH sigurohemi qe mos te zgjedhin datat gabim
-        //31 gushti|30 qershor|31 korrigu
-        if (dataFiltruar.ardhja.muaj != dataFiltruar.ikja.muaj) {
-          if (
-            /qershor/g.test(dataFiltruar.ardhja.muaj) &&
-            /korrig/g.test(dataFiltruar.ikja.muaj)
-          ) {
+          const checkSubmit = (lloj) => {
             checkSubmitFunc(
               dataArdhjes,
               dataIkjes,
               datQendrimitArr,
               el,
               dataFiltruar,
-              "q-k",
+              lloj,
               llojIDhomes
             );
+          };
+
+          //INSHAAALLAH sigurohemi qe mos te zgjedhin datat gabim
+          //31 gushti|30 qershor|31 korrigu
+          if (muajArdhjes != muajIkjes) {
+            if (muajArdhjes === "qershor" && muajIkjes === "korrig") {
+              checkSubmit("q-k");
+            } else if (
+              (/gusht|korrig/g.test(muajArdhjes) &&
+                /qershor/g.test(muajIkjes)) ||
+              (/gusht/g.test(muajArdhjes) && /korrig/g.test(muajIkjes))
+            ) {
+              dizP = false;
+              alert("Ju lutem shikojini dhe njëher datat"); //Ktu InshaaAllah duhet te bej qe te dali nje mesazh ne UI
+            } else if (
+              /korrig/g.test(muajArdhjes) &&
+              /gusht/g.test(muajIkjes)
+            ) {
+              checkSubmit("k-g");
+            } else if (
+              /qershor/g.test(muajArdhjes) &&
+              /gusht/g.test(muajIkjes)
+            ) {
+              checkSubmit("q-g");
+            }
           } else if (
-            (/gusht|korrig/g.test(dataFiltruar.ardhja.muaj) &&
-              /qershor/g.test(dataFiltruar.ikja.muaj)) ||
-            (/gusht/g.test(dataFiltruar.ardhja.muaj) &&
-              /korrig/g.test(dataFiltruar.ikja.muaj))
+            muajArdhjes == muajIkjes &&
+            Number(dataArdhjes) < Number(dataIkjes)
+          ) {
+            checkSubmit("thjesht");
+          } else if (
+            muajArdhjes == muajIkjes &&
+            Number(dataArdhjes) > Number(dataIkjes)
           ) {
             dizP = false;
-            alert("Ju lutem shikojini dhe njëher datat"); //Ktu InshaaAllah duhet te bej qe te dali nje mesazh ne UI
-          } else if (
-            /korrig/g.test(dataFiltruar.ardhja.muaj) &&
-            /gusht/g.test(dataFiltruar.ikja.muaj)
-          ) {
-            checkSubmitFunc(
-              dataArdhjes,
-              dataIkjes,
-              datQendrimitArr,
-              el,
-              dataFiltruar,
-              "k-g",
-              llojIDhomes
-            );
-          } else if (
-            /qershor/g.test(dataFiltruar.ardhja.muaj) &&
-            /gusht/g.test(dataFiltruar.ikja.muaj)
-          ) {
-            checkSubmitFunc(
-              dataArdhjes,
-              dataIkjes,
-              datQendrimitArr,
-              el,
-              dataFiltruar,
-              "q-g",
-              llojIDhomes
-            );
+            alert("Ju Lutem Shenoni Datat Sakte"); //Ktu InshaaAllah duhet te bej qe te dali nje mesazh ne UI
           }
-        } else if (
-          dataFiltruar.ardhja.muaj == dataFiltruar.ikja.muaj &&
-          Number(dataArdhjes) < Number(dataIkjes)
-        ) {
-          checkSubmitFunc(
-            dataArdhjes,
-            dataIkjes,
-            datQendrimitArr,
-            el,
-            dataFiltruar,
-            "thjesht",
-            llojIDhomes
-          );
-        } else if (
-          dataFiltruar.ardhja.muaj == dataFiltruar.ikja.muaj &&
-          Number(dataArdhjes) > Number(dataIkjes)
-        ) {
+        } else {
           dizP = false;
-          alert("Ju Lutem Shenoni Datat Sakte"); //Ktu InshaaAllah duhet te bej qe te dali nje mesazh ne UI
         }
-      } else {
-        dizP = false;
-      }
-    });
-  } catch (error) {
-    console.log(error);
-    lidhjaMeServerin = false;
-    return;
+      });
+    } catch (error) {
+      console.log(error);
+      lidhjaMeServerin = false;
+      return;
+    }
+  }
+};
+
+const futDitetEQendrimit = (lloji, ardh, ikj, arr) => {
+  if (lloji == "thjesht") {
+    arr.push(ardh);
+    if (ardh == ikj) return;
+    futDitetEQendrimit(lloji, Number(ardh) + 1, ikj, arr);
+  }
+
+  if (lloji == "q-k") {
+    arr.push(ardh);
+    ardh == 30
+      ? futDitetEQendrimit("thjesht", 1, ikj, arr)
+      : futDitetEQendrimit(lloji, Number(ardh) + 1, ikj, arr);
+  }
+
+  if (lloji == "k-g") {
+    arr.push(ardh);
+    ardh == 31
+      ? futDitetEQendrimit("thjesht", 1, ikj, arr)
+      : futDitetEQendrimit(lloji, Number(ardh) + 1, ikj, arr);
+  }
+
+  if (lloji == "q-g") {
+    arr.push(ardh);
+    ardh == 30
+      ? futDitetEQendrimit("k-g", 1, ikj, arr)
+      : futDitetEQendrimit(lloji, Number(ardh) + 1, ikj, arr);
   }
 };
 
@@ -24572,44 +24584,17 @@ const checkSubmitFunc = (
   lloji,
   llojiDhomes
 ) => {
-  if (lloji == "q-k") {
-    //bejme llojet qe na duhen ne varsi te lidhjes te muajve
-    for (let i = Number(ardhja); i <= 30; i++) {
-      //Tani InshaaAllah fusim renditjen e duhur te datave ne array
-      arr.push(i);
-    }
-    for (let i = 1; i <= Number(ikja); i++) {
-      arr.push(i);
-    }
-  } else if (lloji == "thjesht") {
-    for (let i = Number(ardhja); i <= Number(ikja); i++) {
-      arr.push(i);
-    }
-  } else if (lloji == "k-g") {
-    for (let i = Number(ardhja); i <= 31; i++) {
-      arr.push(i);
-    }
-    for (let i = 1; i <= Number(ikja); i++) {
-      arr.push(i);
-    }
-  } else if (lloji == "q-g") {
-    for (let i = Number(ardhja); i <= 30; i++) {
-      arr.push(i);
-    }
-    for (let i = 1; i <= 31; i++) {
-      arr.push(i);
-    }
-    for (let i = 1; i <= Number(ikja); i++) {
-      arr.push(i);
-    }
-  }
+  futDitetEQendrimit(lloji, ardhja, ikja, arr);
 
   //Tani shikojme nese kemi hyrje te lira midis ketyre datave InshaaAllah
   dizP = true;
+  let datFiltruar = JSON.parse(JSON.stringify(dataFiltruar.ardhja.muaj));
+
   arr.forEach((nr) => {
-    if (
-      el.muajt[`${dataFiltruar.ardhja.muaj}`].datatDhomat[`dat${nr}`] == null
-    ) {
+    const path =
+      el.muajt[`${dataFiltruar.ardhja.muaj}`].datatDhomat[`dat${nr}`];
+
+    if (path == null) {
       dizP = false;
       arrLength = arr.length;
       lidhjaMeServerin = true;
@@ -24620,30 +24605,22 @@ const checkSubmitFunc = (
       return;
     }
 
+    if (path[`${llojiDhomes}`] == 0) dizP = false;
+
     if (
-      el.muajt[`${dataFiltruar.ardhja.muaj}`].datatDhomat[`dat${nr}`][
-        `${llojiDhomes}`
-      ] == 0
-    ) {
-      dizP = false;
-    }
-    if (
-      dataFiltruar.ardhja.muaj == "qershor" &&
+      datFiltruar == "qershor" &&
       /korrig|gusht/.test(dataFiltruar.ikja.muaj) &&
       nr == 30
     ) {
-      dataFiltruar.ardhja.muaj = "korrig";
+      datFiltruar = "korrig";
     } else if (
-      dataFiltruar.ardhja.muaj == "korrig" &&
+      datFiltruar == "korrig" &&
       dataFiltruar.ikja.muaj == "gusht" &&
       nr == 31
     ) {
-      dataFiltruar.ardhja.muaj = "gusht";
+      datFiltruar = "gusht";
     }
   });
-
-  console.log("FINALJA MBAS LUFTES ME KODIN " + dizP);
-
   arrLength = arr.length;
 };
 
@@ -27480,21 +27457,12 @@ function mainBckgChange() {
   let final = array[Math.floor(Math.random() * (4 - 0) + 0)];
   mainBck.style.backgroundImage = `url(${final})`;
 }
-setInterval(() => {
-  mainBckgChange();
-}, 3000);
 
 //Ndryshimi i imazheve te galeris
 function galleryChange() {
-  const array1 = _miniData_js__WEBPACK_IMPORTED_MODULE_1__.a1;
-  const array2 = _miniData_js__WEBPACK_IMPORTED_MODULE_1__.a2;
-  const array3 = _miniData_js__WEBPACK_IMPORTED_MODULE_1__.a3;
+  const el = Math.floor(Math.random() * (5 - 0) + 0);
 
-  let final1 = array1[Math.floor(Math.random() * (5 - 0) + 0)];
-
-  let final2 = array2[Math.floor(Math.random() * (5 - 0) + 0)];
-
-  let final3 = array3[Math.floor(Math.random() * (5 - 0) + 0)];
+  const [final1, final2, final3] = [_miniData_js__WEBPACK_IMPORTED_MODULE_1__.a1[el], _miniData_js__WEBPACK_IMPORTED_MODULE_1__.a2[el], _miniData_js__WEBPACK_IMPORTED_MODULE_1__.a3[el]];
 
   if (final1 === final2 || final2 === final3 || final1 === final3) {
     return;
@@ -27507,19 +27475,20 @@ function galleryChange() {
     img3.setAttribute("src", `${final3}`);
   }
 }
+//I therrasim func e ndryshimeve ktu InshaaAllah
 setInterval(() => {
+  mainBckgChange();
   galleryChange();
 }, 3000);
 
 let rritNr = 0;
 ndrroImazhBtn.addEventListener("click", () => {
-  const array = _miniData_js__WEBPACK_IMPORTED_MODULE_1__.a1;
-  if (rritNr == array.length - 1) {
+  if (rritNr == _miniData_js__WEBPACK_IMPORTED_MODULE_1__.a1.length - 1) {
     rritNr = 0;
-    karuseliImazheveTelefon.style.backgroundImage = `url(${array[rritNr]})`;
+    karuseliImazheveTelefon.style.backgroundImage = `url(${_miniData_js__WEBPACK_IMPORTED_MODULE_1__.a1[rritNr]})`;
   } else {
     rritNr += 1;
-    karuseliImazheveTelefon.style.backgroundImage = `url(${array[rritNr]})`;
+    karuseliImazheveTelefon.style.backgroundImage = `url(${_miniData_js__WEBPACK_IMPORTED_MODULE_1__.a1[rritNr]})`;
   }
 });
 
