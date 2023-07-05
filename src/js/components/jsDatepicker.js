@@ -51,6 +51,27 @@ const disablePastDates = (muaj) => {
   }
 };
 
+//Ktu po fusim te gjitha datat qe kemi ne dizp. InshaaAllah
+const allAvailableDates = (path, arr) => {
+  Object.entries(path).forEach((el) => {
+    const [key, value] = el;
+    arr.push(Number(key.match(/\d+/)[0]));
+  });
+};
+
+//Pastaj i pershkojme qe te gjejme ato qe na mungojn InshaaAllah
+let llog = 0;
+const findLostDate = (fundMuaj, muajIndex, sortedArr, disableArr) => {
+  for (let i = 1; i <= Number(fundMuaj); i++) {
+    llog += 1;
+    if (i != sortedArr[llog - 1]) {
+      disableArr.push(`${currentYear}, ${muajIndex}, ${i}`);
+      i += 1; //E shtojme dhe njeher i qe te ver me vlera te njellojta
+    }
+  }
+  llog = 0;
+};
+
 export const getFirestoreDate = async () => {
   disablePastDates(dataSot.getMonth() + 1);
   try {
@@ -60,61 +81,23 @@ export const getFirestoreDate = async () => {
       });
     });
 
-    const sortedQershor = [];
-    const sortedKorrig = [];
-    const sortedGusht = [];
-    Object.entries(docs[0].muajt.qershor.datatDhomat).forEach((el) => {
-      const [key, value] = el; //Ktu po fusim datat qe nuk ekzistojne InshaaAllah
-      sortedQershor.push(Number(key.match(/\d+/)[0]));
-    });
-    //I rendisim datat ne nje array tjeter qe te kemi mundesi te krahasojme poshte
-    sortedQershor.sort(function (a, b) {
-      return a - b;
-    });
-    //Krahasojme datat InshaaAllah
-    let llog = 0;
-    for (let i = 1; i <= 30; i++) {
-      llog += 1;
-      if (i != sortedQershor[llog - 1]) {
-        disabledDatesQershor.push(`${currentYear}, 6, ${i}`);
-        i += 1; //E shtojme dhe njeher i qe te ver me vlera te njellojta
-      }
-    }
+    const [sortedQershor, sortedKorrig, sortedGusht] = [[], [], []];
 
-    Object.entries(docs[0].muajt.korrig.datatDhomat).forEach((el) => {
-      const [key, value] = el;
-      sortedKorrig.push(Number(key.match(/\d+/)[0]));
-    });
-    sortedKorrig.sort(function (a, b) {
-      return a - b;
-    });
-    let llog2 = 0;
-    for (let i = 1; i <= 31; i++) {
-      llog2 += 1;
-      if (i != sortedKorrig[llog2 - 1]) {
-        disabledDatesKorrig.push(`${currentYear}, 7, ${i}`);
-        i += 1;
-      }
-    }
+    allAvailableDates(docs[0].muajt.qershor.datatDhomat, sortedQershor);
+    allAvailableDates(docs[0].muajt.korrig.datatDhomat, sortedKorrig);
+    allAvailableDates(docs[0].muajt.gusht.datatDhomat, sortedGusht);
 
-    Object.entries(docs[0].muajt.gusht.datatDhomat).forEach((el) => {
-      const [key, value] = el;
-      sortedGusht.push(Number(key.match(/\d+/)[0]));
+    [sortedQershor, sortedKorrig, sortedGusht].forEach((el) => {
+      el.sort(function (a, b) {
+        return a - b;
+      });
     });
-    sortedGusht.sort(function (a, b) {
-      return a - b;
-    });
-    let llog3 = 0;
-    for (let i = 1; i <= 31; i++) {
-      llog3 += 1;
 
-      if (i != sortedGusht[llog3 - 1]) {
-        disabledDatesGusht.push(`${currentYear}, 8, ${i}`);
-        i += 1;
-      }
-    }
+    findLostDate(30, 6, sortedQershor, disabledDatesQershor);
+    findLostDate(31, 7, sortedKorrig, disabledDatesKorrig);
+    findLostDate(31, 8, sortedGusht, disabledDatesGusht);
 
-    let fullDisabledDates = [
+    const fullDisabledDates = [
       ...disabledDatesQershor,
       ...disabledDatesKorrig,
       ...disabledDatesGusht,
@@ -123,13 +106,17 @@ export const getFirestoreDate = async () => {
 
     setCalendar(fullDisabledDates);
 
-    disabledDatesQershorExport = disabledDatesQershor;
-    disabledDatesKorrigExport = disabledDatesKorrig;
-    disabledDatesGushtExport = disabledDatesGusht;
+    [
+      disabledDatesQershorExport,
+      disabledDatesKorrigExport,
+      disabledDatesGushtExport,
+    ] = [disabledDatesQershor, disabledDatesKorrig, disabledDatesGusht];
 
-    disabledDatesQershor = [];
-    disabledDatesKorrig = [];
-    disabledDatesGusht = [];
+    [disabledDatesQershor, disabledDatesKorrig, disabledDatesGusht] = [
+      [],
+      [],
+      [],
+    ];
   } catch (error) {
     console.log(error);
     alert("Pati në problem provo më vonë");
@@ -217,7 +204,7 @@ const setCalendar = (dsdsd) => {
       }
 
       if (/\d+\W\d+\W\d+/g.test(ardhjaForme.value)) {
-        blockSelected();
+        blockSelected(ardhjaForme.value);
       }
     },
   });
@@ -229,7 +216,7 @@ const setCalendar = (dsdsd) => {
   customCalendar();
 
   //Bllokojme daten qe klikohet qe mos te zgjidhet InshaaAllah
-  const blockSelected = () => {
+  const blockSelected = (el) => {
     if (
       ardhjaForme.value.match(/\d+/)[0] == 8 &&
       ardhjaForme.value.match(/(?<=\W)\d+/)[0] == 31
