@@ -50,7 +50,7 @@ const submitForm = async () => {
   }${datSot.getFullYear()}`;
 
   //Dmth nese personi ka zgjedhur nje dat qe eshte mbas dates se sotme mbyllim funksionin InshaaAllah
-  if (Number(datSot) >= Number(ardhjaFull)) {
+  if (Number(dataSot) >= Number(ardhjaFull)) {
     dizP = false;
     lidhjaMeServerin = true; //qe mos te na japi error
     return;

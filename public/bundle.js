@@ -23727,9 +23727,7 @@ const scrollUp = () => {
   const observerUp = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("addUp");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("addUp");
       });
     },
     {
@@ -23744,9 +23742,7 @@ const scrollLeft = () => {
   const observerUp = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("addLeft");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("addLeft");
       });
     },
     {
@@ -23761,9 +23757,7 @@ const scrollRight = () => {
   const observerUp = new IntersectionObserver((entries) => {
     entries.forEach(
       (entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("addRight");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("addRight");
       },
       {
         threshold: 1.0,
@@ -23778,9 +23772,7 @@ const scrollTresh = () => {
   const observerUp = new IntersectionObserver((entries) => {
     entries.forEach(
       (entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("addTresh");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("addTresh");
       },
       {
         threshold: 1.0,
@@ -23800,16 +23792,14 @@ const rritNumrat = () => {
         if (entry.isIntersecting) {
           entry.target.classList.add("shfaq");
           //Rritja e numrave
-          let numri = 1;
-          let numri2 = 1;
-          let numri3 = 1;
-          let numri4 = 1;
+          let [numri, numri2, numri3, numri4] = [1, 1, 1, 1];
 
           const intervalNumr = setInterval(() => {
             numri += 112;
             numri2 += 57;
             numri3 += 89;
             numri4 += 49;
+
             njerezTeKenaqur.innerText = `${numri}+`;
             njerezTeRinj.innerText = `${numri2}+`;
             vlersuarMe5Yje.innerText = `${numri3}+`;
@@ -24176,6 +24166,8 @@ const mainBckground = [
   ".././src/images/light/randomBackg/rando2.jpg",
   ".././src/images/light/randomBackg/rando3.png",
   ".././src/images/light/randomBackg/rando4.jpg",
+  ".././src/images/light/randomBackg/rando5.jpg",
+  ".././src/images/light/randomBackg/rando6.jpg",
 ];
 //Gallery
 const a1 = [
@@ -24244,13 +24236,13 @@ let lekNata = roomsObj[_formSubmit__WEBPACK_IMPORTED_MODULE_0__.llojIDhomes];
 
 const autoComplete = () => {
   //Ndryshojme formatin InshaaAllah nese na duhet
-  const pathMatch = value.match(/\d{4}|(?<=-0)\d|(?<=-)[^0]\d+/g);
+
   if (/\d+-\d+-\d+/g.test(_formSubmit__WEBPACK_IMPORTED_MODULE_0__.checkIn.value)) {
-    const datatA = _formSubmit__WEBPACK_IMPORTED_MODULE_0__.checkIn[pathMatch];
+    const datatA = _formSubmit__WEBPACK_IMPORTED_MODULE_0__.checkIn.value.match(/\d{4}|(?<=-0)\d|(?<=-)[^0]\d+/g);
     ardhja.value = `${datatA[1]}/${datatA[2]}/${datatA[0]}`; //muaj/dit/vit
   }
   if (/\d+-\d+-\d+/g.test(_formSubmit__WEBPACK_IMPORTED_MODULE_0__.checkOut.value)) {
-    const datatB = _formSubmit__WEBPACK_IMPORTED_MODULE_0__.checkOut[pathMatch];
+    const datatB = _formSubmit__WEBPACK_IMPORTED_MODULE_0__.checkOut.value.match(/\d{4}|(?<=-0)\d|(?<=-)[^0]\d+/g);
     ikja.value = `${datatB[1]}/${datatB[2]}/${datatB[0]}`;
   }
   selectTeRitur.value = _formSubmit__WEBPACK_IMPORTED_MODULE_0__.adoleshent.value;
@@ -24290,66 +24282,51 @@ let dhFamil = true;
 const autofillDhomPerDatChange = (dat) => {
   let mj;
   //shikojm si i kemi muajt ardhje ikje
+  const ardhjPath = ardhja.value.match(/\d+/)[0];
+  const ikjPath = ikja.value.match(/\d+/)[0];
 
-  if (ardhja.value.match(/\d+/)[0] == ikja.value.match(/\d+/)[0]) {
-    if (ardhja.value.match(/\d+/)[0] == 6) {
-      _validateDizpozicion__WEBPACK_IMPORTED_MODULE_1__.ditetQendrimitArrAutofill.forEach((el) => {
-        nxirrDhomatShortcut("qershor", el, dat);
-      });
-    } else if (ardhja.value.match(/\d+/)[0] == 7) {
-      _validateDizpozicion__WEBPACK_IMPORTED_MODULE_1__.ditetQendrimitArrAutofill.forEach((el) => {
-        nxirrDhomatShortcut("korrig", el, dat);
-      });
-    } else if (ardhja.value.match(/\d+/)[0] == 8) {
-      _validateDizpozicion__WEBPACK_IMPORTED_MODULE_1__.ditetQendrimitArrAutofill.forEach((el) => {
-        nxirrDhomatShortcut("gusht", el, dat);
-      });
+  const shortObj = {
+    emrMuaj: {
+      6: "qershor",
+      7: "korrig",
+      8: "gusht",
+    },
+  };
+
+  _validateDizpozicion__WEBPACK_IMPORTED_MODULE_1__.ditetQendrimitArrAutofill.forEach((el) => {
+    if (ardhjPath == ikjPath)
+      nxirrDhomatShortcut(shortObj.emrMuaj[ardhjPath], el, dat);
+
+    if (ardhjPath == 6 && ikjPath == 7) {
+      let mj = "qershor";
+      nxirrDhomatShortcut(mj, el, dat);
+      el == 30 && mj == "qershor" ? (mj = "korrig") : "";
     }
-  } else if (
-    ardhja.value.match(/\d+/)[0] == 6 &&
-    ikja.value.match(/\d+/)[0] == 7
-  ) {
-    _validateDizpozicion__WEBPACK_IMPORTED_MODULE_1__.ditetQendrimitArrAutofill.forEach((el) => {
-      nxirrDhomatShortcut((mj = "qershor"), el, dat);
-      if (el == 30) {
-        mj = "korrig";
-      }
-    });
-  } else if (
-    ardhja.value.match(/\d+/)[0] == 6 &&
-    ikja.value.match(/\d+/)[0] == 8
-  ) {
-    _validateDizpozicion__WEBPACK_IMPORTED_MODULE_1__.ditetQendrimitArrAutofill.forEach((el) => {
-      nxirrDhomatShortcut((mj = "qershor"), el, dat);
-      if (el == 30) {
-        mj = "korrig";
-      }
-      if (el == 31) {
-        mj = "gusht";
-      }
-    });
-  } else if (
-    ardhja.value.match(/\d+/)[0] == 7 &&
-    ikja.value.match(/\d+/)[0] == 8
-  ) {
-    _validateDizpozicion__WEBPACK_IMPORTED_MODULE_1__.ditetQendrimitArrAutofill.forEach((el) => {
-      nxirrDhomatShortcut((mj = "korrig"), el, dat);
-      if (el == 31) {
-        mj = "gusht";
-      }
-    });
-  }
+    if (ardhjPath == 7 && ikjPath == 8) {
+      let mj = "korrig";
+      nxirrDhomatShortcut(mj, el, dat);
+      el == 31 && mj == "korrig" ? (mj = "gusht") : "";
+    }
+    if (ardhjPath == 6 && ikjPath == 7) {
+      let mj = "qershor";
+      nxirrDhomatShortcut(mj, el, dat);
+      el == 30 && mj == "qershor" ? (mj = "korrig") : "";
+      el == 31 && mj == "korrig" ? (mj = "gusht") : "";
+    }
+  });
 
   if (!dhTek) {
     dhomTeke.setAttribute("disabled", "");
   } else {
     dhomTeke.removeAttribute("disabled");
   }
+
   if (!dhCift) {
     dhomCift.setAttribute("disabled", "");
   } else {
     dhomCift.removeAttribute("disabled");
   }
+
   if (!dhFamil) {
     dhomFamil.setAttribute("disabled", "");
   } else {
@@ -24362,12 +24339,11 @@ const autofillDhomPerDatChange = (dat) => {
 };
 
 const nxirrDhomatShortcut = (muaj, nrm, dt) => {
-  if (dt[0].muajt[muaj].datatDhomat[`dat${nrm}`] != null) {
-    if (dt[0].muajt[muaj].datatDhomat[`dat${nrm}`].dhomTeke == 0) dhTek = false;
-    if (dt[0].muajt[muaj].datatDhomat[`dat${nrm}`].dhomCift == 0)
-      dhCift = false;
-    if (dt[0].muajt[muaj].datatDhomat[`dat${nrm}`].dhomFamiljare == 0)
-      dhFamil = false;
+  const path = dt[0].muajt[muaj].datatDhomat[`dat${nrm}`];
+  if (path != null) {
+    path.dhomTeke == 0 ? (dhTek = false) : "";
+    path.dhomCift == 0 ? (dhCift = false) : "";
+    path.dhomFamiljare == 0 ? (dhFamil = false) : "";
   } else {
     return;
   }
@@ -24449,7 +24425,7 @@ const submitForm = async () => {
   }${datSot.getFullYear()}`;
 
   //Dmth nese personi ka zgjedhur nje dat qe eshte mbas dates se sotme mbyllim funksionin InshaaAllah
-  if (Number(datSot) >= Number(ardhjaFull)) {
+  if (Number(dataSot) >= Number(ardhjaFull)) {
     dizP = false;
     lidhjaMeServerin = true; //qe mos te na japi error
     return;
@@ -24871,97 +24847,54 @@ const nxirrDitët = (run) => {
   };
 
   //Fusim ditet e qendrimit ne array InshaaAllah
-  if (qendrimi.muajArdh[0] == 6 && qendrimi.muajIkj[0] == 7) {
-    for (let i = Number(qendrimi.dataArdh[0]); i <= 30; i++) {
-      if (thyej) {
-        ikja.value = `6/${i - 2}/${_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.currentYear}`; //e kemi ven -2 pasi ija duhet te shkoj dy her posht vleres aktuale qe te shkoj ne vleren qe esht ne dizpozicion
-        break;
-      }
-      mosfutjaDataaveJashtDizp(_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.disabledDatesQershorExport, i);
-    }
-    for (let i = 1; i <= Number(qendrimi.dataIkj[0]); i++) {
-      if (thyej) {
-        ikja.value = `7/${i - 2}/${_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.currentYear}`;
-        break;
-      }
-      mosfutjaDataaveJashtDizp(_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.disabledDatesKorrigExport, i);
-    }
-  } else if (qendrimi.muajArdh[0] == 6 && qendrimi.muajIkj[0] == 8) {
-    for (let i = Number(qendrimi.dataArdh[0]); i <= 30; i++) {
-      if (thyej) {
-        ikja.value = `6/${i - 2}/${_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.currentYear}`;
-        break;
-      }
-      mosfutjaDataaveJashtDizp(_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.disabledDatesQershorExport, i);
-    }
-    for (let i = 1; i <= 31; i++) {
-      if (thyej) {
-        ikja.value = `7/${i - 2}/${_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.currentYear}`;
-        break;
-      }
-      mosfutjaDataaveJashtDizp(_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.disabledDatesKorrigExport, i);
-    }
-    for (let i = 1; i <= Number(qendrimi.dataIkj[0]); i++) {
-      if (thyej) {
-        ikja.value = `8/${i - 2}/${_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.currentYear}`;
-        break;
-      }
-      mosfutjaDataaveJashtDizp(_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.disabledDatesGushtExport, i);
-    }
-  } else if (qendrimi.muajArdh[0] == 7 && qendrimi.muajIkj[0] == 8) {
-    for (let i = Number(qendrimi.dataArdh[0]); i <= 31; i++) {
-      if (thyej) {
-        ikja.value = `7/${i - 2}/${_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.currentYear}`;
-        break;
-      }
-      mosfutjaDataaveJashtDizp(_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.disabledDatesKorrigExport, i);
-    }
-    for (let i = 1; i <= Number(qendrimi.dataIkj[0]); i++) {
-      if (thyej) {
-        ikja.value = `8/${i - 2}/${_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.currentYear}`;
-        break;
-      }
-      mosfutjaDataaveJashtDizp(_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.disabledDatesGushtExport, i);
-    }
-  } else if (qendrimi.muajArdh[0] == qendrimi.muajIkj[0]) {
-    if (qendrimi.muajArdh[0] == 6) {
-      for (
-        let i = Number(qendrimi.dataArdh[0]);
-        i <= Number(qendrimi.dataIkj[0]);
-        i++
-      ) {
+  const muajDatMap = {
+    6: {
+      fundMuaj: 30,
+      disabledDates: _components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.disabledDatesQershorExport,
+    },
+    7: {
+      fundMuaj: 31,
+      disabledDates: _components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.disabledDatesKorrigExport,
+    },
+    8: {
+      fundMuaj: 31,
+      disabledDates: _components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.disabledDatesGushtExport,
+    },
+  };
+
+  let ija = Number(qendrimi.dataArdh[0]);
+  let muajAktual = qendrimi.muajArdh[0];
+
+  const nxirrDitetRecursionHelperFunc = () => {
+    if (muajAktual == qendrimi.muajIkj[0]) {
+      for (let i = ija; i <= Number(qendrimi.dataIkj[0]); i++) {
         if (thyej) {
-          ikja.value = `6/${i - 2}/${_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.currentYear}`;
+          ikja.value = `${muajAktual}/${i - 2}/${_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.currentYear}`;
           break;
         }
-        mosfutjaDataaveJashtDizp(_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.disabledDatesQershorExport, i);
+        mosfutjaDataaveJashtDizp(muajDatMap[muajAktual].disabledDates, i);
       }
-    } else if (qendrimi.muajArdh[0] == 7) {
-      for (
-        let i = Number(qendrimi.dataArdh[0]);
-        i <= Number(qendrimi.dataIkj[0]);
-        i++
-      ) {
-        if (thyej) {
-          ikja.value = `7/${i - 2}/${_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.currentYear}`;
-          break;
-        }
-        mosfutjaDataaveJashtDizp(_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.disabledDatesKorrigExport, i);
+    } else if (muajAktual < qendrimi.muajIkj[0]) {
+      if (thyej) {
+        ikja.value = `${muajAktual}/${i - 2}/${_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.currentYear}`;
+        return;
       }
-    } else if (qendrimi.muajArdh[0] == 8) {
-      for (
-        let i = Number(qendrimi.dataArdh[0]);
-        i <= Number(qendrimi.dataIkj[0]);
-        i++
-      ) {
-        if (thyej) {
-          ikja.value = `8/${i - 2}/${_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.currentYear}`;
-          break;
-        }
-        mosfutjaDataaveJashtDizp(_components_jsDatepicker__WEBPACK_IMPORTED_MODULE_0__.disabledDatesGushtExport, i);
+      mosfutjaDataaveJashtDizp(muajDatMap[muajAktual].disabledDates, ija);
+
+      if (muajDatMap[muajAktual].fundMuaj == ija) {
+        muajAktual = muajDatMap[Number(muajAktual) + 1];
+        ija = 1;
+        nxirrDitetRecursionHelperFunc();
+        return;
       }
+
+      ija++;
+      nxirrDitetRecursionHelperFunc();
     }
-  } else {
+  };
+  nxirrDitetRecursionHelperFunc();
+
+  if (qendrimi.muajArdh[0] > qendrimi.muajIkj[0]) {
     ardhjaError.style.display = "block";
     ikjaError.style.display = "block";
     ardhjaError.innerText = "Muaj i ardhjes duhet më posht";
@@ -25005,9 +24938,7 @@ const nxirrDitët = (run) => {
 const mosfutjaDataaveJashtDizp = (spec, i) => {
   ditetQendrimitArr.push(i);
   spec.forEach((e) => {
-    if (e.match(/\d+$/) == i) {
-      thyej = true;
-    }
+    if (e.match(/\d+$/) == i) thyej = true;
   });
 };
 
@@ -27454,7 +27385,7 @@ hapMenun.addEventListener("click", () => {
 //Ndryshimi I Main-Section Background
 function mainBckgChange() {
   const array = _miniData_js__WEBPACK_IMPORTED_MODULE_1__.mainBckground;
-  let final = array[Math.floor(Math.random() * (4 - 0) + 0)];
+  let final = array[Math.floor(Math.random() * (6 - 0) + 0)];
   mainBck.style.backgroundImage = `url(${final})`;
 }
 

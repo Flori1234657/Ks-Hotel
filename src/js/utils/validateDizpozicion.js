@@ -130,97 +130,54 @@ export const nxirrDitët = (run) => {
   };
 
   //Fusim ditet e qendrimit ne array InshaaAllah
-  if (qendrimi.muajArdh[0] == 6 && qendrimi.muajIkj[0] == 7) {
-    for (let i = Number(qendrimi.dataArdh[0]); i <= 30; i++) {
-      if (thyej) {
-        ikja.value = `6/${i - 2}/${currentYear}`; //e kemi ven -2 pasi ija duhet te shkoj dy her posht vleres aktuale qe te shkoj ne vleren qe esht ne dizpozicion
-        break;
-      }
-      mosfutjaDataaveJashtDizp(disabledDatesQershorExport, i);
-    }
-    for (let i = 1; i <= Number(qendrimi.dataIkj[0]); i++) {
-      if (thyej) {
-        ikja.value = `7/${i - 2}/${currentYear}`;
-        break;
-      }
-      mosfutjaDataaveJashtDizp(disabledDatesKorrigExport, i);
-    }
-  } else if (qendrimi.muajArdh[0] == 6 && qendrimi.muajIkj[0] == 8) {
-    for (let i = Number(qendrimi.dataArdh[0]); i <= 30; i++) {
-      if (thyej) {
-        ikja.value = `6/${i - 2}/${currentYear}`;
-        break;
-      }
-      mosfutjaDataaveJashtDizp(disabledDatesQershorExport, i);
-    }
-    for (let i = 1; i <= 31; i++) {
-      if (thyej) {
-        ikja.value = `7/${i - 2}/${currentYear}`;
-        break;
-      }
-      mosfutjaDataaveJashtDizp(disabledDatesKorrigExport, i);
-    }
-    for (let i = 1; i <= Number(qendrimi.dataIkj[0]); i++) {
-      if (thyej) {
-        ikja.value = `8/${i - 2}/${currentYear}`;
-        break;
-      }
-      mosfutjaDataaveJashtDizp(disabledDatesGushtExport, i);
-    }
-  } else if (qendrimi.muajArdh[0] == 7 && qendrimi.muajIkj[0] == 8) {
-    for (let i = Number(qendrimi.dataArdh[0]); i <= 31; i++) {
-      if (thyej) {
-        ikja.value = `7/${i - 2}/${currentYear}`;
-        break;
-      }
-      mosfutjaDataaveJashtDizp(disabledDatesKorrigExport, i);
-    }
-    for (let i = 1; i <= Number(qendrimi.dataIkj[0]); i++) {
-      if (thyej) {
-        ikja.value = `8/${i - 2}/${currentYear}`;
-        break;
-      }
-      mosfutjaDataaveJashtDizp(disabledDatesGushtExport, i);
-    }
-  } else if (qendrimi.muajArdh[0] == qendrimi.muajIkj[0]) {
-    if (qendrimi.muajArdh[0] == 6) {
-      for (
-        let i = Number(qendrimi.dataArdh[0]);
-        i <= Number(qendrimi.dataIkj[0]);
-        i++
-      ) {
+  const muajDatMap = {
+    6: {
+      fundMuaj: 30,
+      disabledDates: disabledDatesQershorExport,
+    },
+    7: {
+      fundMuaj: 31,
+      disabledDates: disabledDatesKorrigExport,
+    },
+    8: {
+      fundMuaj: 31,
+      disabledDates: disabledDatesGushtExport,
+    },
+  };
+
+  let ija = Number(qendrimi.dataArdh[0]);
+  let muajAktual = qendrimi.muajArdh[0];
+
+  const nxirrDitetRecursionHelperFunc = () => {
+    if (muajAktual == qendrimi.muajIkj[0]) {
+      for (let i = ija; i <= Number(qendrimi.dataIkj[0]); i++) {
         if (thyej) {
-          ikja.value = `6/${i - 2}/${currentYear}`;
+          ikja.value = `${muajAktual}/${i - 2}/${currentYear}`;
           break;
         }
-        mosfutjaDataaveJashtDizp(disabledDatesQershorExport, i);
+        mosfutjaDataaveJashtDizp(muajDatMap[muajAktual].disabledDates, i);
       }
-    } else if (qendrimi.muajArdh[0] == 7) {
-      for (
-        let i = Number(qendrimi.dataArdh[0]);
-        i <= Number(qendrimi.dataIkj[0]);
-        i++
-      ) {
-        if (thyej) {
-          ikja.value = `7/${i - 2}/${currentYear}`;
-          break;
-        }
-        mosfutjaDataaveJashtDizp(disabledDatesKorrigExport, i);
+    } else if (muajAktual < qendrimi.muajIkj[0]) {
+      if (thyej) {
+        ikja.value = `${muajAktual}/${i - 2}/${currentYear}`;
+        return;
       }
-    } else if (qendrimi.muajArdh[0] == 8) {
-      for (
-        let i = Number(qendrimi.dataArdh[0]);
-        i <= Number(qendrimi.dataIkj[0]);
-        i++
-      ) {
-        if (thyej) {
-          ikja.value = `8/${i - 2}/${currentYear}`;
-          break;
-        }
-        mosfutjaDataaveJashtDizp(disabledDatesGushtExport, i);
+      mosfutjaDataaveJashtDizp(muajDatMap[muajAktual].disabledDates, ija);
+
+      if (muajDatMap[muajAktual].fundMuaj == ija) {
+        muajAktual = muajDatMap[Number(muajAktual) + 1];
+        ija = 1;
+        nxirrDitetRecursionHelperFunc();
+        return;
       }
+
+      ija++;
+      nxirrDitetRecursionHelperFunc();
     }
-  } else {
+  };
+  nxirrDitetRecursionHelperFunc();
+
+  if (qendrimi.muajArdh[0] > qendrimi.muajIkj[0]) {
     ardhjaError.style.display = "block";
     ikjaError.style.display = "block";
     ardhjaError.innerText = "Muaj i ardhjes duhet më posht";
@@ -264,9 +221,7 @@ export const nxirrDitët = (run) => {
 const mosfutjaDataaveJashtDizp = (spec, i) => {
   ditetQendrimitArr.push(i);
   spec.forEach((e) => {
-    if (e.match(/\d+$/) == i) {
-      thyej = true;
-    }
+    if (e.match(/\d+$/) == i) thyej = true;
   });
 };
 

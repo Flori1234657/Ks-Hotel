@@ -29,13 +29,13 @@ let lekNata = roomsObj[llojIDhomes];
 
 const autoComplete = () => {
   //Ndryshojme formatin InshaaAllah nese na duhet
-  const pathMatch = value.match(/\d{4}|(?<=-0)\d|(?<=-)[^0]\d+/g);
+
   if (/\d+-\d+-\d+/g.test(checkIn.value)) {
-    const datatA = checkIn[pathMatch];
+    const datatA = checkIn.value.match(/\d{4}|(?<=-0)\d|(?<=-)[^0]\d+/g);
     ardhja.value = `${datatA[1]}/${datatA[2]}/${datatA[0]}`; //muaj/dit/vit
   }
   if (/\d+-\d+-\d+/g.test(checkOut.value)) {
-    const datatB = checkOut[pathMatch];
+    const datatB = checkOut.value.match(/\d{4}|(?<=-0)\d|(?<=-)[^0]\d+/g);
     ikja.value = `${datatB[1]}/${datatB[2]}/${datatB[0]}`;
   }
   selectTeRitur.value = adoleshent.value;
@@ -75,66 +75,51 @@ let dhFamil = true;
 export const autofillDhomPerDatChange = (dat) => {
   let mj;
   //shikojm si i kemi muajt ardhje ikje
+  const ardhjPath = ardhja.value.match(/\d+/)[0];
+  const ikjPath = ikja.value.match(/\d+/)[0];
 
-  if (ardhja.value.match(/\d+/)[0] == ikja.value.match(/\d+/)[0]) {
-    if (ardhja.value.match(/\d+/)[0] == 6) {
-      ditetQendrimitArrAutofill.forEach((el) => {
-        nxirrDhomatShortcut("qershor", el, dat);
-      });
-    } else if (ardhja.value.match(/\d+/)[0] == 7) {
-      ditetQendrimitArrAutofill.forEach((el) => {
-        nxirrDhomatShortcut("korrig", el, dat);
-      });
-    } else if (ardhja.value.match(/\d+/)[0] == 8) {
-      ditetQendrimitArrAutofill.forEach((el) => {
-        nxirrDhomatShortcut("gusht", el, dat);
-      });
+  const shortObj = {
+    emrMuaj: {
+      6: "qershor",
+      7: "korrig",
+      8: "gusht",
+    },
+  };
+
+  ditetQendrimitArrAutofill.forEach((el) => {
+    if (ardhjPath == ikjPath)
+      nxirrDhomatShortcut(shortObj.emrMuaj[ardhjPath], el, dat);
+
+    if (ardhjPath == 6 && ikjPath == 7) {
+      let mj = "qershor";
+      nxirrDhomatShortcut(mj, el, dat);
+      el == 30 && mj == "qershor" ? (mj = "korrig") : "";
     }
-  } else if (
-    ardhja.value.match(/\d+/)[0] == 6 &&
-    ikja.value.match(/\d+/)[0] == 7
-  ) {
-    ditetQendrimitArrAutofill.forEach((el) => {
-      nxirrDhomatShortcut((mj = "qershor"), el, dat);
-      if (el == 30) {
-        mj = "korrig";
-      }
-    });
-  } else if (
-    ardhja.value.match(/\d+/)[0] == 6 &&
-    ikja.value.match(/\d+/)[0] == 8
-  ) {
-    ditetQendrimitArrAutofill.forEach((el) => {
-      nxirrDhomatShortcut((mj = "qershor"), el, dat);
-      if (el == 30) {
-        mj = "korrig";
-      }
-      if (el == 31) {
-        mj = "gusht";
-      }
-    });
-  } else if (
-    ardhja.value.match(/\d+/)[0] == 7 &&
-    ikja.value.match(/\d+/)[0] == 8
-  ) {
-    ditetQendrimitArrAutofill.forEach((el) => {
-      nxirrDhomatShortcut((mj = "korrig"), el, dat);
-      if (el == 31) {
-        mj = "gusht";
-      }
-    });
-  }
+    if (ardhjPath == 7 && ikjPath == 8) {
+      let mj = "korrig";
+      nxirrDhomatShortcut(mj, el, dat);
+      el == 31 && mj == "korrig" ? (mj = "gusht") : "";
+    }
+    if (ardhjPath == 6 && ikjPath == 7) {
+      let mj = "qershor";
+      nxirrDhomatShortcut(mj, el, dat);
+      el == 30 && mj == "qershor" ? (mj = "korrig") : "";
+      el == 31 && mj == "korrig" ? (mj = "gusht") : "";
+    }
+  });
 
   if (!dhTek) {
     dhomTeke.setAttribute("disabled", "");
   } else {
     dhomTeke.removeAttribute("disabled");
   }
+
   if (!dhCift) {
     dhomCift.setAttribute("disabled", "");
   } else {
     dhomCift.removeAttribute("disabled");
   }
+
   if (!dhFamil) {
     dhomFamil.setAttribute("disabled", "");
   } else {
@@ -147,12 +132,11 @@ export const autofillDhomPerDatChange = (dat) => {
 };
 
 const nxirrDhomatShortcut = (muaj, nrm, dt) => {
-  if (dt[0].muajt[muaj].datatDhomat[`dat${nrm}`] != null) {
-    if (dt[0].muajt[muaj].datatDhomat[`dat${nrm}`].dhomTeke == 0) dhTek = false;
-    if (dt[0].muajt[muaj].datatDhomat[`dat${nrm}`].dhomCift == 0)
-      dhCift = false;
-    if (dt[0].muajt[muaj].datatDhomat[`dat${nrm}`].dhomFamiljare == 0)
-      dhFamil = false;
+  const path = dt[0].muajt[muaj].datatDhomat[`dat${nrm}`];
+  if (path != null) {
+    path.dhomTeke == 0 ? (dhTek = false) : "";
+    path.dhomCift == 0 ? (dhCift = false) : "";
+    path.dhomFamiljare == 0 ? (dhFamil = false) : "";
   } else {
     return;
   }

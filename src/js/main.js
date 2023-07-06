@@ -60,7 +60,7 @@ hapMenun.addEventListener("click", () => {
 //Ndryshimi I Main-Section Background
 function mainBckgChange() {
   const array = mainBckground;
-  let final = array[Math.floor(Math.random() * (4 - 0) + 0)];
+  let final = array[Math.floor(Math.random() * (6 - 0) + 0)];
   mainBck.style.backgroundImage = `url(${final})`;
 }
 

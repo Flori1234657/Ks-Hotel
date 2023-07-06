@@ -8,9 +8,7 @@ export const scrollUp = () => {
   const observerUp = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("addUp");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("addUp");
       });
     },
     {
@@ -25,9 +23,7 @@ export const scrollLeft = () => {
   const observerUp = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("addLeft");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("addLeft");
       });
     },
     {
@@ -42,9 +38,7 @@ export const scrollRight = () => {
   const observerUp = new IntersectionObserver((entries) => {
     entries.forEach(
       (entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("addRight");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("addRight");
       },
       {
         threshold: 1.0,
@@ -59,9 +53,7 @@ export const scrollTresh = () => {
   const observerUp = new IntersectionObserver((entries) => {
     entries.forEach(
       (entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("addTresh");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("addTresh");
       },
       {
         threshold: 1.0,
@@ -81,16 +73,14 @@ export const rritNumrat = () => {
         if (entry.isIntersecting) {
           entry.target.classList.add("shfaq");
           //Rritja e numrave
-          let numri = 1;
-          let numri2 = 1;
-          let numri3 = 1;
-          let numri4 = 1;
+          let [numri, numri2, numri3, numri4] = [1, 1, 1, 1];
 
           const intervalNumr = setInterval(() => {
             numri += 112;
             numri2 += 57;
             numri3 += 89;
             numri4 += 49;
+
             njerezTeKenaqur.innerText = `${numri}+`;
             njerezTeRinj.innerText = `${numri2}+`;
             vlersuarMe5Yje.innerText = `${numri3}+`;

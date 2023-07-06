@@ -3,6 +3,8 @@ export const mainBckground = [
   ".././src/images/light/randomBackg/rando2.jpg",
   ".././src/images/light/randomBackg/rando3.png",
   ".././src/images/light/randomBackg/rando4.jpg",
+  ".././src/images/light/randomBackg/rando5.jpg",
+  ".././src/images/light/randomBackg/rando6.jpg",
 ];
 //Gallery
 export const a1 = [
